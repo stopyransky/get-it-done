@@ -1,6 +1,9 @@
 
 var container = document.getElementById("container");
 
+var React = require('react');
+var ReactDOM = require('react-dom');
+
 // presentational component
 var AppMessageComponent = React.createClass( {
     
@@ -43,9 +46,9 @@ var AppFormComponent = React.createClass({
         return (
             <form onSubmit={ this.onFormSubmit }>
             <input placeholder="Enter name: " type="text" ref="name"/>
-            <br>
+            <br/>
             <textarea placeholder="Enter message: " ref="msg"></textarea>
-            <br>
+            <br/>
             <button>Submit</button>
             </form> 
         );
