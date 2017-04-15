@@ -11,6 +11,7 @@ MongoClient.connect("mongodb://localhost:27017/scratch", function onConnect( err
 } );
 
 
-app.listen( 3000, function() {
-    console.log("Listening on port 3000.");
+var server = app.listen( 3000, function() {
+	var port = server.address().port;
+    console.log("Listening on port %s.", port);
 } );
