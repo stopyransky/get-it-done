@@ -26,15 +26,17 @@ var Weather = React.createClass( {
     	
         var that = this;
         this.setState({ isLoading : true});
+        
         owApi.getTemp(location).then( function(temp) {
+            
             that.setState({
                 cityName : location,
                 temp : temp,
                 isLoading : false
             });
         }, function( err ) {
-            that.setState({ isLoading: false});
             alert("City " + location + " does not exist.");
+            that.setState({isLoading: false, temp : null, cityName: ""});
         });
     	
     },
