@@ -7,6 +7,10 @@ var Greeter = require("Greeter");
 var About = require('AppAbout');
 var container = document.getElementById("container");
 
+require('style-loader!css-loader!foundation-sites/dist/foundation.min.css');
+
+$(document).foundation();
+
 ReactDOM.render( 
 	<Router history={hashHistory}>
 		<Route path="/" component={App}>
