@@ -1,8 +1,13 @@
 var React = require("react");
 var AppNav = require("AppNav");
-var App = ({children}) => 
+var App = (props) => 
 	<div id='app'>
 		<AppNav/>
-		{children}
+		<div className="row">
+			<div className="columns medium-6 large-4 small-centered">
+			{props.children}
+			</div>
+		</div>
+		
 	</div>;
 module.exports = App;

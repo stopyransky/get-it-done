@@ -19,6 +19,9 @@ var AppNav = React.createClass({
 						<Link to="/weather" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Weather</Link>
 					</li>
 					<li>
+						<Link to="/examples" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Examples</Link>
+					</li>
+					<li>
 						<Link to="/about" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>About</Link>
 					</li>
 				</ul>
