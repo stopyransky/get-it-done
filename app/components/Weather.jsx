@@ -8,7 +8,7 @@ var Weather = React.createClass( {
 
     getDefaultProps : function() {
         return {
-            cityName: "None",
+            location: "None",
             temp : 0
         }
     },
@@ -17,6 +17,24 @@ var Weather = React.createClass( {
         return {
             isLoading: false,
             errorMessage: null
+        }
+    },
+
+    componentDidMount : function() {
+        var location = this.props.location.query.location;
+        
+        if(location && location.length >  0) {
+            this.handleSearch(location);
+            window.location.hash = '#/weather';
+        }
+    },
+    
+    componentWillReceiveProps : function( newProps ) {
+         var location = newProps.location.query.location;
+        
+        if(location && location.length >  0) {
+            this.handleSearch(location);
+            window.location.hash = '#/weather';
         }
     },
 
@@ -29,13 +47,15 @@ var Weather = React.createClass( {
         var that = this;
         this.setState({ 
             isLoading : true,
-            errorMessage : null
+            errorMessage : null,
+            location : null,
+            temp : null
         });
         
-        owApi.getTemp(location).then( function(temp) {
+        owApi.getTemp( location ).then( function(temp) {
             
             that.setState({
-                cityName : location,
+                location : location,
                 temp : temp,
                 isLoading : false
             });
@@ -46,7 +66,7 @@ var Weather = React.createClass( {
                 isLoading: false, 
                 errorMessage : err.message,
                 temp : null, 
-                cityName: ""
+                location: null
             });
         });
     	
@@ -54,13 +74,13 @@ var Weather = React.createClass( {
 
     render : function() {
 
-        var {isLoading, temp, cityName, errorMessage} = this.state;
+        var {isLoading, temp, location, errorMessage} = this.state;
 
         function renderMessage() {
             if( isLoading ) {
                 return <h3 className="text-center"> Fetching weather... </h3>
             } else if( temp && location ) {
-                return <WeatherMessage temp={temp} cityName={cityName} />;
+                return <WeatherMessage temp={temp} location={location} />;
               
             }
         }
@@ -76,7 +96,7 @@ var Weather = React.createClass( {
             	<h1 className="text-center page-title"> Get Weather </h1>
                 <WeatherForm onUpdate={this.handleUpdates} onSearch={this.handleSearch} />
                 { renderMessage() }
-                {renderError()}
+                { renderError()  }
             </div>
         );
     }

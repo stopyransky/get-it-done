@@ -2,18 +2,33 @@ var React = require("react");
 var {Link, IndexLink} = require("react-router");
 
 var AppNav = React.createClass({
+	
 	onSearch : function(e ) {
 		e.preventDefault();
-		alert('not yet wired up');
+		var location = this.refs.search.value;
+		var encodedLocation = encodeURIComponent(location);
+
+		if( location.length > 0) {
+			this.refs.search.value = "";
+
+			// sending request to /weather route (which is Weather component)
+			// and giving Weather compoennt new prop named location
+			// this is then handled by its componentWillReceiveProps lifeycle method
+			// @see Weather.jsx
+			window.location.hash = "/weather?location=" + encodedLocation;
+		}
 	},
+
 	render : function() {
 		return (
 		<div className ="top-bar">
 			<div className="top-bar-left">
 				<ul className ="menu">
-					<li className="menu-text">React App!</li>
+					<li className="menu-text">
+						<IndexLink to="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>React App!</IndexLink>
+					</li>
 					<li>
-						<IndexLink to="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Greeter</IndexLink>
+						<Link to="/greeter" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Greeter</Link>
 					</li>
 					<li>
 						<Link to="/weather" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Weather</Link>
@@ -30,7 +45,7 @@ var AppNav = React.createClass({
 			<form onSubmit={this.onSearch}>
 				<ul className="menu">
 					<li>
-						<input type="search" placeholder="Search weather by city"/>
+						<input type="search" ref="search" placeholder="Search weather by city"/>
 					</li>
 					<li>
 						<input type="submit" className="button" value="Get Weather"/>

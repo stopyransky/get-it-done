@@ -6,20 +6,22 @@ var Weather = require("Weather");
 var Greeter = require("Greeter");
 var Examples  = require("Examples");
 var About = require('AppAbout');
+var Home = require('AppHome');
 
 // load foundation
 require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
 
-// styles
+// load main css styles
 require('style-loader!css-loader!sass-loader!mainStyles'); 
 
-// load app/styles/main.css
-require('style-loader!css-loader!mainStyles')
+// // load app/styles/main.css
+// require('style-loader!css-loader!mainStyles')
 
 const element = (<Router history={hashHistory}>
 					<Route path="/" component={App}>
-						<IndexRoute component={Greeter} />
+						<IndexRoute component={Home} />
+						<Route path="greeter" component={Greeter} />
 						<Route path="weather" component={Weather} />
 						<Route path="examples" component={Examples} />
 						<Route path="about" component={About} />
