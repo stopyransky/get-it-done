@@ -6,19 +6,24 @@ var Weather = require("Weather");
 var Greeter = require("Greeter");
 var Examples  = require("Examples");
 var About = require('AppAbout');
-var container = document.getElementById("container");
 
-require('style-loader!css-loader!foundation-sites/dist/foundation.min.css');
+// load foundation
+require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
+$(document).foundation(); 
 
-$(document).foundation();
+// load app/styles/main.css
+require('style-loader!css-loader!mainStyles')
 
-ReactDOM.render( 
-	<Router history={hashHistory}>
-		<Route path="/" component={App}>
-			<IndexRoute component={Greeter} />
-			<Route path="weather" component={Weather} />
-			<Route path="examples" component={Examples} />
-			<Route path="about" component={About} />
-		</Route>
-	</Router>
-	, container );
+const element = (<Router history={hashHistory}>
+					<Route path="/" component={App}>
+						<IndexRoute component={Greeter} />
+						<Route path="weather" component={Weather} />
+						<Route path="examples" component={Examples} />
+						<Route path="about" component={About} />
+					</Route>
+				</Router>);
+
+const container = document.getElementById("container");
+
+
+ReactDOM.render( element, container );

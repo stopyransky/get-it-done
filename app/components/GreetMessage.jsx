@@ -8,7 +8,7 @@ var AppMessage = React.createClass( {
         var msg = this.props.msg;
         return (
             <div id='greeterMessage'>
-                <h1 className="text-center">Hello {name}!</h1>
+                <h1 className="text-center page-title">Hello {name}!</h1>
                 <p>{msg}</p>
             </div>
         );

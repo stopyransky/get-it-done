@@ -37,7 +37,8 @@ module.exports = {
       WeatherMessage : path.resolve('./app/components/WeatherMessage.jsx'),
       OpenWeatherApi  : path.resolve('./app/api/OpenWeatherApi.jsx'),
       Examples : path.resolve( './app/components/Examples.jsx'),
-      ErrorModal : path.resolve('./app/components/ErrorModal.jsx')
+      ErrorModal : path.resolve('./app/components/ErrorModal.jsx'),
+      mainStyles : path.resolve('./app/styles/main.css')
     },
     // not need to put extensions in require
     extensions: [ '.js', '.jsx']
