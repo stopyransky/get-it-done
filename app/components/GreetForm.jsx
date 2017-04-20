@@ -27,7 +27,7 @@ var AppForm = React.createClass({
                 <br/>
                 <textarea placeholder="Enter message: " ref="msg"></textarea>
                 <br/>
-                <button>Submit</button>
+                <button className="button expanded">Submit</button>
             </form> 
         );
     } 
