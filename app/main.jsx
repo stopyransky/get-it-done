@@ -9,7 +9,10 @@ var About = require('AppAbout');
 
 // load foundation
 require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
-$(document).foundation(); 
+$(document).foundation();
+
+// styles
+require('style-loader!css-loader!sass-loader!mainStyles'); 
 
 // load app/styles/main.css
 require('style-loader!css-loader!mainStyles')
