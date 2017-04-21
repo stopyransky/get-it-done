@@ -1,8 +1,10 @@
 var React = require('react');
-
+var Clock = require('Clock');
 // stateless functional component
 module.exports = ( props ) => 
 	<div>
-		<h1 className="text-center page-title"> Countdown </h1>
+		<h1 className ="page-title text-center">Countdown</h1>
+		<Clock totalSeconds={129}/>
+
 	</div>;
 

@@ -2,10 +2,11 @@ var React = require('react');
 
 
 class Clock extends React.Component {
-	
+
 	constructor(props) {
 		super(props);
 		this.state = {};
+		
 	}
 
 	formatSeconds(totalSeconds) {
@@ -23,12 +24,30 @@ class Clock extends React.Component {
 	}
 
 	render() {
+		var {totalSeconds} = this.props;
 		return (
-			<div>
-				<h1 className="text-center page-title"> Clock </h1>
+			<div className="clock">
+				<span className="clock-text">{this.formatSeconds(totalSeconds)}</span>
 			</div>
 		);
 	}
 }
+
+Object.assign( Clock, {
+	propTypes : {
+		totalSeconds : React.PropTypes.number
+	},
+	defaultProps : {
+		totalSeconds : 0
+	}
+});
+
+// Object.assign... equals to below:
+// Clock.propTypes =  {
+// 		totalSeconds : React.PropTypes.number
+// }
+// Clock.defaultProps : {
+// 		totalSeconds : 0
+// }
 
 module.exports = Clock;

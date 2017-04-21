@@ -1,8 +1,7 @@
 @import "base/variables"; // no underscore and extension
 @import "components/navigation";
+@import "components/clock";
 
-$space-large : 2.5rem;
-$page-title-color : #555;
 
 .page-title {
 	color : $page-title-color;
