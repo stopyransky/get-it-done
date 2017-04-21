@@ -43,6 +43,7 @@ module.exports = {
       ErrorModal : path.resolve('./app/components/ErrorModal.jsx'),
       Timer : path.resolve('./app/components/Timer.jsx'),
       Countdown : path.resolve('./app/components/Countdown.jsx'),
+      CountdownForm : path.resolve('./app/components/CountdownForm.jsx'),
       Clock : path.resolve('./app/components/Clock.jsx'),
       mainStyles : path.resolve('./app/styles/main.scss')
     },

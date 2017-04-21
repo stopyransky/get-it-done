@@ -1,15 +1,17 @@
 var React = require('react');
 
 
-class Clock extends React.Component {
+var Clock = React.createClass({
 
-	constructor(props) {
-		super(props);
-		this.state = {};
-		
-	}
+	propTypes : {
+		totalSeconds : React.PropTypes.number
+	},
+	
+	getDefaultProps : function(){
+		totalSeconds : 0
+	},
 
-	formatSeconds(totalSeconds) {
+	formatSeconds : function(totalSeconds) {
 		 var seconds, minutes;
 		 seconds = totalSeconds % 60;
 		 minutes = Math.floor( totalSeconds / 60 );
@@ -21,9 +23,9 @@ class Clock extends React.Component {
 		 	minutes = '0' + minutes;
 		 }
 		 return minutes + ":" + seconds;
-	}
+	},
+	render : function() {
 
-	render() {
 		var {totalSeconds} = this.props;
 		return (
 			<div className="clock">
@@ -31,16 +33,8 @@ class Clock extends React.Component {
 			</div>
 		);
 	}
-}
-
-Object.assign( Clock, {
-	propTypes : {
-		totalSeconds : React.PropTypes.number
-	},
-	defaultProps : {
-		totalSeconds : 0
-	}
 });
+
 
 // Object.assign... equals to below:
 // Clock.propTypes =  {
