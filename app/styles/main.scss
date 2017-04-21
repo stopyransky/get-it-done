@@ -1,3 +1,6 @@
+@import "base/variables"; // no underscore and extension
+@import "components/navigation";
+
 $space-large : 2.5rem;
 $page-title-color : #555;
 
@@ -10,8 +13,3 @@ $page-title-color : #555;
 input[type=search] {
 	box-shadow :  none;
 }
-
-/*.callout {
-	border-width : 2px;
-}*/
-

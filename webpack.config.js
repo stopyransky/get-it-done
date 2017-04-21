@@ -39,7 +39,7 @@ module.exports = {
       OpenWeatherApi  : path.resolve('./app/api/OpenWeatherApi.jsx'),
       Examples : path.resolve( './app/components/Examples.jsx'),
       ErrorModal : path.resolve('./app/components/ErrorModal.jsx'),
-      
+      Timer : path.resolve('./app/components/Timer.jsx'),
       mainStyles : path.resolve('./app/styles/main.scss')
     },
     // not need to put extensions in require

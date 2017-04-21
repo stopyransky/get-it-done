@@ -7,7 +7,7 @@ var Greeter = require("Greeter");
 var Examples  = require("Examples");
 var About = require('AppAbout');
 var Home = require('AppHome');
-
+var Timer = require('Timer');
 // load foundation
 require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
@@ -22,6 +22,7 @@ const element = (<Router history={hashHistory}>
 					<Route path="/" component={App}>
 						<IndexRoute component={Home} />
 						<Route path="greeter" component={Greeter} />
+						<Route path="timer" component={Timer} />
 						<Route path="weather" component={Weather} />
 						<Route path="examples" component={Examples} />
 						<Route path="about" component={About} />
