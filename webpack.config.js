@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
+process.traceDeprecation = true;
+
 module.exports = {
   entry: [
     // libraries
