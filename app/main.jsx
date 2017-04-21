@@ -8,6 +8,9 @@ var Examples  = require("Examples");
 var About = require('AppAbout');
 var Home = require('AppHome');
 var Timer = require('Timer');
+var Countdown = require('Countdown');
+
+
 // load foundation
 require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
@@ -23,6 +26,7 @@ const element = (<Router history={hashHistory}>
 						<IndexRoute component={Home} />
 						<Route path="greeter" component={Greeter} />
 						<Route path="timer" component={Timer} />
+						<Route path="countdown" component={Countdown} />
 						<Route path="weather" component={Weather} />
 						<Route path="examples" component={Examples} />
 						<Route path="about" component={About} />

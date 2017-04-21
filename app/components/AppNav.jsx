@@ -24,12 +24,13 @@ var AppNav = React.createClass({
 		<div className ="top-bar">
 			<div className="top-bar-left">
 				<ul className ="menu">
-					<li className="menu-text"><IndexLink to="/" style={{ color: '#fff', fontWeight: 'bold' }}><span>React App!</span></IndexLink></li>
-					<li><Link to="/greeter" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Greeter</Link></li>
-					<li><Link to="/timer" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Timer</Link></li>
-					<li><Link to="/weather" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Weather</Link></li>
-					<li><Link to="/examples" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>Examples</Link></li>
-					<li><Link to="/about" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>About</Link></li>
+					<li className="menu-text"><IndexLink to="/"><span>React App!</span></IndexLink></li>
+					<li><Link to="/greeter" activeClassName="active-link" >Greeter</Link></li>
+					<li><Link to="/timer" activeClassName="active-link" >Timer</Link></li>
+					<li><Link to="/countdown" activeClassName="active-link" >Countdown</Link></li>
+					<li><Link to="/weather" activeClassName="active-link" >Weather</Link></li>
+					<li><Link to="/examples" activeClassName="active-link" >Examples</Link></li>
+					<li><Link to="/about" activeClassName="active-link" >About</Link></li>
 				</ul>
 			</div>
 			<div className="top-bar-right">

@@ -6,8 +6,10 @@
 	.menu-text {
 		color: $nav-text-color;
 	}
-	
 	padding: 0px;
+}
 
+.active-link {
+	font-weight : bold;
 }
 

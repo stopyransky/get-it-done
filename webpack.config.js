@@ -42,6 +42,8 @@ module.exports = {
       Examples : path.resolve( './app/components/Examples.jsx'),
       ErrorModal : path.resolve('./app/components/ErrorModal.jsx'),
       Timer : path.resolve('./app/components/Timer.jsx'),
+      Countdown : path.resolve('./app/components/Countdown.jsx'),
+      Clock : path.resolve('./app/components/Clock.jsx'),
       mainStyles : path.resolve('./app/styles/main.scss')
     },
     // not need to put extensions in require
