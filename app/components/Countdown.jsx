@@ -18,7 +18,13 @@ var Countdown = React.createClass({
 			countdownStatus :'started'
 		});
 	},
-
+	
+	handleStatusChange : function( newStatus ) {
+		this.setState({
+			countdownStatus : newStatus
+		});
+	},
+	
 	componentDidUpdate : function( prevProps, prevState ) {
 		if(this.state.countdownStatus !== prevState.countdownStatus ) {
 			switch(this.state.countdownStatus) {
@@ -52,11 +58,7 @@ var Countdown = React.createClass({
 
 		}, 1000);
 	},
-	handleStatusChange : function( newStatus ) {
-		this.setState({
-			countdownStatus : newStatus
-		});
-	},
+
 
 	render: function() {
 		var { count, countdownStatus } = this.state;
@@ -67,7 +69,8 @@ var Countdown = React.createClass({
 			} else {
 				return <CountdownForm onSetCountdown={this.handleSetCountdown}/>
 			}
-		}
+		};
+
 		return (
 			<div>
 				<h1 className ="page-title text-center">Countdown</h1>
