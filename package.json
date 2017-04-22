@@ -2,7 +2,7 @@
   "name": "react-from-scratch",
   "version": "1.0.0",
   "description": "udemy react course project",
-  "main": "index.js",
+  "main": "main.jsx",
   "scripts": {
     "test": "karma start",
     "start": "node server.js"
