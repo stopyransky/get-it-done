@@ -1,7 +1,7 @@
 @import "base/variables"; // no underscore and extension
 @import "components/navigation";
 @import "components/clock";
-
+@import "components/countdownControls";
 
 .page-title {
 	color : $page-title-color;
