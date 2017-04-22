@@ -27,7 +27,7 @@ describe("CountdownForm", () => {
 		countdownForm.refs.seconds.value = '109abc';
 		TestUtils.Simulate.submit($el.find('form')[0]);
 
-		expect(spy).toHaveBeenCalledWith(109);
+		expect(spy).toNotHaveBeenCalled();
 	});
 	it('should not submit if the input field is empty', () => {
 		var spy = expect.createSpy();
