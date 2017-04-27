@@ -11,8 +11,8 @@ var Timer = require('Timer');
 var Countdown = require('Countdown');
 
 
-// load foundation
-require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
+// load foundation  - included in webpack to handle scss 
+// require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
 
 // load main css styles

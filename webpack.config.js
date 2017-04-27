@@ -18,6 +18,16 @@ module.exports = {
     new webpack.ProvidePlugin({
       "$" : 'jquery',
       "jQuery" : 'jquery'
+    }),
+    new webpack.LoaderOptionsPlugin({
+         // test: /\.xxx$/, // may apply this only for some modules
+         options: {
+           sassLoader: {
+            includePaths: [
+              path.resolve(__dirname, './node_modules/foundation-sites/scss'),
+            ]
+          },
+        }
     })
   ],
   output: {
@@ -49,8 +59,9 @@ module.exports = {
       mainStyles : path.resolve('./app/styles/main.scss')
     },
     // not need to put extensions in require
-    extensions: [ '.js', '.jsx']
+    extensions: [ '.js', '.jsx' ]
   },
+
   module: {
     loaders: [
       {
@@ -63,5 +74,10 @@ module.exports = {
       }
     ]
   },
+  // sassLoader : {
+  //   includePaths: [
+  //     path.resolve(__dirname, './node_modules/foundation-sites/scss'),
+  //   ]
+  // },
   devtool : "cheap-module-eval-source-map"
 };
