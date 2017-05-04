@@ -64,6 +64,7 @@ module.exports = {
       CountdownControls : path.resolve('./app/components/CountdownControls.jsx'),
       Clock : path.resolve('./app/components/Clock.jsx'),
       TodoAdd : path.resolve('./app/components/TodoAdd.jsx'),
+      TodoSearch : path.resolve('./app/components/TodoSearch.jsx'),
       TodoApp : path.resolve('./app/components/TodoApp.jsx'),
       TodoList : path.resolve('./app/components/TodoList.jsx'),
       TodoItem : path.resolve('./app/components/TodoItem.jsx'),
