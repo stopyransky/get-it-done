@@ -8,6 +8,7 @@ var TodoSearch = React.createClass({
 
 		this.props.onSearch(showCompleted, searchText);
 	},
+	
 	render : function() {
 		
 		return (
