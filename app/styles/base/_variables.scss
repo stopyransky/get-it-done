@@ -4,9 +4,15 @@ $page-title-color : #555;
 
 // colors
 $grey : #333;
+$grey-light : #aaa;
+$grey-medium : #777;
+$grey-dark : #333;
 
 // navigation vars
 $nav-background : $grey;
+$nav-background-large : $grey-light;
+$nav-background-medium : $grey-medium;
+$nav-background-small : $grey-dark;
 $nav-text-color : white; 
 
 // clock vars

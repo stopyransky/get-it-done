@@ -9,7 +9,7 @@ var Weather = React.createClass( {
     getDefaultProps : function() {
         return {
             location: "None",
-            temp : 0
+            data : 0
         }
     },
 
@@ -49,14 +49,14 @@ var Weather = React.createClass( {
             isLoading : true,
             errorMessage : null,
             location : null,
-            temp : null
+            data : null
         });
         
-        owApi.getTemp( location ).then( function(temp) {
+        owApi.getWeather( location ).then( function(data) {
             
             that.setState({
                 location : location,
-                temp : temp,
+                data : data,
                 isLoading : false
             });
 
@@ -65,7 +65,7 @@ var Weather = React.createClass( {
             that.setState({
                 isLoading: false, 
                 errorMessage : err.message,
-                temp : null, 
+                data : null, 
                 location: null
             });
         });
@@ -74,13 +74,13 @@ var Weather = React.createClass( {
 
     render : function() {
 
-        var {isLoading, temp, location, errorMessage} = this.state;
+        var {isLoading, data, location, errorMessage} = this.state;
 
         function renderMessage() {
             if( isLoading ) {
                 return <h3 className="text-center"> Fetching weather... </h3>
-            } else if( temp && location ) {
-                return <WeatherMessage temp={temp} location={location} />;
+            } else if( data && location ) {
+                return <WeatherMessage data={data} location={location} />;
               
             }
         }

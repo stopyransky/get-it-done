@@ -21,7 +21,8 @@ var AppNav = React.createClass({
 
 	render : function() {
 		return (
-		<div className ="top-bar">
+	
+		<nav className ="top-bar" data-topbar role="navigation">
 			<div className="top-bar-left">
 				<ul className ="menu">
 					<li className="menu-text"><IndexLink to="/"><span>React App!</span></IndexLink></li>
@@ -29,8 +30,9 @@ var AppNav = React.createClass({
 					<li><Link to="/timer" activeClassName="active-link" >Timer</Link></li>
 					<li><Link to="/countdown" activeClassName="active-link" >Countdown</Link></li>
 					<li><Link to="/weather" activeClassName="active-link" >Weather</Link></li>
-					<li><Link to="/examples" activeClassName="active-link" >Examples</Link></li>
-					<li><Link to="/about" activeClassName="active-link" >About</Link></li>
+					<li><Link to="/todo" activeClassName="active-link" >ToDo</Link></li>
+		        	<li><Link to="/examples" activeClassName="active-link" >Examples</Link></li>
+		        	<li><Link to="/about" activeClassName="active-link" >About</Link></li>
 				</ul>
 			</div>
 			<div className="top-bar-right">
@@ -44,7 +46,7 @@ var AppNav = React.createClass({
 					</ul>
 				</form>
 			</div>
-		</div>
+		</nav>
 		);
 	}
 });

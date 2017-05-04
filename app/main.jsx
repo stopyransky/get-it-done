@@ -10,6 +10,8 @@ var Home = require('AppHome');
 var Timer = require('Timer');
 var Countdown = require('Countdown');
 
+var TodoApp = require("TodoApp");
+
 
 // load foundation  - included in webpack to handle scss 
 // require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
@@ -29,6 +31,7 @@ const element = (<Router history={hashHistory}>
 						<Route path="countdown" component={Countdown} />
 						<Route path="weather" component={Weather} />
 						<Route path="examples" component={Examples} />
+						<Route path="todo" component={TodoApp} />
 						<Route path="about" component={About} />
 					</Route>
 				</Router>);

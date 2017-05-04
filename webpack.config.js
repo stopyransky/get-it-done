@@ -18,7 +18,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       "$" : 'jquery',
       "jQuery" : 'jquery'
-    }),
+    })
+    ,
     new webpack.LoaderOptionsPlugin({
          // test: /\.xxx$/, // may apply this only for some modules
          options: {
@@ -37,6 +38,12 @@ module.exports = {
   resolve: {
     // using internal components as external require('name')
     //root: path.resolve(__dirname),
+    
+    // define directories where our components are 
+    // modulesDirectories : [ // not working in webpack 2
+    // 'node_modules',
+    // 'app/components'
+    // ],
     alias : {
       App : path.resolve( './app/components/App.jsx' ),
       AppNav : path.resolve('./app/components/AppNav.jsx'),
@@ -56,6 +63,7 @@ module.exports = {
       CountdownForm : path.resolve('./app/components/CountdownForm.jsx'),
       CountdownControls : path.resolve('./app/components/CountdownControls.jsx'),
       Clock : path.resolve('./app/components/Clock.jsx'),
+      TodoApp : path.resolve('./app/components/TodoApp.jsx'),
       mainStyles : path.resolve('./app/styles/main.scss')
     },
     // not need to put extensions in require
@@ -81,3 +89,4 @@ module.exports = {
   // },
   devtool : "cheap-module-eval-source-map"
 };
+
