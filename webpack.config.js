@@ -64,6 +64,8 @@ module.exports = {
       CountdownControls : path.resolve('./app/components/CountdownControls.jsx'),
       Clock : path.resolve('./app/components/Clock.jsx'),
       TodoApp : path.resolve('./app/components/TodoApp.jsx'),
+      TodoList : path.resolve('./app/components/TodoList.jsx'),
+      TodoItem : path.resolve('./app/components/TodoItem.jsx'),
       mainStyles : path.resolve('./app/styles/main.scss')
     },
     // not need to put extensions in require
