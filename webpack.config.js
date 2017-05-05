@@ -49,25 +49,32 @@ module.exports = {
       AppNav : path.resolve('./app/components/AppNav.jsx'),
       AppAbout : path.resolve('./app/components/AppAbout.jsx'),
       AppHome : path.resolve('./app/components/AppHome.jsx'),
+      
       Greeter : path.resolve( './app/components/Greeter.jsx' ),
       GreetForm : path.resolve( './app/components/GreetForm.jsx'),
       GreetMessage : path.resolve( './app/components/GreetMessage.jsx'),
+      
       Weather : path.resolve( './app/components/Weather.jsx'),
       WeatherForm : path.resolve('./app/components/WeatherForm.jsx'),
       WeatherMessage : path.resolve('./app/components/WeatherMessage.jsx'),
       OpenWeatherApi  : path.resolve('./app/api/OpenWeatherApi.jsx'),
+      
       Examples : path.resolve( './app/components/Examples.jsx'),
       ErrorModal : path.resolve('./app/components/ErrorModal.jsx'),
+      
       Timer : path.resolve('./app/components/Timer.jsx'),
       Countdown : path.resolve('./app/components/Countdown.jsx'),
       CountdownForm : path.resolve('./app/components/CountdownForm.jsx'),
       CountdownControls : path.resolve('./app/components/CountdownControls.jsx'),
       Clock : path.resolve('./app/components/Clock.jsx'),
+      
       TodoAdd : path.resolve('./app/components/TodoAdd.jsx'),
       TodoSearch : path.resolve('./app/components/TodoSearch.jsx'),
       TodoApp : path.resolve('./app/components/TodoApp.jsx'),
+      TodoAPI : path.resolve('./api//TodoAPI.jsx'),
       TodoList : path.resolve('./app/components/TodoList.jsx'),
       TodoItem : path.resolve('./app/components/TodoItem.jsx'),
+      
       mainStyles : path.resolve('./app/styles/main.scss')
     },
     // not need to put extensions in require
