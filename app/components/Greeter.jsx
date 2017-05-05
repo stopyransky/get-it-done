@@ -27,7 +27,7 @@ var Greeter = React.createClass( {
         var name = this.state.name;
         var msg = this.state.msg;
         return (
-            <div id='greeter'>
+            <div id='greeter' className="columns medium-6 large-4 small-centered">
                 <GreetMessage name={name} msg={msg} />
                 <GreetForm onUpdate={this.handleUpdates} />
             </div>

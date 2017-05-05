@@ -2,7 +2,7 @@ var React = require('react');
 var { Link } = require('react-router');
 // stateless functional component
 var AppExamples  = ( props ) => (
-	<div>
+	<div className="columns medium-6 large-4 small-centered">
 		<h1 className="text-center page-title">Examples</h1>
 		<p> Here are a few example locations to try out:</p>
 		<ol>

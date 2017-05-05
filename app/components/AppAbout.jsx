@@ -2,7 +2,7 @@ var React = require('react');
 
 // stateless functional component
 var AppAbout  = ( props ) => 
-	<div>
+	<div className="columns medium-6 large-4 small-centered">
 		<h1 className="text-center page-title"> About </h1>
 		<p>This is a weather application build on React. I have built this
         	for The Complete React Web App Developer Course.

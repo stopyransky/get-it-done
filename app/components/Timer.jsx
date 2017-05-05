@@ -78,7 +78,7 @@ var Timer = React.createClass({
 		};
 
 		return (
-			<div>
+			<div className="columns medium-6 large-4 small-centered">
 				<h1 className="text-center page-title"> Timer </h1>
 				<Clock totalSeconds={currentTime}/>
 				{renderControlArea()}
