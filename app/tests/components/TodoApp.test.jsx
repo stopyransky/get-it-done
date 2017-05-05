@@ -11,7 +11,7 @@ describe("TodoApp", () => {
 		expect(TodoApp).toExist();
 	});
 
-	it('should add todo  to the todos state on handleAddTodo', ()=>{
+	it('should add todo to the todos state on handleAddTodo', ()=>{
 		var todoText = 'test text';
 		var todoApp = TestUtils.renderIntoDocument(<TodoApp />);
 
