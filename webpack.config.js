@@ -71,7 +71,7 @@ module.exports = {
       TodoAdd : path.resolve('./app/components/TodoAdd.jsx'),
       TodoSearch : path.resolve('./app/components/TodoSearch.jsx'),
       TodoApp : path.resolve('./app/components/TodoApp.jsx'),
-      TodoAPI : path.resolve('./api//TodoAPI.jsx'),
+      TodoAPI : path.resolve('./app/api//TodoAPI.jsx'),
       TodoList : path.resolve('./app/components/TodoList.jsx'),
       TodoItem : path.resolve('./app/components/TodoItem.jsx'),
       
