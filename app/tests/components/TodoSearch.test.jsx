@@ -6,7 +6,7 @@ var $ = require('jquery');
 
 var TodoSearch = require('TodoSearch');
 
-describe("TodoItem", () => {
+describe("TodoSearch", () => {
 	it("should exist", () => {
 		expect(TodoSearch).toExist();
 	});

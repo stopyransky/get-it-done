@@ -6,7 +6,7 @@ var $ = require('jquery');
 
 var TodoAdd = require('TodoAdd');
 
-describe("TodoApp", () => {
+describe("TodoAdd", () => {
 	it("should exist", () => {
 		expect(TodoAdd).toExist();
 	});
