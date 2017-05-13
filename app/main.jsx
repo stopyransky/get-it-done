@@ -13,12 +13,12 @@ var Countdown = require('Countdown');
 
 var TodoApp = require("TodoApp");
 
-// load foundation  - included in webpack to handle scss 
+// load foundation  - included in webpack to handle scss
 // require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
 
 // load main css styles
-require('style-loader!css-loader!sass-loader!mainStyles'); 
+require('style-loader!css-loader!sass-loader!mainStyles');
 
 // // load app/styles/main.css
 // require('style-loader!css-loader!mainStyles')
@@ -41,10 +41,10 @@ const container = document.getElementById("container");
 
 // ReactDOM.render( element, container );
 
-ReactDOM.render( 
-	
+ReactDOM.render(
+
 	element
-	, 
+	,
 
 	container );
 

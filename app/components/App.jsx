@@ -1,18 +1,25 @@
 var React = require("react");
 var AppNav = require("AppNav");
+
+var TodoAPI = require("TodoAPI");
 var { Provider } = require('react-redux');
 var actions = require('actions');
 var store = require('store').configure();
 
 store.subscribe(()=> {
-	console.log("New state", store.getState())
+	var state = store.getState();
+	console.log("New state", store);
+	TodoAPI.setTodos(state.todos)
 });
 
-store.dispatch(actions.addTodo("clean yard"));
-store.dispatch(actions.setSearchText("yard"));
-store.dispatch(actions.toggleShowCompleted());
+var initialTodos = TodoAPI.getTodos();
 
-var App = (props) => 
+store.dispatch(actions.addTodos(initialTodos));
+// store.dispatch(actions.addTodo("clean yard"));
+// store.dispatch(actions.setSearchText("yard"));
+// store.dispatch(actions.toggleShowCompleted());
+
+var App = (props) =>
 	<div id='app'>
 		<AppNav/>
 		<div className="row">
@@ -22,7 +29,7 @@ var App = (props) =>
 				</div>
 			</Provider>
 		</div>
-		
+
 	</div>;
 
 module.exports = App;

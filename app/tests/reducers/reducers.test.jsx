@@ -30,6 +30,7 @@ describe("Reducers", () => {
 	});
 
 	describe("todosReducer", () => {
+
 		it('should add new todo', () => {
 			var action = {
 				type: "ADD_TODO",
@@ -41,6 +42,26 @@ describe("Reducers", () => {
 			expect(res.length).toEqual(1);
 			expect(res[0].text).toEqual(action.text);
 		});
+
+		it('should add multiple todos', () => {
+			var todos= [{
+				id : "111",
+				text : "anything",
+				completed : false,
+				completedAt : null,
+				createdAt : 33000
+			}];
+			var action = {
+				type: "ADD_TODOS",
+				todos
+			};
+
+			var res = reducers.todosReducer(df([]), df(action));
+
+			expect(res.length).toEqual(1);
+			expect(res[0]).toEqual(todos[0]);
+		});
+
 		it('should toggle todo', () => {
 			var todos = [ {
 				id: "123",
