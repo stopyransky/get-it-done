@@ -11,15 +11,16 @@ store.subscribe(()=> {
 store.dispatch(actions.addTodo("clean yard"));
 store.dispatch(actions.setSearchText("yard"));
 store.dispatch(actions.toggleShowCompleted());
+
 var App = (props) => 
 	<div id='app'>
 		<AppNav/>
 		<div className="row">
-		<Provider store={store} >
-			<div >
-			{props.children}
-			</div>
-		</Provider>
+			<Provider store={store} >
+				<div >
+				{props.children}
+				</div>
+			</Provider>
 		</div>
 		
 	</div>;
