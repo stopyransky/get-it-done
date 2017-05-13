@@ -1,6 +1,6 @@
 var React = require("react");
 var ReactDOM = require('react-dom');
-var { Provider } = require('react-redux');
+
 var { Route, Router, IndexRoute, hashHistory } = require('react-router');
 var App = require('App');
 var Weather = require("Weather");
@@ -13,16 +13,6 @@ var Countdown = require('Countdown');
 
 var TodoApp = require("TodoApp");
 
-var actions = require('actions');
-var store = require('store').configure();
-
-store.subscribe(()=> {
-	console.log("New state", store.getState())
-});
-
-store.dispatch(actions.addTodo("clean yard"));
-store.dispatch(actions.setSearchText("yard"));
-store.dispatch(actions.toggleShowCompleted());
 // load foundation  - included in webpack to handle scss 
 // require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
 $(document).foundation();
@@ -52,8 +42,12 @@ const container = document.getElementById("container");
 // ReactDOM.render( element, container );
 
 ReactDOM.render( 
-	<Provider store={store}>
-		<TodoApp/>
-	</Provider>, 
+	
+	element
+	, 
 
 	container );
+
+	// <Provider store={store}>
+	// 	<TodoApp/>
+	// </Provider>

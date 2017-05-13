@@ -2,6 +2,7 @@ var React = require('react');
 var uuid = require('uuid');
 var moment = require('moment');
 
+
 // var TodoList = require('TodoList');
 import TodoList from 'TodoList';
 import TodoAdd from 'TodoAdd';
@@ -68,10 +69,12 @@ var TodoApp = React.createClass({
 				<div className ="row">
 					<div className ="columns small-centered small-11 medium-6 large-5" >
 						<div className='container'>
+						
 							<TodoSearch onSearch={this.handleSearch} />
 							<TodoList todos={filteredTodos} onToggle={this.handleToggle} />
 							<br/>
 							<TodoAdd onAddTodo={this.handleAddTodo} />
+					 
 						</div>
 					</div>
 				</div>
