@@ -77,6 +77,7 @@ module.exports = {
       
       actions : path.resolve('./app/rx-actions/actions.jsx'),
       reducers : path.resolve('./app/rx-reducers/reducers.jsx'),
+      store : path.resolve("./app/rx-store/configureStore.jsx"),
       
       mainStyles : path.resolve('./app/styles/main.scss')
     },
