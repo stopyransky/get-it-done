@@ -75,6 +75,9 @@ module.exports = {
       TodoList : path.resolve('./app/components/TodoList.jsx'),
       TodoItem : path.resolve('./app/components/TodoItem.jsx'),
       
+      actions : path.resolve('./app/rx-actions/actions.jsx'),
+      reducers : path.resolve('./app/rx-reducers/reducers.jsx'),
+      
       mainStyles : path.resolve('./app/styles/main.scss')
     },
     // not need to put extensions in require
