@@ -1,14 +1,20 @@
 var React = require('react');
+var {connect} = require('react-redux');
+var actions = require('actions');
 
-var TodoAdd = React.createClass({
+export var TodoAdd = React.createClass({
 	
 	onFormSubmit: function( e ) {
 		e.preventDefault();
+// dispatch is available in props because TodoAdd component was passed via redux connect method when exporting
+		
+		var { dispatch } = this.props; 
 		var newTodo = this.refs.newTodo.value;
 
 		if(newTodo.length > 0) {
 			this.refs.newTodo.value = "";
-			this.props.onAddTodo(newTodo);
+			// this.props.onAddTodo(newTodo);
+			dispatch(actions.addTodo(newTodo))
 		} else {
 			this.refs.newTodo.focus();
 		}
@@ -28,4 +34,6 @@ var TodoAdd = React.createClass({
 
 });
 
-module.exports = TodoAdd;
+
+export default connect()(TodoAdd);
+// module.exports = TodoAdd;

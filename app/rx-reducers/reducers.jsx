@@ -42,12 +42,11 @@ export var todosReducer = (state = [], action) => {
 						completed : isCompleted,
 						completedAt : isCompleted ? moment().unix() : null
 					}
-				}
+				} else {
 				return todo;
+				}
 			});
 		default : 
 			return state;
 	}	
 };
-
-

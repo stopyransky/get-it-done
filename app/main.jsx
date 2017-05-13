@@ -1,5 +1,6 @@
 var React = require("react");
 var ReactDOM = require('react-dom');
+var { Provider } = require('react-redux');
 var { Route, Router, IndexRoute, hashHistory } = require('react-router');
 var App = require('App');
 var Weather = require("Weather");
@@ -48,4 +49,11 @@ const element = (<Router history={hashHistory}>
 const container = document.getElementById("container");
 
 
-ReactDOM.render( element, container );
+// ReactDOM.render( element, container );
+
+ReactDOM.render( 
+	<Provider store={store}>
+		<TodoApp/>
+	</Provider>, 
+
+	container );
