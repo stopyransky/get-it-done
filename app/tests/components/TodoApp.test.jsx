@@ -39,7 +39,7 @@ describe("TodoApp", () => {
 
 	// it('should toggle completed value when handleToggle called ', () => {
 	// 	var todoData = {
-	// 		id : 11, 
+	// 		id : 11,
 	// 		text : 'test features',
 	// 		completed : false,
 	// 		createdAt :16,
@@ -57,7 +57,7 @@ describe("TodoApp", () => {
 	// });
 	// 	it('should toggle from completed to incompleted ', () => {
 	// 	var todoData = {
-	// 		id : 11, 
+	// 		id : 11,
 	// 		text : 'test features',
 	// 		completed : false,
 	// 		createdAt :16,

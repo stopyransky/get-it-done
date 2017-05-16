@@ -25,7 +25,7 @@ describe("TodoList", () => {
 					completedAt : null,
 					createdAt : 500
 				}, {
-					id : 2, 
+					id : 2,
 					text : "clean the yard",
 					completed : false,
 					completedAt : null,
@@ -37,9 +37,9 @@ describe("TodoList", () => {
 			});
 
 			var provider = TestUtils.renderIntoDocument(
-				<Provider store ={store}> 
+				<Provider store ={store}>
 					<ConnectedTodoList />
-				</Provider>) 
+				</Provider>)
 			var todoList = TestUtils.scryRenderedComponentsWithType(provider, ConnectedTodoList)[0];
 			// var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos} />);
 			var todoComponents = TestUtils.scryRenderedComponentsWithType(todoList, ConnectedTodoItem);

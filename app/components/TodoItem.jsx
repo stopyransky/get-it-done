@@ -5,9 +5,9 @@ var actions = require("actions");
 
 // exporting raw React component for testing purposes
 export var TodoItem = React.createClass({
-	
 
-	render : function() { 
+
+	render : function() {
 		// dispatch comes from redux.connect
 		var {id, text, completed, createdAt, completedAt, dispatch } = this.props;
 		var todoClassName = completed ? 'todo todo-completed' : 'todo';
@@ -21,14 +21,14 @@ export var TodoItem = React.createClass({
 			return message + moment.unix(timestamp).format("MMMM Do, YYYY @ h:mm a");
 		}
 
-		var onClickToggle = ()=> { 
-			/* this.props.onToggle(id)} */ 
-			dispatch(actions.toggleTodo(id))
+		var onClickToggle = ()=> {
+			/* this.props.onToggle(id)} */
+			dispatch(actions.startToggleTodo(id, !completed))
 		};
 
 		return (
 			<div className={todoClassName} onClick={onClickToggle}>
-	
+
 					<div><input type='checkbox' checked={completed} /></div>
 					<div>
 						<span> {text}</span><br/>
@@ -41,5 +41,3 @@ export var TodoItem = React.createClass({
 
 // by default exporting redux-connected TodoItem
 export default connect()(TodoItem);
-
-// module.exports = connect()(TodoItem);
