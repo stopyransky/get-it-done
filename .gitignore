@@ -1,3 +1,4 @@
 app/firebase
 node_modules
 playground
+public/bundle.js
