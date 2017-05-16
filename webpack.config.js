@@ -23,9 +23,11 @@ module.exports = {
     })
     ,
     new webpack.optimize.UglifyJsPlugin({
-        compressor : {
-            warnings : false
-        }
+        compress: {
+            warnings: false,
+
+        },
+        sourceMap: true
     })
     ,
     new webpack.LoaderOptionsPlugin({
@@ -111,5 +113,5 @@ module.exports = {
   //     path.resolve(__dirname, './node_modules/foundation-sites/scss'),
   //   ]
   // },
-  devtool : process.env.NODE_ENV  === 'production' ? null : "cheap-module-eval-source-map"
+  devtool : process.env.NODE_ENV  === 'production' ? false : "cheap-module-eval-source-map"
 };
