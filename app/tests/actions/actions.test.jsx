@@ -1,3 +1,5 @@
+
+
 var expect = require('expect');
 
 var actions = require('actions');
@@ -16,10 +18,15 @@ describe("Actions", () => {
 	it("should generate add todo action", () => {
 		var action = {
 			type: "ADD_TODO",
-			text : "Thing to do"
+			todo : {
+				id: '1235',
+				text : "Thing to do",
+				completed : false,
+				createdAt : 0
+			}
 		};
 
-		var res = actions.addTodo(action.text);
+		var res = actions.addTodo(action.todo);
 
 		expect(res).toEqual(action);
 	});
