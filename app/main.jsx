@@ -13,6 +13,8 @@ var Countdown = require('Countdown');
 
 var TodoApp = require("TodoApp");
 
+
+// import './../playground/firebase/index';
 // load foundation  - included in webpack to handle scss
 // require('style-loader!css-loader!foundation-sites/dist/foundation.min.css')
 $(document).foundation();

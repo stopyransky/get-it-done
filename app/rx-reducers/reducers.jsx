@@ -25,13 +25,7 @@ export var todosReducer = (state = [], action) => {
 		case "ADD_TODO" :
 			return [
 				...state, // already present todos
-				{
-					id: uuid(),
-					text : action.text,
-					completed : false,
-					createdAt : moment().unix(),
-					completedAt : null
-				}
+				action.todo
 			];
 		case "ADD_TODOS" :
 			return [
