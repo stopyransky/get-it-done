@@ -6,7 +6,11 @@
   "scripts": {
     "test": "NODE_ENV=test karma start",
     "build" : "webpack",
-    "start": " npm run build && node server.js"
+    "postinstall" : "npm run build",
+    "start": "node server.js"
+  },
+  "engines" : {
+    "node" :"6.9.2"  
   },
   "author": "Karol Stopyra",
   "license": "MIT",
