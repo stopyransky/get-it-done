@@ -3,16 +3,16 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var $ = require('jquery');
-var actions = require('actions');
-
-var {TodoAdd} = require('TodoAdd');
+import * as actions from 'actions';
+import {TodoAdd} from 'TodoAdd';
+// var {TodoAdd} = require('TodoAdd');
 
 describe("TodoAdd", () => {
 	it("should exist", () => {
 		expect(TodoAdd).toExist();
 	});
 
-	it("should dispatch  ADD_TODO action when valid data", () =>{
+	it("should dispatch ADD_TODO action when valid data", () =>{
 
 		var todoText ='check mail';
 		var action = actions.startAddTodo(todoText);
