@@ -16,7 +16,16 @@ import TodoApp from "TodoApp";
 var { Provider } = require('react-redux');
 var actions = require('actions');
 var store = require('store').configure();
+import firebase from './firebase/index.js';
 
+firebase.auth().onAuthStateChanged((user) => {
+	if(user) {
+		hashHistory.push('/todo');
+
+	} else {
+		hashHistory.push('/');
+	}
+})
 $(document).foundation();
 
 // load main css styles
@@ -24,17 +33,33 @@ require('style-loader!css-loader!sass-loader!mainStyles');
 
 store.dispatch(actions.startAddTodos());
 
+var requireLogin = (nextState, replace, next) => {
+	if(!firebase.auth().currentUser) {
+		// nobody is logged in
+		replace('/');
+	}
+	next();
+};
+
+var redirectIfLogin = (nextState, replace, next) => {
+	if(firebase.auth().currentUser) {
+		// nobody is logged in
+		replace('/home');
+	}
+	next();
+};
 const element = (
 				<Provider store={store}>
 					<Router history={hashHistory}>
-						<Route path="/" component={App}>
-							<IndexRoute component={TodoLogin} />
+						<Route path="/" component={App} >
+							<IndexRoute component={TodoLogin} onEnter={redirectIfLogin}/>
+							<Route path="home"		component={Home} />
 							<Route path="greeter" 	component={Greeter} />
 							<Route path="timer" 	component={Timer} />
 							<Route path="countdown" component={Countdown} />
 							<Route path="weather" 	component={Weather} />
 							<Route path="examples" 	component={Examples}/>
-							<Route path="todo" 		component={TodoApp} />
+							<Route path="todo" 		component={TodoApp} onEnter={requireLogin}/>
 							<Route path="about" 	component={About} />
 						</Route>
 
