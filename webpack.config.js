@@ -73,7 +73,7 @@ module.exports = {
     // 'app/components'
     // ],
     alias : {
-    //   firebase : path.resolve('./app/firebase/'),
+
       App : path.resolve( './app/components/App.jsx' ),
       AppNav : path.resolve('./app/components/AppNav.jsx'),
       AppAbout : path.resolve('./app/components/AppAbout.jsx'),
@@ -97,13 +97,15 @@ module.exports = {
       CountdownControls : path.resolve('./app/components/CountdownControls.jsx'),
       Clock : path.resolve('./app/components/Clock.jsx'),
 
+      // 2DO app
+      TodoMain : path.resolve("./app/components/TodoMain.jsx"),
       TodoAdd : path.resolve('./app/components/TodoAdd.jsx'),
       TodoSearch : path.resolve('./app/components/TodoSearch.jsx'),
       TodoApp : path.resolve('./app/components/TodoApp.jsx'),
       TodoAPI : path.resolve('./app/api//TodoAPI.jsx'),
       TodoList : path.resolve('./app/components/TodoList.jsx'),
       TodoItem : path.resolve('./app/components/TodoItem.jsx'),
-
+      TodoLogin : path.resolve('./app/components/TodoLogin.jsx'),
       actions : path.resolve('./app/rx-actions/actions.jsx'),
       reducers : path.resolve('./app/rx-reducers/reducers.jsx'),
       store : path.resolve("./app/rx-store/configureStore.jsx"),
