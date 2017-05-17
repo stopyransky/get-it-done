@@ -5,9 +5,9 @@ var App = (props) =>
 	<div id='app'>
 		<AppNav/>
 		<div className="row">
-				<div>
-				{props.children}
-				</div>
+			<div>
+			{props.children}
+			</div>
 		</div>
 
 	</div>;
