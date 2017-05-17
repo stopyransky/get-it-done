@@ -8,7 +8,8 @@ var $ = require('jquery');
 var configureStore = require("store");
 // var TodoList = require("TodoList");
 import TodoList  from 'TodoList';
-var TodoApp = require('TodoApp');
+import {TodoApp} from "TodoApp";
+// var TodoApp = require('TodoApp');
 
 describe("TodoApp", () => {
 	it("should exist", () => {
