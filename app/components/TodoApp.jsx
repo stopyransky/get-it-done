@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 import TodoList from 'TodoList';
 import TodoAdd from 'TodoAdd';
 import TodoSearch from 'TodoSearch';
@@ -12,7 +12,7 @@ export var TodoApp = React.createClass({
 
         dispatch(actions.startLogout());
     },
-    
+
  	render : function() {
 
 		return (

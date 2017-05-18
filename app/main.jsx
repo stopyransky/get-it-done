@@ -1,17 +1,19 @@
-var React = require("react");
-var ReactDOM = require('react-dom');
-var { hashHistory } = require('react-router');
-var { Provider } = require('react-redux');
-var actions = require('actions');
+import React from "react";
+import ReactDOM from 'react-dom';
+import { hashHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import * as actions from 'actions';
 var store = require('store').configure();
 import firebase from './firebase/index.js';
 import router from './router/index.jsx';
 
 firebase.auth().onAuthStateChanged((user) => {
 	if(user) {
+		store.dispatch(actions.login(user.uid));
 		hashHistory.push('/todo');
 
 	} else {
+		store.dispatch(actions.logout());
 		hashHistory.push('/');
 	}
 })

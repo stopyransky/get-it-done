@@ -61,24 +61,6 @@ export var startAddTodos = () => {
 	}
 };
 
-
-// //FIREBASE
-// {
-// 	334395348 : {
-// 		text:
-// 	}
-// }
-//
-// // app
-// [
-// 	{
-// 		id: 3435345
-// 		text:
-// 	}
-// ]
-
-
-
 export var updateTodo = (id, updates) => {
 	return {
 		type: "UPDATE_TODO",
@@ -125,9 +107,23 @@ export var startLogin =  () => {
 export var startLogout =  () => {
 	return (dispatch, getState) => {
 		return firebase.auth().signOut().then(()=>{
-			console.log("logged out");
+			// console.log("logged out");
 		},(error)=>{
-			console.log("error logging out" + error);
+			console.log("error logging out",error);
 		})
 	};
+
+};
+
+export var login = (uid) =>{
+	return {
+		type: "LOGIN",
+		uid
+	}
+};
+
+export var logout = () => {
+	return {
+		type: "LOGOUT"
+	}
 };
