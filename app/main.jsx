@@ -10,6 +10,7 @@ import router from './router/index.jsx';
 firebase.auth().onAuthStateChanged((user) => {
 	if(user) {
 		store.dispatch(actions.login(user.uid));
+		store.dispatch(actions.startAddTodos());
 		hashHistory.push('/todo');
 
 	} else {
@@ -22,7 +23,7 @@ $(document).foundation();
 // load main css styles
 require('style-loader!css-loader!sass-loader!mainStyles');
 
-store.dispatch(actions.startAddTodos());
+
 
 const element = (
 	<Provider store={store}>
