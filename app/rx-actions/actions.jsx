@@ -82,11 +82,11 @@ export var startToggleTodo = (id, completed) => {
 
 		return todoRef.update(updates).then(
 			() => {
-				console.log("updated firebase, updating Todo");
+				// console.log("updated firebase, updating Todo");
 				dispatch(updateTodo(id, updates));
 			},
 			(error) => {
-				console.log("actions.startToggleTodo error: ", error);
+				// console.log("actions.startToggleTodo error: ", error);
 		});
 	};
 };
@@ -100,9 +100,9 @@ export var toggleShowCompleted = () => {
 export var startLogin =  () => {
 	return (dispatch, getState) => {
 		return firebase.auth().signInWithPopup(githubProvider).then((result)=>{
-			console.log("auth worked", result);
+			// console.log("auth worked", result);
 		}, (error)=>{
-			console.log("unable to log", error);
+			// console.log("unable to log", error);
 		});
 	};
 };
@@ -112,7 +112,7 @@ export var startLogout =  () => {
 		return firebase.auth().signOut().then(()=>{
 			// console.log("logged out");
 		},(error)=>{
-			console.log("error logging out",error);
+			// console.log("error logging out",error);
 		})
 	};
 
@@ -129,4 +129,4 @@ export var logout = () => {
 	return {
 		type: "LOGOUT"
 	}
-};
+};  
