@@ -14,21 +14,18 @@ export var TodoApp = React.createClass({
     },
 
  	render : function() {
-
 		return (
             <div>
-                <div className="page-actions">
+                <div className="row page-actions">
                     <a href="#" onClick ={this.onLogout}>Logout</a>
                 </div>
-                <h1 className="page-title">Todo App</h1>
                 <div className ="row">
-                    <div className ="columns small-centered small-11 medium-6 large-5" >
-                        <div className='container'>
-                            <TodoSearch/>
-                            <TodoList/>
-                            <br/>
-                            <TodoAdd/>
-                        </div>
+                    <div className="columns small-centered medium-uncentered large-uncentered small-12 medium-4 large-4">
+                        <TodoSearch/>
+                    </div>
+                    <div className="columns small-centered medium-uncentered large-uncentered  small-12 medium-8 large-8">
+                        <TodoAdd/>
+                        <TodoList/>
                     </div>
                 </div>
             </div>

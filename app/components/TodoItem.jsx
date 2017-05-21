@@ -10,7 +10,7 @@ export var TodoItem = React.createClass({
 	render : function() {
 		// dispatch comes from redux.connect
 		var {id, text, completed, createdAt, completedAt, dispatch } = this.props;
-		var todoClassName = completed ? 'todo todo-completed' : 'todo';
+		var todoClassName = completed ? 'todo todo-completed' : 'todo todo-inprogress';
 		var renderDate = () => {
 			var message = 'Created ';
 			var timestamp = createdAt;
@@ -31,10 +31,11 @@ export var TodoItem = React.createClass({
 
 					<div><input type='checkbox' checked={completed} /></div>
 					<div>
-						<span> {text}</span><br/>
-						<span className = "todo-subtext">{renderDate()}</span>
+						<span> {text} </span><br/>
+						<span className="todo-subtext">{renderDate()}</span>
 					</div>
 			</div>
+
 		);
 	}
 });

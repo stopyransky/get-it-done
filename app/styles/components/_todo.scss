@@ -4,11 +4,12 @@
 	align-items : center;
 	padding : 1rem;
 	transition : background .3s ease;
+	font-size : 1.2rem;
 	p, input{
 		margin : 0;
 	}
 	> :first-child {
-		margin-right : 1rem
+		margin-right : 1rem;
 	}
 
 	&:hover { // same as .todo:hover
@@ -16,13 +17,15 @@
 	}
 }
 
-.todo__subtext {
-	color: #999;
+.todo-subtext {
+	color: $light-color;
+	font-size : 0.85rem;
 }
 
 .todo-completed {
-	span, .todo-subtext {
-		color : $light-color;
-		text-decoration : line-through;
+	color : $light-color;
+	text-decoration : line-through;
+	.todo-subtext {
+
 	}
 }

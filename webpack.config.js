@@ -64,14 +64,12 @@ module.exports = {
     filename: './public/bundle.js'
   },
   resolve: {
-    // using internal components as external require('name')
-    //root: path.resolve(__dirname),
+      modules : [
+        //root: path.resolve(__dirname),
+        'node_modules',
+        'app/components'
+      ],
 
-    // define directories where our components are
-    // modulesDirectories : [ // not working in webpack 2
-    // 'node_modules',
-    // 'app/components'
-    // ],
     alias : {
 
       App : path.resolve( './app/components/App.jsx' ),
