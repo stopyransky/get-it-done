@@ -109,6 +109,23 @@ describe("Reducers", () => {
 			expect(res[0].completedAt).toEqual(updates.completedAt);
 			expect(res[0].text).toEqual(todos[0].text);
 		});
+
+		it('should delete todo on DELETE_TODO action',() => {
+			var todos = [ {
+				id: "123",
+				text : "something",
+				completed : true,
+				createdAt : 123,
+				completedAt : 125
+			}];
+
+			var action ={
+				type: "DELETE_TODO",
+				id : todos[0].id
+			};
+			var res = reducers.todosReducer(df(todos), df(action));
+			expect(res.length).toEqual(0);
+		});
 	});
 
 	describe("authReducer", ()=> {

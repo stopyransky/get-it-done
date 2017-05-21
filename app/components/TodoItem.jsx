@@ -27,16 +27,25 @@ export class TodoItem extends React.Component {
 			dispatch(actions.startToggleTodo(id, !completed))
 		};
 
+		var onClickDelete = () => {
+			dispatch(actions.startDeleteTodo(id));
+		};
+
 		return (
-			<div className={todoClassName} onClick={onClickToggle}>
-
-					<div><input type='checkbox' checked={completed} /></div>
-					<div>
-						<span> {text} </span><br/>
-						<span className="todo-subtext">{renderDate()}</span>
+			<div className="row expanded align-middle collapse">
+				<div className="columns uncentered small-9 medium-9 large-9">
+					<div className={todoClassName} onClick={onClickToggle}>
+						<div><input type='checkbox' checked={completed} /></div>
+						<div>
+							<span> {text} </span><br/>
+							<span className="todo-subtext">{renderDate()}</span>
+						</div>
 					</div>
+				</div>
+				<div className="columns uncentered small-2 medium-2 large-2">
+					<div className="button expanded" onClick={onClickDelete}>remove</div>
+				</div>
 			</div>
-
 		);
 	}
 }
