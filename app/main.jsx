@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import { hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import * as actions from 'actions';
-var store = require('store').configure();
+import {configure } from 'store';
 import firebase from './firebase/index.js';
 import router from './router/index.jsx';
+
+const store = configure();
 
 firebase.auth().onAuthStateChanged((user) => {
 	if(user) {
@@ -29,6 +31,7 @@ const element = (
 	<Provider store={store}>
 		{router}
 	</Provider>);
+
 const container = document.getElementById("container");
 
 ReactDOM.render( element, container );
