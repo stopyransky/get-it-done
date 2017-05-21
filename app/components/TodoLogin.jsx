@@ -2,15 +2,19 @@ import React from "react";
 import * as Redux from 'react-redux';
 import * as actions from 'actions';
 
-export var TodoLogin = React.createClass({
+export class TodoLogin extends React.Component {
 
-	onLogin : function(){
-		// console.log('start login');
+	constructor(props) {
+		super(props);
+		this.onLogin=this.onLogin.bind(this);
+	}
+
+	onLogin() {
 		var {dispatch} = this.props;
 		dispatch(actions.startLogin());
-	},
+	}
 
-	render : function() {
+	render() {
 		return (
 			<div>
 				<h1 className="page-title">TodoApp login</h1>
@@ -21,12 +25,11 @@ export var TodoLogin = React.createClass({
 							<p>Login with GitHub account below.</p>
 							<button className="button" onClick={this.onLogin}>Login with GitHub</button>
 						</div>
-
 					</div>
 				</div>
 			</div>
 		);
 	}
-});
+}
 
 export default Redux.connect()(TodoLogin);

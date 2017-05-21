@@ -1,10 +1,12 @@
-var React = require('react');
-var {connect} = require('react-redux');
-var actions = require('actions');
-var _ = require('lodash');
-export var TodoAdd = React.createClass({
+import React from 'react';
+import {connect} from "react-redux";
+import * as actions from 'actions';
+import * as _ from 'lodash';
 
-	onFormSubmit: function( e ) {
+
+export class TodoAdd extends React.Component {
+
+	onFormSubmit( e ) {
 		e.preventDefault();
 // dispatch is available in props because TodoAdd component was passed via redux connect method when exporting
 
@@ -18,22 +20,18 @@ export var TodoAdd = React.createClass({
 		} else {
 			this.refs.newTodo.focus();
 		}
-	},
+	}
 
-	render : function() {
+	render() {
 		return (
 			<div id="todoAddForm" className="container__footer">
-				<form ref='form' onSubmit={this.onFormSubmit}>
+				<form onSubmit={this.onFormSubmit.bind(this)}>
 					<input type='text' ref='newTodo' placeholder="Enter new todo..."/>
 					<button className="button expanded">Add Todo</button>
 				</form>
 			</div>
-
 		);
 	}
-
-});
-
+}
 
 export default connect()(TodoAdd);
-// module.exports = TodoAdd;

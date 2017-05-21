@@ -4,13 +4,14 @@ import moment from 'moment';
 import * as actions from "actions";
 
 // exporting raw React component for testing purposes
-export var TodoItem = React.createClass({
+export class TodoItem extends React.Component {
 
-
-	render : function() {
+	render() {
 		// dispatch comes from redux.connect
 		var {id, text, completed, createdAt, completedAt, dispatch } = this.props;
+
 		var todoClassName = completed ? 'todo todo-completed' : 'todo todo-inprogress';
+
 		var renderDate = () => {
 			var message = 'Created ';
 			var timestamp = createdAt;
@@ -38,7 +39,10 @@ export var TodoItem = React.createClass({
 
 		);
 	}
-});
-
+}
 // by default exporting redux-connected TodoItem
 export default connect()(TodoItem);
+
+
+// import TodoItem from 'TodoItem'; // refers to default export (linked to redux)
+// import {TodoItem as RawTodoItem} from 'TodoItem'; // refers to raw class
