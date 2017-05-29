@@ -42,11 +42,11 @@ export class TodoSearch extends React.Component {
 	}
 }
 
-export default connect(
-(state) => {
+var mapStateToProps = (state) => {
 	return {
 		showCompleted: state.showCompleted,
 		searchText : state.searchText
-	};
-}
-)(TodoSearch);
+	}
+};
+
+export default connect(mapStateToProps)(TodoSearch);

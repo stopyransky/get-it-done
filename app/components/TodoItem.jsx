@@ -11,7 +11,7 @@ export class TodoItem extends React.Component {
 		var {id, text, completed, createdAt, completedAt, dispatch } = this.props;
 
 		var todoClassName = completed ? 'todo todo-completed' : 'todo todo-inprogress';
-
+		todoClassName = todoClassName+' columns uncentered small-12 medium-12 large-12';
 		var renderDate = () => {
 			var message = 'Created ';
 			var timestamp = createdAt;
@@ -30,21 +30,37 @@ export class TodoItem extends React.Component {
 		var onClickDelete = () => {
 			dispatch(actions.startDeleteTodo(id));
 		};
+		var onClickEdit = () => {
+			console.log("edit action goes here");
+		}
 
+		var onClickNewTag = () => {
+			console.log("new tag action goes here");
+		}
 		return (
-			<div className="row expanded align-middle collapse">
-				<div className="columns uncentered small-9 medium-9 large-9">
-					<div className={todoClassName} onClick={onClickToggle}>
-						<div><input type='checkbox' checked={completed} /></div>
-						<div>
-							<span> {text} </span><br/>
-							<span className="todo-subtext">{renderDate()}</span>
-						</div>
+			<div className="row expanded align-middle">
+
+					<div className={todoClassName} /*onClick={onClickToggle}*/>
+							<div className="columns large-10 small-6 medium-6">
+								<input type='checkbox' defaultChecked={completed} onChange={onClickToggle} />
+								<span> {text} </span><br/>
+								<span className="todo-subtext">{renderDate()}</span>
+								<ul className='tag-list'>
+									<button className ="tag button tiny alert">label1</button>
+									<button className ="tag button tiny warning">label2</button>
+									<button className ="tag button tiny success">label3</button>
+									<button className ="tag button tiny success" onClick={onClickNewTag}> + </button>
+								</ul>
+							</div>
+							<div className="columns uncentered small-6 medium-6 large-2">
+								<div className="button expanded warning button-edit" onClick={onClickEdit}>edit</div>
+								<div className="button expanded alert button-remove" onClick={onClickDelete}>remove</div>
+
+							</div>
+
+
 					</div>
-				</div>
-				<div className="columns uncentered small-2 medium-2 large-2">
-					<div className="button expanded" onClick={onClickDelete}>remove</div>
-				</div>
+
 			</div>
 		);
 	}
