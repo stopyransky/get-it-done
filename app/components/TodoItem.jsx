@@ -38,7 +38,7 @@ export class TodoItem extends React.Component {
 			console.log("new tag action goes here");
 		}
 		return (
-			<div className="row expanded align-middle">
+			// <div className="row expanded align-middle">
 
 					<div className={todoClassName} /*onClick={onClickToggle}*/>
 							<div className="columns large-10 small-6 medium-6">
@@ -46,10 +46,10 @@ export class TodoItem extends React.Component {
 								<span> {text} </span><br/>
 								<span className="todo-subtext">{renderDate()}</span>
 								<ul className='tag-list'>
-									<button className ="tag button tiny alert">label1</button>
-									<button className ="tag button tiny warning">label2</button>
-									<button className ="tag button tiny success">label3</button>
-									<button className ="tag button tiny success" onClick={onClickNewTag}> + </button>
+									<button className ="tag button small alert">label1</button>
+									<button className ="tag button small warning">label2</button>
+									<button className ="tag button small success">label3</button>
+									<button className ="tag button small success" onClick={onClickNewTag}> + </button>
 								</ul>
 							</div>
 							<div className="columns uncentered small-6 medium-6 large-2">
@@ -61,7 +61,7 @@ export class TodoItem extends React.Component {
 
 					</div>
 
-			</div>
+			// </div>
 		);
 	}
 }

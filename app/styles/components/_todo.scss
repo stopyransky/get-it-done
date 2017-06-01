@@ -2,9 +2,11 @@
 	display : flex;
 	cursor : pointer;
 	align-items : center;
+	margin-top : 1rem;
 	padding : 1rem;
 	transition : background .3s ease;
 	font-size : 1.2rem;
+	border : 1px solid #eeeeee;
 	p, input{
 		margin : 0;
 	}

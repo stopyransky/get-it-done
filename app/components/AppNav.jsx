@@ -2,7 +2,7 @@ var React = require("react");
 var {Link, IndexLink} = require("react-router");
 
 var AppNav = React.createClass({
-	
+
 	onSearch : function( e ) {
 		e.preventDefault();
 		var location = this.refs.search.value;
@@ -21,7 +21,7 @@ var AppNav = React.createClass({
 
 	render : function() {
 		return (
-	
+
 		<nav className ="top-bar" data-topbar role="navigation">
 			<div className="top-bar-left">
 				<ul className ="menu">
@@ -31,12 +31,10 @@ var AppNav = React.createClass({
 					<li><Link to="/countdown" activeClassName="active-link" >Countdown</Link></li>
 					<li><Link to="/weather" activeClassName="active-link" >Weather</Link></li>
 					<li><Link to="/todo" activeClassName="active-link" >ToDo</Link></li>
-		        	<li><Link to="/examples" activeClassName="active-link" >Examples</Link></li>
-		        	<li><Link to="/about" activeClassName="active-link" >About</Link></li>
 				</ul>
 			</div>
 			<div className="top-bar-right">
-			
+
 				<form onSubmit={this.onSearch}>
 					<ul className="menu">
 						<li><a href="https://github.com/stopyransky/react-from-scratch" target="_blank">

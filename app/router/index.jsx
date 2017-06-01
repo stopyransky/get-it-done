@@ -7,8 +7,8 @@ import firebase from './../firebase/index.js';
 var App = require('App');
 var Weather = require("Weather");
 var Greeter = require("Greeter");
-var Examples  = require("Examples");
-var About = require('AppAbout');
+// var Examples  = require("Examples");
+// var About = require('AppAbout');
 var Home = require('AppHome');
 var Timer = require('Timer');
 var Countdown = require('Countdown');
@@ -39,9 +39,9 @@ export default (
 			<Route path="timer" 	component={Timer} />
 			<Route path="countdown" component={Countdown} />
 			<Route path="weather" 	component={Weather} />
-			<Route path="examples" 	component={Examples}/>
+			{/* <Route path="examples" 	component={Examples}/> */}
 			<Route path="todo" 		component={TodoApp} onEnter={requireLogin}/>
-			<Route path="about" 	component={About} />
+			{/* <Route path="about" 	component={About} /> */}
 		</Route>
 	</Router>
 );
