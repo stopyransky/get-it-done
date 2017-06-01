@@ -6,12 +6,12 @@ import firebase from './../firebase/index.js';
 
 var App = require('App');
 var Weather = require("Weather");
-var Greeter = require("Greeter");
+// var Greeter = require("Greeter");
 // var Examples  = require("Examples");
 // var About = require('AppAbout');
 var Home = require('AppHome');
-var Timer = require('Timer');
-var Countdown = require('Countdown');
+// var Timer = require('Timer');
+// var Countdown = require('Countdown');
 // var AppNav = require("AppNav");
 
 var requireLogin = (nextState, replace, next) => {
@@ -35,9 +35,9 @@ export default (
 		<Route path="/" component={App} >
 			<IndexRoute component={TodoLogin} onEnter={redirectIfLogin}/>
 			<Route path="home"		component={Home} />
-			<Route path="greeter" 	component={Greeter} />
-			<Route path="timer" 	component={Timer} />
-			<Route path="countdown" component={Countdown} />
+			{/*<Route path="greeter" 	component={Greeter} />*/}
+			{/*<Route path="timer" 	component={Timer} />*/}
+			{/*<Route path="countdown" component={Countdown} />*/}
 			<Route path="weather" 	component={Weather} />
 			{/* <Route path="examples" 	component={Examples}/> */}
 			<Route path="todo" 		component={TodoApp} onEnter={requireLogin}/>

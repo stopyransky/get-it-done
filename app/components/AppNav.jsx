@@ -26,9 +26,6 @@ var AppNav = React.createClass({
 			<div className="top-bar-left">
 				<ul className ="menu">
 					<li className="menu-text"><IndexLink to="/"><span>React App!</span></IndexLink></li>
-					<li><Link to="/greeter" activeClassName="active-link" >Greeter</Link></li>
-					<li><Link to="/timer" activeClassName="active-link" >Timer</Link></li>
-					<li><Link to="/countdown" activeClassName="active-link" >Countdown</Link></li>
 					<li><Link to="/weather" activeClassName="active-link" >Weather</Link></li>
 					<li><Link to="/todo" activeClassName="active-link" >ToDo</Link></li>
 				</ul>

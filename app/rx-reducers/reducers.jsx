@@ -32,6 +32,17 @@ export var todosReducer = (state = [], action) => {
 				...state,
 				...action.todos
 			];
+		case "TOGGLE_EDIT_TODO" : 
+			return state.map((todo) => {
+				if(todo.id === action.id) {
+					return {
+						...todo,
+						...action.editMode
+					}
+				} else {
+					return todo;
+				}
+			});
 		case "UPDATE_TODO" :
 			return state.map((todo) => {
 				if(todo.id === action.id) {
@@ -40,7 +51,7 @@ export var todosReducer = (state = [], action) => {
 						...action.updates
 					}
 				} else {
-				return todo;
+					return todo;
 				}
 			});
 		case "DELETE_TODO" :

@@ -13,6 +13,11 @@ import * as actions from 'actions';
 
 export class TodoApp extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.onLogout = this.onLogout.bind(this);
+    }
+    
     onLogout (e) {
         var {dispatch} = this.props;
         e.preventDefault();
@@ -24,7 +29,7 @@ export class TodoApp extends React.Component {
 		return (
             <div>
                 <div className="row page-actions">
-                    <a href="#" onClick ={this.onLogout.bind(this)}>Logout</a>
+                    <a href="#" onClick ={this.onLogout}>Logout</a>
                 </div>
                 <div className ="row">
                     <div className="columns small-centered medium-uncentered large-uncentered small-12 medium-4 large-4">

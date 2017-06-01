@@ -24,6 +24,7 @@ export var startAddTodo = (text) => {
 			createdAt : moment().unix(),
 			completedAt : null
 		};
+
 		var uid = getState().auth.uid;
 		var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo);
 
@@ -63,6 +64,13 @@ export var startAddTodos = () => {
 	}
 };
 
+export var toggleEditTodo = (id, editMode ) => {
+	return {
+		type: "TOGGLE_EDIT_TODO",
+		id,
+		editMode
+	}
+}
 
 export var deleteTodo = (id) => {
 	return {
