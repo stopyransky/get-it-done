@@ -37,6 +37,9 @@ export class TodoSearch extends React.Component {
 						show completed todos
 					</label>
 				</div>
+				<div>
+					tag cloud goes here
+				</div>
 			</div>
 		);
 	}

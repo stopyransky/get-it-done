@@ -18,7 +18,7 @@ module.exports = {
     'script-loader!jquery/dist/jquery.min.js',
     'script-loader!foundation-sites/dist/foundation.min.js',
     // own start point
-    './app/main.jsx',
+    './src/main.jsx',
   ],
   externals : {
     jquery : 'jQuery'
@@ -67,16 +67,20 @@ module.exports = {
       modules : [
         //root: path.resolve(__dirname),
         'node_modules',
-        'app/components'
+        'src/api',
+        'src/components',
+        'src/redux',
+        'playground/components'
+        
       ],
 
     alias : {
-      OpenWeatherApi  : path.resolve('./app/api/OpenWeatherApi.jsx'),
-      TodoAPI : path.resolve('./app/api//TodoAPI.jsx'),
-      actions : path.resolve('./app/rx-actions/actions.jsx'),
-      reducers : path.resolve('./app/rx-reducers/reducers.jsx'),
-      store : path.resolve("./app/rx-store/configureStore.jsx"),
-      mainStyles : path.resolve('./app/styles/main.scss')
+      // OpenWeatherApi  : path.resolve('./src/api/OpenWeatherApi.jsx'),
+      // TodoAPI : path.resolve('./src/api//TodoAPI.jsx'),
+      // actions : path.resolve('./app/rx-actions/actions.jsx'),
+      // reducers : path.resolve('./app/rx-reducers/reducers.jsx'),
+      // store : path.resolve("./app/rx-store/configureStore.jsx"),
+      mainStyles : path.resolve('./src/styles/main.scss')
     },
     // not need to put extensions in require
     extensions: [ '.js', '.jsx' ]
