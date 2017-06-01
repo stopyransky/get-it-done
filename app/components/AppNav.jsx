@@ -28,6 +28,7 @@ var AppNav = React.createClass({
 					<li className="menu-text"><IndexLink to="/"><span>React App!</span></IndexLink></li>
 					<li><Link to="/weather" activeClassName="active-link" >Weather</Link></li>
 					<li><Link to="/todo" activeClassName="active-link" >ToDo</Link></li>
+
 				</ul>
 			</div>
 			<div className="top-bar-right">
@@ -36,8 +37,8 @@ var AppNav = React.createClass({
 					<ul className="menu">
 						<li><a href="https://github.com/stopyransky/react-from-scratch" target="_blank">
 						<img src='assets/github-32.png' width='32' height='32'/></a></li>
-						<li><input type="search" ref="search" placeholder="Search weather by city"/></li>
-						<li><input type="submit" className="button" value="Get Weather"/></li>
+						{/*<li><input type="search" ref="search" placeholder="Search weather by city"/></li>
+						<li><input type="submit" className="button" value="Get Weather"/></li>*/}
 					</ul>
 				</form>
 			</div>
