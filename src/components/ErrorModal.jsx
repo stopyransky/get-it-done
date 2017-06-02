@@ -35,9 +35,7 @@ var ErrorModal = React.createClass({
 	},
 	
 	render : function() {
-		return (
-			<div></div>
-		)
+		return (<div></div>);
 	}
 });
 

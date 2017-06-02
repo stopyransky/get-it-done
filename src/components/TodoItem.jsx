@@ -11,10 +11,32 @@ export class TodoItem extends React.Component {
 	constructor(props) {
 		super(props);
 		this.onSaveEdit = this.onSaveEdit.bind(this);
+		this.onClickToggle = this.onClickToggle.bind(this);
+		this.onClickDelete = this.onClickDelete.bind(this);
+		this.onClickEdit = this.onClickEdit.bind(this);
+		this.onClickNewTag = this.onClickNewTag.bind(this);
 	}
 
 	onSaveEdit() {
 		console.log("edit saved");
+	}
+	
+	onClickToggle() {
+		/* this.props.onToggle(id)} */
+		dispatch(actions.startToggleTodo(id, !completed))
+	}
+
+	onClickDelete() {
+		dispatch(actions.startDeleteTodo(id));
+	}
+	
+	onClickEdit(id, updates) {
+		console.log("edit action goes here");
+		// dispatch(actions.toggleEditTodo(id,!editMode));
+	}
+
+	onClickNewTag() {
+		console.log("new tag action goes here");
 	}
 
 	render() {
@@ -43,9 +65,9 @@ export class TodoItem extends React.Component {
 
 		var renderEditButton = () => {
 			if(editMode) {
-				return <div className="button expanded hollow success button-save" onClick={onClickEdit}>save</div>;
+				return <div className="button expanded hollow success button-save" onClick={this.onClickEdit}>save</div>;
 			} else {
-				return <div className="button expanded hollow warning button-edit" onClick={onClickEdit}>edit</div>;
+				return <div className="button expanded hollow warning button-edit" onClick={this.onClickEdit}>edit</div>;
 			}
 		}
 
@@ -55,51 +77,30 @@ export class TodoItem extends React.Component {
 					<button className ="tag button small alert">label1</button>
 					<button className ="tag button small warning">label2</button>
 					<button className ="tag button small success">label3</button>
-					<button className ="tag button small success" onClick={onClickNewTag}> + </button>
+					<button className ="tag button small success" onClick={this.onClickNewTag}> + </button>
 				</ul>
 			);
 		}
 
-		var onClickToggle = ()=> {
-			/* this.props.onToggle(id)} */
-			dispatch(actions.startToggleTodo(id, !completed))
-		};
-
-		var onClickDelete = () => {
-			dispatch(actions.startDeleteTodo(id));
-		};
-		var onClickEdit = (id, updates) => {
-			console.log("edit action goes here");
-			// dispatch(actions.toggleEditTodo(id,!editMode));
-		}
-
-		var onClickNewTag = () => {
-			console.log("new tag action goes here");
-		}
-
 		return (
-				<div className={todoClassName} /*onClick={onClickToggle}*/>
-					<div className="columns large-8 small-6 medium-6">
-						<input type='checkbox' defaultChecked={completed} onChange={onClickToggle} />
-						{renderTodo()}
-						<br />
-						<span className="todo-subtext">{renderDate()}</span>
-						{renderTagList()}
-						<br/>
-					</div>
-					<div className="columns uncentered small-6 medium-6 large-2">
-						{ renderEditButton() }
-						<div className="button expanded hollow alert button-remove" onClick={onClickDelete}>remove</div>
-					</div>
+			<div className={todoClassName} /*onClick={onClickToggle}*/>
+				<div className="columns large-8 small-6 medium-6">
+					<input type='checkbox' defaultChecked={completed} onChange={this.onClickToggle} />
+					{renderTodo()}
+					<br />
+					<span className="todo-subtext">{renderDate()}</span>
+					{renderTagList()}
+					<br/>
 				</div>
-			);
+				<div className="columns uncentered small-6 medium-6 large-2">
+					{ renderEditButton() }
+					<div className="button expanded hollow alert button-remove" onClick={this.onClickDelete}>remove</div>
+				</div>
+			</div>
+		);
 
 		}
 
 }
 // by default exporting redux-connected TodoItem
 export default connect()(TodoItem);
-
-
-// import TodoItem from 'TodoItem'; // refers to default export (linked to redux)
-// import {TodoItem as RawTodoItem} from 'TodoItem'; // refers to raw class
