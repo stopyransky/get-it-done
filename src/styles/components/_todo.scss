@@ -6,7 +6,8 @@
 	padding : 1rem;
 	transition : background .3s ease;
 	font-size : 1.2rem;
-	border : 1px solid #eeeeee;
+	border : 1px solid #d0d0d0;
+	justify-content: space-between;
 	p, input{
 		margin : 0;
 	}
@@ -16,6 +17,9 @@
 
 	&:hover { // same as .todo:hover
 		background: #f0f0f0;
+	}
+	ul {
+		margin: 0px;
 	}
 }
 

@@ -10,29 +10,34 @@ export class TodoItem extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onSaveEdit = this.onSaveEdit.bind(this);
 		this.onClickToggle = this.onClickToggle.bind(this);
 		this.onClickDelete = this.onClickDelete.bind(this);
-		this.onClickEdit = this.onClickEdit.bind(this);
 		this.onClickNewTag = this.onClickNewTag.bind(this);
+		this.onSaveEdit = this.onSaveEdit.bind(this);
+		this.state = {
+			editMode : false
+		}
 	}
 
-	onSaveEdit() {
-		console.log("edit saved");
-	}
-	
 	onClickToggle() {
-		/* this.props.onToggle(id)} */
+		var { id, completed, dispatch } = this.props;
 		dispatch(actions.startToggleTodo(id, !completed))
 	}
 
 	onClickDelete() {
+		var { id, dispatch } = this.props;
 		dispatch(actions.startDeleteTodo(id));
 	}
 	
-	onClickEdit(id, updates) {
-		console.log("edit action goes here");
-		// dispatch(actions.toggleEditTodo(id,!editMode));
+	onSaveEdit() {
+		var { id, dispatch } = this.props;
+		var newText = this.refs.newText.value;
+		this.refs.newText = "";
+		dispatch(actions.startUpdateTodo(id, { text: newText }))
+		this.setState({
+			editMode: false
+		});
+							
 	}
 
 	onClickNewTag() {
@@ -41,17 +46,31 @@ export class TodoItem extends React.Component {
 
 	render() {
 		// dispatch comes from redux.connect
-		var {id, text, completed, createdAt, completedAt, editMode, dispatch } = this.props;
+		var {id, text, completed, createdAt, completedAt, dispatch } = this.props;
 
 		var todoClassName = completed ? 'todo todo-completed' : 'todo todo-inprogress';
 		todoClassName = todoClassName+' columns uncentered small-12 medium-12 large-12';
 
 		var renderTodo = () => {
-			if(editMode) {
-				return <input type="text" value={text} />;
+			if(this.state.editMode) {
+				return (
+					<form onSubmit={this.onSaveEdit} >
+						<input className="edit-text"
+							type="text" 
+							defaultValue={text} 
+							ref="newText"
+							/>
+					</form>
+				);
+
+					
 			} else {
-				return <span> {text} </span>;
-			}
+				return <div onClick={()=>{
+								this.setState( {
+									editMode : true
+								})
+							}}> {text} </div>
+			}   
 		}
 		var renderDate = () => {
 			var message = 'Created ';
@@ -64,35 +83,44 @@ export class TodoItem extends React.Component {
 		}
 
 		var renderEditButton = () => {
-			if(editMode) {
-				return <div className="button expanded hollow success button-save" onClick={this.onClickEdit}>save</div>;
+			if(this.state.editMode) {
+				return <div className="button expanded hollow success button-save" 
+							onClick={this.onSaveEdit}>save
+					   </div>;
 			} else {
-				return <div className="button expanded hollow warning button-edit" onClick={this.onClickEdit}>edit</div>;
+				return <div className="button expanded hollow warning button-edit" 
+							onClick={()=>{
+								this.setState( {
+									editMode : true
+								})
+							}}>edit</div>;
 			}
 		}
 
 		var renderTagList = () => {
 			return (
 				<ul className='tag-list'>
-					<button className ="tag button small alert">label1</button>
-					<button className ="tag button small warning">label2</button>
-					<button className ="tag button small success">label3</button>
-					<button className ="tag button small success" onClick={this.onClickNewTag}> + </button>
+					<button className ="tag button hollow small alert"> label1 </button>
+					<button className ="tag button hollow small warning"> label2 </button>
+					<button className ="tag button hollow small success"> label3 </button>
+					<button className ="tag button hollow small success" onClick={this.onClickNewTag}> + </button>
 				</ul>
 			);
 		}
 
 		return (
 			<div className={todoClassName} /*onClick={onClickToggle}*/>
-				<div className="columns large-8 small-6 medium-6">
+				<div className="columns small-1 medium-1 large-1">
 					<input type='checkbox' defaultChecked={completed} onChange={this.onClickToggle} />
+				</div>
+				<div className="columns small-9 medium-9 large-9" >
 					{renderTodo()}
 					<br />
 					<span className="todo-subtext">{renderDate()}</span>
 					{renderTagList()}
 					<br/>
 				</div>
-				<div className="columns uncentered small-6 medium-6 large-2">
+				<div className="columns small-2 medium-2 large-2">
 					{ renderEditButton() }
 					<div className="button expanded hollow alert button-remove" onClick={this.onClickDelete}>remove</div>
 				</div>

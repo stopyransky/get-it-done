@@ -89,6 +89,15 @@ export  var startDeleteTodo = (id) => {
 	}
 };
 
+export var startUpdateTodo = (id, updates) => {
+	return ( dispatch, getState) => {
+		var uuid = getState().auth.uid;
+		var todoRef = firebaseRef.child(`users/${uuid}/todos/${id}`);
+		return todoRef.update(updates).then( () => {
+			dispatch(updateTodo(id,updates));
+		})
+	}
+}
 export var updateTodo = (id, updates) => {
 	return {
 		type: "UPDATE_TODO",

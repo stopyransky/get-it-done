@@ -32,10 +32,8 @@ export class TodoApp extends React.Component {
                     <a href="#" onClick ={this.onLogout}>Logout</a>
                 </div>
                 <div className ="row">
-                    <div className="columns small-centered medium-uncentered large-uncentered small-12 medium-4 large-4">
+                    <div className="columns small-centered medium-uncentered large-uncentered  small-12 medium-12 large-12">
                         <TodoSearch/>
-                    </div>
-                    <div className="columns small-centered medium-uncentered large-uncentered  small-12 medium-8 large-8">
                         <TodoAdd/>
                         <TodoList/>
                     </div>

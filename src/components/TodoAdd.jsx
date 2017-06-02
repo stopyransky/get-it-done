@@ -12,7 +12,7 @@ export class TodoAdd extends React.Component {
 
 		var { dispatch } = this.props;
 		var newTodo = _.capitalize(this.refs.newTodo.value);
-
+		// var dueDte = this.refs.dueDate.value;
 		if(newTodo.length > 0) {
 			this.refs.newTodo.value = "";
 			// this.props.onAddTodo(newTodo);
@@ -27,6 +27,7 @@ export class TodoAdd extends React.Component {
 			<div id="todoAddForm" className="container__footer">
 				<form onSubmit={this.onFormSubmit.bind(this)}>
 					<input type='text' ref='newTodo' placeholder="Enter new todo..."/>
+					{/*<input type='date' ref='dueDate'/>*/}
 					<button className="button expanded">Add Todo</button>
 				</form>
 			</div>
