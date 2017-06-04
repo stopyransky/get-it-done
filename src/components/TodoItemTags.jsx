@@ -16,7 +16,7 @@ export class TodoItemTags extends React.Component {
     }
 
     onFilterByTag() {
-        console.log("filter by tag action goes here",e);
+        console.log("filter by tag action goes here");
     }
 
     onRemoveTag() {
