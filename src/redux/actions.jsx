@@ -15,14 +15,16 @@ export var addTodo = (todo) => {
 	}
 };
 
-export var startAddTodo = (text) => {
+export var startAddTodo = (newTodo) => {
 	return (dispatch, getState) => {
 		var todo = {
 			// id: uuid(), //added by firebase now
-			text,
+			text : newTodo.text,
 			completed : false,
 			createdAt : moment().unix(),
-			completedAt : null
+			completedAt : null,
+			tags : newTodo.tags,
+			dueDate : newTodo.dueDate
 		};
 
 		var uid = getState().auth.uid;

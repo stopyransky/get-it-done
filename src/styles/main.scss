@@ -25,5 +25,12 @@ div {
 }
 
 .tag {
+	padding-left: 2px;
+	padding-right: 2px;
+	margin: 0px;
+}
+
+.tag-content, .tag-remove, .tag-add {
 	padding: 5px;
+	margin: 0px;
 }

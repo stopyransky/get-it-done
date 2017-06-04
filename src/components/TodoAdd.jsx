@@ -2,23 +2,41 @@ import React from 'react';
 import {connect} from "react-redux";
 import * as actions from 'actions';
 import * as _ from 'lodash';
-
+import moment from 'moment';
 
 export class TodoAdd extends React.Component {
 
 	onFormSubmit( e ) {
 		e.preventDefault();
-// dispatch is available in props because TodoAdd component was passed via redux connect method when exporting
 
 		var { dispatch } = this.props;
-		var newTodo = _.capitalize(this.refs.newTodo.value);
-		// var dueDte = this.refs.dueDate.value;
-		if(newTodo.length > 0) {
-			this.refs.newTodo.value = "";
-			// this.props.onAddTodo(newTodo);
+		var tagRef = this.refs.tags.value.split(",");
+		var tags=[];
+		
+		
+		if(tagRef) {
+			tags = tagRef.map((tag)=> tag.trim());
+		}
+		
+		// var dueDateRef = this.refs.dueDate.value; 
+		// var dueDate = "";
+		// if(dueDateRef) {
+		// 	dueDate = dueDateRef;
+		// }
+		
+		var newTodo = {
+			text: _.capitalize(this.refs.text.value),
+			dueDate : moment(this.refs.dueDate.value, "YYYY-MM-DD").unix() || "",
+			tags 
+		} 
+
+		if(newTodo.text.length > 0) {
+			this.refs.text.value = "";
+			this.refs.dueDate.value="";
+			this.refs.tags.value="";
 			dispatch(actions.startAddTodo(newTodo))
 		} else {
-			this.refs.newTodo.focus();
+			this.refs.text.focus();
 		}
 	}
 
@@ -26,8 +44,9 @@ export class TodoAdd extends React.Component {
 		return (
 			<div id="todoAddForm" className="container__footer">
 				<form onSubmit={this.onFormSubmit.bind(this)}>
-					<input type='text' ref='newTodo' placeholder="Enter new todo..."/>
-					{/*<input type='date' ref='dueDate'/>*/}
+					<input type='text' ref='text' placeholder="Enter new todo..."/>
+					<input type='date' ref='dueDate'/>
+					<input type="text" ref='tags' />
 					<button className="button expanded">Add Todo</button>
 				</form>
 			</div>
