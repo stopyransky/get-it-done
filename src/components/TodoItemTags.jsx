@@ -41,8 +41,8 @@ class TodoItemTags extends React.Component {
     }
 
     passRemoveTag(index) {
-        console.log("remove tag action goes here");
-        if(this.props.tags[index]) {
+        // console.log("remove tag action goes here");
+        if(this.props.tags[index] || this.props.tags[index] === "") {
             this.props.onRemoveTag(index);
             this.setState({
                 toggleOnRemove : !this.state.toggleOnRemove

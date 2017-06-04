@@ -9,10 +9,12 @@ try {
 	};
 
 	firebase.initializeApp(config);
+
 } catch(e) {
 
 }
 
 export var githubProvider = new firebase.auth.GithubAuthProvider();
+export var facebookProvider = new firebase.auth.FacebookAuthProvider();
 export var firebaseRef = firebase.database().ref();
 export default firebase;

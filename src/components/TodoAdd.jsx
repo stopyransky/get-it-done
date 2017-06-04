@@ -42,7 +42,8 @@ export class TodoAdd extends React.Component {
 
 	render() {
 		return (
-			<div id="todoAddForm" className="container__footer">
+			<div id="todoAddForm" 
+				className="columns large-8 medium-6 small-12">
 				<form onSubmit={this.onFormSubmit.bind(this)}>
 					<input type='text' ref='text' placeholder="Enter new todo..."/>
 					<input type='date' ref='dueDate'/>

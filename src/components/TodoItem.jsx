@@ -54,15 +54,28 @@ export class TodoItem extends React.Component {
 	submitNewTag( newTag ) {
 		var { id, dispatch } = this.props;
 		var tags = this.props.tags || [];
-		tags.push(newTag);
-		var newTags = [ ...tags ];
 
-		dispatch(actions.startUpdateTodo(id, { tags : newTags}));
+		// prevent adding empty inputs
+		if(newTag.length > 0) {
+
+			// check duplicates
+			if(tags.length > 0) {
+				tags.forEach((tag)=>{
+					if(tag === newTag) return;
+				});
+
+			}
+			tags.push(newTag);
+			var newTags = [ ...tags ];
+			dispatch(actions.startUpdateTodo(id, { tags : newTags}));
+		}
+		
 	}
 
 	submitRemoveTag(index) {
 		var { id, dispatch, tags} = this.props;
-		if(tags[index]) {
+		console.log(tags[index]);
+		if(tags[index] || tags[index] === "") {
 			tags.splice(index,1);
 		}
 
