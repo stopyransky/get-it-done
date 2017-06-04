@@ -20,6 +20,14 @@ export var showCompletedReducer = (state = false, action) => {
 	}
 };
 
+export var filterByTagReducer = (state="", action) => {
+	switch (action.type) {
+		case "FILTER_BY_TAG" :
+			return action.tag;
+		default : return state;
+	}
+}
+
 export var todosReducer = (state = [], action) => {
 	switch(action.type) {
 		case "ADD_TODO" :

@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import moment from 'moment';
 
 import * as actions from "actions";
-// import TodoItemEdit from 'TodoItemEdit';
+import TodoItemTags from 'TodoItemTags';
 
 // exporting raw React component for testing purposes
 export class TodoItem extends React.Component {
@@ -12,9 +12,9 @@ export class TodoItem extends React.Component {
 		super(props);
 		this.onClickToggle = this.onClickToggle.bind(this);
 		this.onClickDelete = this.onClickDelete.bind(this);
-		this.onClickNewTag = this.onClickNewTag.bind(this);
-		this.onFilterByTag = this.onFilterByTag.bind(this);
-		this.onRemoveTag = this.onRemoveTag.bind(this);
+		// this.onClickNewTag = this.onClickNewTag.bind(this);
+		// this.onFilterByTag = this.onFilterByTag.bind(this);
+		// this.onRemoveTag = this.onRemoveTag.bind(this);
 		
 		this.onSaveEdit = this.onSaveEdit.bind(this);
 		
@@ -45,18 +45,6 @@ export class TodoItem extends React.Component {
 							
 	}
 
-	onClickNewTag() {
-		console.log("add new tag action goes here");
-	}
-
-	onFilterByTag(e) {
-		console.log("filter by tag action goes here",e);
-	} 
-
-	onRemoveTag() {
-		console.log("remove tag action goes here");
-	}
-
 	render() {
 		// dispatch comes from redux.connect
 		var { id, 
@@ -71,7 +59,7 @@ export class TodoItem extends React.Component {
 		var todoClassName = completed ? 'todo todo-completed' : 'todo todo-inprogress';
 		todoClassName = todoClassName+' columns uncentered small-12 medium-12 large-12';
 
-		var renderTodo = () => {
+		var renderTodoText = () => {
 			if(this.state.editMode) {
 				return (
 					<form onSubmit={this.onSaveEdit} >
@@ -92,6 +80,7 @@ export class TodoItem extends React.Component {
 					}}> {text} </div>
 			}   
 		}
+		
 		var renderDate = () => {
 			var message = 'Created ';
 			var timestamp = createdAt;
@@ -127,7 +116,7 @@ export class TodoItem extends React.Component {
 			}
 		}
 
-		var renderTagList = () => {
+		/*var renderTagList = () => {
 			var listItems =[];
 
 			if(tags) {
@@ -152,24 +141,23 @@ export class TodoItem extends React.Component {
 				</div>);
 				
 			return <ul className='tag-list'>{listItems}</ul>;
-		}
+		}*/
 
 
 		return (
-			<div className={todoClassName} /*onClick={onClickToggle}*/>
+			<div className={todoClassName} >
 				<div className="columns small-1 medium-1 large-1">
 					<input type='checkbox' defaultChecked={completed} onChange={this.onClickToggle} />
 				</div>
-				<div className="columns small-9 medium-9 large-9" >
-					{renderTodo()}
+				<div className="columns small-8 medium-8 large-8" >
+					{renderTodoText()}
 					<br />
-					<span className="todo-subtext">{renderDate()}</span>
+					<span className="todo-subtext">{renderDate()}. {renderDueDate()}</span>
 					<br />
-					<span className="todo-subtext">{renderDueDate()}</span>
-					{renderTagList()}
-					<br/>
+					{/*{renderTagList()}*/}
+					<TodoItemTags tags={tags}/>
 				</div>
-				<div className="columns small-2 medium-2 large-2">
+				<div className="columns small-3 medium-3 large-3">
 					{ renderEditButton() }
 					<div className="button expanded hollow alert button-remove" onClick={this.onClickDelete}>remove</div>
 				</div>

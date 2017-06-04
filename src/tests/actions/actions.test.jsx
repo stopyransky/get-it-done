@@ -6,6 +6,7 @@ import * as actions from 'actions';
 var createMockStore = configureMockStore([thunk]);
 
 import firebase, {firebaseRef} from './../../firebase/index.js'
+
 describe("Actions", () => {
 	it('should generate search text action', () => {
 		var action = {
@@ -101,6 +102,7 @@ describe("Actions", () => {
 		var uid;
 
 		beforeEach((done)=>{
+
 			firebase.auth().signInAnonymously().then((user)=> {
 
 				uid = user.uid;
@@ -112,7 +114,9 @@ describe("Actions", () => {
 				return testTodoRef.set({
 					text: 'Something to do',
 					completed : false,
-					createdAt : 1245453
+					createdAt : 1245453,
+					dueDate : "",
+					tags : []
 				});
 			})
 			.then(()=> done())
@@ -159,14 +163,19 @@ describe("Actions", () => {
 		it('should create todo and dispatch ADD_TODO', (done) => {
 
 			const store = createMockStore({ auth: {uid} });
-			const todoText = 'My new todo item';
 
-			store.dispatch(actions.startAddTodo(todoText)).then(() => {
+			const todoItem = {
+				text : 'My new todo item',
+				dueDate : "2015-12-12",
+				tags : []
+			}
+
+			store.dispatch(actions.startAddTodo(todoItem)).then(() => {
 				const actions = store.getActions();
 				expect(actions).toExist();
-				console.log('actions', actions[0]);
+				console.log('actions', typeof actions[0]);
 				expect(actions[0]).toInclude({'type': 'ADD_TODO'});
-				expect(actions[0].todo).toInclude({'text': todoText});
+				expect(actions[0].todo).toInclude({'text': todoItem.todoText});
 				done();
 
 			}).catch(done);

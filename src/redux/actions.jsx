@@ -23,8 +23,8 @@ export var startAddTodo = (newTodo) => {
 			completed : false,
 			createdAt : moment().unix(),
 			completedAt : null,
-			tags : newTodo.tags,
-			dueDate : newTodo.dueDate
+			tags : newTodo.tags || [],
+			dueDate : newTodo.dueDate || ""
 		};
 
 		var uid = getState().auth.uid;
@@ -133,6 +133,13 @@ export var toggleShowCompleted = () => {
 		type : "TOGGLE_SHOW_COMPLETED"
 	}
 };
+
+export var filterByTag = (tag) => {
+	return {
+		type : "FILTER_BY_TAG",
+		tag
+	}
+}
 
 export var startLogin =  () => {
 	return (dispatch, getState) => {

@@ -8,17 +8,21 @@ module.exports = function(config) {
 		files: [
 			'node_modules/jquery/dist/jquery.min.js',
 			'node_modules/foundation-sites/dist/foundation.min.js',
-			'app/tests/**/*.test.jsx'
+			'src/tests/**/*.test.jsx'
 		],
 		preprocessors: {
-			'app/tests/**/*.test.jsx' : ['webpack', 'sourcemap']
+			'src/tests/**/*.test.jsx' : ['webpack', 'sourcemap']
 		},
 		reporters: ['mocha'], 
 		client  : {
 			mocha : {
-				timeout: '5000'
+				timeout: '50000',
 			}
 		},
+		captureTimeout: 60000, // it was already there
+		browserDisconnectTimeout : 10000,
+		browserDisconnectTolerance : 1,
+		browserNoActivityTimeout : 60000,//by default 10000
 		webpack : webpackConfig,
 		webpackServer : {
 			noInfo : true

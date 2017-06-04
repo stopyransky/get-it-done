@@ -10,23 +10,23 @@ export class TodoAdd extends React.Component {
 		e.preventDefault();
 
 		var { dispatch } = this.props;
-		var tagRef = this.refs.tags.value.split(",");
-		var tags=[];
+		var tagsRef = this.refs.tags.value.split(",");
+		var tags = [];
 		
 		
-		if(tagRef) {
-			tags = tagRef.map((tag)=> tag.trim());
+		if(tagsRef.length > 0) {
+			
+			tagsRef.forEach( ( tag )=> {
+				var t = tag.trim();
+				if(t) tags.push(t);
+			});
 		}
-		
-		// var dueDateRef = this.refs.dueDate.value; 
-		// var dueDate = "";
-		// if(dueDateRef) {
-		// 	dueDate = dueDateRef;
-		// }
+
+		// check due date input here
 		
 		var newTodo = {
 			text: _.capitalize(this.refs.text.value),
-			dueDate : moment(this.refs.dueDate.value, "YYYY-MM-DD").unix() || "",
+			dueDate : moment(this.refs.dueDate.value, "YYYY-MM-DD").unix(),
 			tags 
 		} 
 

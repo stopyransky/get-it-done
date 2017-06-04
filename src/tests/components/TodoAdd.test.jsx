@@ -5,7 +5,7 @@ var TestUtils = require('react-addons-test-utils');
 var $ = require('jquery');
 import * as actions from 'actions';
 import {TodoAdd} from 'TodoAdd';
-// var {TodoAdd} = require('TodoAdd');
+
 
 describe("TodoAdd", () => {
 	it("should exist", () => {
@@ -14,13 +14,19 @@ describe("TodoAdd", () => {
 
 	it("should dispatch ADD_TODO action when valid data", () =>{
 
-		var todoText ='check mail';
-		var action = actions.startAddTodo(todoText);
+		// var todoText ='check mail';
+		var todoItem = {
+			text : 'check mail',
+			dueDate : "2015-12-10",
+			tags : [],
+		}
+
+		var action = actions.startAddTodo(todoItem);
 		var spy = expect.createSpy();
 		var addTodo = TestUtils.renderIntoDocument(<TodoAdd dispatch={spy}/>);
 		var $el = $(ReactDOM.findDOMNode(addTodo));
 
-		addTodo.refs.newTodo.value = todoText;
+		addTodo.refs.text.value = todoItem.text;
 		TestUtils.Simulate.submit($el.find('form')[0]);
 
 		expect(spy).toHaveBeenCalledWith( action );
@@ -33,7 +39,7 @@ describe("TodoAdd", () => {
 		var addTodo = TestUtils.renderIntoDocument(<TodoAdd dispatch={spy}/>);
 		var $el = $(ReactDOM.findDOMNode(addTodo));
 
-		addTodo.refs.newTodo.value = todoText;
+		addTodo.refs.text.value = todoText;
 		TestUtils.Simulate.submit($el.find('form')[0]);
 
 		expect(spy).toNotHaveBeenCalled();

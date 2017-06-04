@@ -20,7 +20,7 @@ module.exports = {
 	//
 	// },
 
-	filterTodos: function(todos, showCompleted, searchText) {
+	filterTodos: function(todos, showCompleted, searchText /*, tagFilter*/) {
 		var filteredTodos= todos;
 
 		//filter by showCompleted
@@ -33,6 +33,11 @@ module.exports = {
 			var text = todo.text.toLowerCase();
 			return !searchText || text.indexOf(searchText.toLowerCase()) > -1;
 		} );
+
+		// filter by tag selected
+		// filteredTodos = filteredTodos.filter( (todo) => {
+		// 	return todo.tags.includes(tagFilter)
+		// } );
 
 		// sort todos with non-completed
 		filteredTodos.sort( function(a,b) {
