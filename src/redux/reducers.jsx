@@ -20,10 +20,22 @@ export var showCompletedReducer = (state = false, action) => {
 	}
 };
 
-export var filterByTagReducer = (state="", action) => {
-	switch (action.type) {
+export var filterByTagReducer = (state ="", action) => {
+	switch(action.type) {
 		case "FILTER_BY_TAG" :
 			return action.tag;
+		default :
+			return state;
+	}
+}
+
+export var tagReducer = (state=[], action) => {
+	switch (action.type) {
+		case "ADD_NEW_TAG" :
+			return [
+				...state,
+				action.newTag
+			]
 		default : return state;
 	}
 }

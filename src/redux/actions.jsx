@@ -139,7 +139,15 @@ export var filterByTag = (tag) => {
 		type : "FILTER_BY_TAG",
 		tag
 	}
-}
+};
+
+// export var addNewTag = (id, newTag) => {
+// 	return {
+// 		type : "ADD_NEW_TAG",
+// 		id,
+// 		newTag
+// 	}
+// }
 
 export var startLogin =  () => {
 	return (dispatch, getState) => {

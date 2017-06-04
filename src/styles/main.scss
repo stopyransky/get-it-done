@@ -16,6 +16,9 @@
 @import "components/page-actions";
 @import "components/callout-auth";
 
+input {
+	height: 1.8rem;
+}
 input[type=search] {
 	box-shadow :  none;
 }

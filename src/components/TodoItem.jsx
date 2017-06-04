@@ -12,10 +12,9 @@ export class TodoItem extends React.Component {
 		super(props);
 		this.onClickToggle = this.onClickToggle.bind(this);
 		this.onClickDelete = this.onClickDelete.bind(this);
-		// this.onClickNewTag = this.onClickNewTag.bind(this);
 		// this.onFilterByTag = this.onFilterByTag.bind(this);
-		// this.onRemoveTag = this.onRemoveTag.bind(this);
-		
+		this.submitNewTag =  this.submitNewTag.bind(this);
+		this.submitRemoveTag =  this.submitRemoveTag.bind(this);
 		this.onSaveEdit = this.onSaveEdit.bind(this);
 		
 		// state is not saved to db, for app only
@@ -34,15 +33,40 @@ export class TodoItem extends React.Component {
 		dispatch(actions.startDeleteTodo(id));
 	}
 	
-	onSaveEdit() {
+	onSaveEdit(e) {
+		e.preventDefault();
 		var { id, dispatch } = this.props;
 		var newText = this.refs.newText.value;
-		this.refs.newText = "";
-		dispatch(actions.startUpdateTodo(id, { text: newText }))
-		this.setState({
-			editMode: false
-		});
+		
+		if(newText.length > 0) {
+			this.refs.newText.value = "";
+			dispatch(actions.startUpdateTodo(id, { text: newText }))
+			this.setState({
+				editMode: false
+			});
+		} else {
+			this.refs.newText.focus();
+		}
+		
 							
+	}
+
+	submitNewTag( newTag ) {
+		var { id, dispatch } = this.props;
+		var tags = this.props.tags || [];
+		tags.push(newTag);
+		var newTags = [ ...tags ];
+
+		dispatch(actions.startUpdateTodo(id, { tags : newTags}));
+	}
+
+	submitRemoveTag(index) {
+		var { id, dispatch, tags} = this.props;
+		if(tags[index]) {
+			tags.splice(index,1);
+		}
+
+		dispatch(actions.startUpdateTodo(id, { tags : tags}));
 	}
 
 	render() {
@@ -116,33 +140,6 @@ export class TodoItem extends React.Component {
 			}
 		}
 
-		/*var renderTagList = () => {
-			var listItems =[];
-
-			if(tags) {
-				listItems = tags.map((tag,index) => {
-					if(tag) { 
-						return (
-							<div className="tag" key={index}  style={{display:"inline"}}>
-							<button className ="tag-content button hollow small alert collapse" 
-									onClick={this.onFilterByTag}>{tag}
-							</button>
-							<button className ="tag-remove button small alert collapse" onClick={this.onRemoveTag}> - </button>
-							</div>
-						);
-					}
-					return;
-				});
-			}
-
-			listItems.push(
-				<div key="-1" className="tag" style={{display:"inline"}}>
-					<button  className ="tag-add button hollow small success" onClick={this.onClickNewTag}> + </button>
-				</div>);
-				
-			return <ul className='tag-list'>{listItems}</ul>;
-		}*/
-
 
 		return (
 			<div className={todoClassName} >
@@ -155,7 +152,9 @@ export class TodoItem extends React.Component {
 					<span className="todo-subtext">{renderDate()}. {renderDueDate()}</span>
 					<br />
 					{/*{renderTagList()}*/}
-					<TodoItemTags tags={tags}/>
+					<TodoItemTags tags={tags} 
+						onNewTag={this.submitNewTag}
+						onRemoveTag={ this.submitRemoveTag}/>
 				</div>
 				<div className="columns small-3 medium-3 large-3">
 					{ renderEditButton() }
