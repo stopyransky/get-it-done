@@ -14,7 +14,7 @@
   },
   "author": "Karol Stopyra",
   "license": "MIT",
-  "repository": "https://github.com/stopyransky/react-from-scratch.git",
+  "repository": "https://github.com/stopyransky/get-it-done.git",
   "dependencies": {
     "axios": "^0.16.1",
     "babel-core": "^6.5.1",
