@@ -33,8 +33,8 @@ export class TodoLogin extends React.Component {
 				<div className="row">
 					<div className="columns small-centered small-10 medium-6 large-4">
 						<div className ="callout callout-auth">
-							<h3>Login</h3>
-							<p>Login with GitHub account below.</p>
+							{/*<h3>Login</h3>*/}
+							<p>Login with one of social accounts below.</p>
 							<button className="button" onClick={this.onLogin}>Login with GitHub</button>
 							<button className="button" onClick={this.onFacebookLogin}>Login with Facebook</button>
 							<button className="button" onClick={this.onTwitterLogin}>Login with Twitter</button>
