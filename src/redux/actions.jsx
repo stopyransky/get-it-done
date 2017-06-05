@@ -1,4 +1,8 @@
-import firebase, { firebaseRef, githubProvider } from './../firebase/index.js';
+import firebase, { 
+	firebaseRef, 
+	twitterProvider, 
+	facebookProvider, 
+	githubProvider } from './../firebase/index.js';
 import moment from 'moment';
 
 export var setSearchText = (searchText) => {
@@ -158,7 +162,24 @@ export var startLogin =  () => {
 		});
 	};
 };
-
+export var startFacebookLogin =  () => {
+	return (dispatch, getState) => {
+		return firebase.auth().signInWithPopup(facebookProvider).then((result)=>{
+			// console.log("auth worked", result);
+		}, (error)=>{
+			// console.log("unable to log", error);
+		});
+	};
+};
+export var startTwitterLogin =  () => {
+	return (dispatch, getState) => {
+		return firebase.auth().signInWithPopup(twitterProvider).then((result)=>{
+			// console.log("auth worked", result);
+		}, (error)=>{
+			// console.log("unable to log", error);
+		});
+	};
+};
 export var startLogout =  () => {
 	return (dispatch, getState) => {
 		return firebase.auth().signOut().then(()=>{
