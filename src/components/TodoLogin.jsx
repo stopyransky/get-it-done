@@ -6,19 +6,19 @@ export class TodoLogin extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onLogin=this.onLogin.bind(this);
+		this.onGithubLogin=this.onGithubLogin.bind(this);
 		this.onFacebookLogin=this.onFacebookLogin.bind(this);
 		this.onTwitterLogin=this.onTwitterLogin.bind(this);
 	}
 
-	onLogin() {
+	onGithubLogin() {
 		var {dispatch} = this.props;
 		dispatch(actions.startLogin());
 	}
 	onFacebookLogin() {
 		console.log("Facebook login action");
-		// var {dispatch} = this.props;
-		// dispatch(actions.startFacebookLogin());
+		var {dispatch} = this.props;
+		dispatch(actions.startFacebookLogin());
 	}
 	onTwitterLogin() {
 		console.log("Twitter login action");
@@ -32,12 +32,15 @@ export class TodoLogin extends React.Component {
 				<h1 className="page-title">TodoApp login</h1>
 				<div className="row">
 					<div className="columns small-centered small-10 medium-6 large-4">
+						<p>Login with one of social accounts below.</p>
 						<div className ="callout callout-auth">
 							{/*<h3>Login</h3>*/}
-							<p>Login with one of social accounts below.</p>
-							<button className="button" onClick={this.onLogin}>Login with GitHub</button>
-							<button className="button" onClick={this.onFacebookLogin}>Login with Facebook</button>
-							<button className="button" onClick={this.onTwitterLogin}>Login with Twitter</button>
+							
+							<button className="button" onClick={this.onGithubLogin}>
+								<img src="assets/github-48.png" /></button>
+							<button className="button" onClick={this.onFacebookLogin}>
+								<img src="assets/facebook-48.png" /></button>
+							{/*<button className="button" onClick={this.onTwitterLogin}>Login with Twitter</button>*/}
 						</div>
 					</div>
 				</div>

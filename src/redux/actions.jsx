@@ -159,15 +159,20 @@ export var startLogin =  () => {
 			// console.log("auth worked", result);
 		}, (error)=>{
 			// console.log("unable to log", error);
+			console.log("Unable to log with Github.", error.message || error);
 		});
 	};
 };
 export var startFacebookLogin =  () => {
 	return (dispatch, getState) => {
 		return firebase.auth().signInWithPopup(facebookProvider).then((result)=>{
-			// console.log("auth worked", result);
+			 // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+			//var token = result.credential.accessToken;
+			// The signed-in user info.
+			//var user = result.user;
+			// console.log("login with facebook successful")
 		}, (error)=>{
-			// console.log("unable to log", error);
+			console.log("Unable to log with Facebook.", error.message || error);
 		});
 	};
 };
@@ -177,6 +182,7 @@ export var startTwitterLogin =  () => {
 			// console.log("auth worked", result);
 		}, (error)=>{
 			// console.log("unable to log", error);
+			console.log("Unable to log with Twitter.", error.message || error);
 		});
 	};
 };
