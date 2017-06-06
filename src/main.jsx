@@ -30,7 +30,8 @@ require('style-loader!css-loader!sass-loader!mainStyles');
 const element = (
 	<Provider store={store}>
 		{router}
-	</Provider>);
+	</Provider>
+);
 
 const container = document.getElementById("container");
 

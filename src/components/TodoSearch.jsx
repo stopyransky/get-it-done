@@ -33,7 +33,7 @@ export class TodoSearch extends React.Component {
 						ref="showCompleted"
 						checked={showCompleted}
 						onChange={onChangeShowCompleted}/>
-					Show completed todos
+					include completed
 				</label>
 			</div>
 		);

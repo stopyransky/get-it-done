@@ -23,7 +23,7 @@ export class TodoList extends React.Component {
 			});
 		}
 		return (
-			<div id="todo-list" className="columns large-centered medium-centered small-centered large-10 medium-10 small-12">
+			<div id="todo-list" className="columns centered large-12 medium-12 small-12">
 				{ renderTodos()}
 			</div>
 		);

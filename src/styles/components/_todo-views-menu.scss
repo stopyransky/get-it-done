@@ -1,0 +1,15 @@
+#todo-views-menu {
+    display: flex;
+    flex-flow : row nowrap;
+    justify-content : center;
+    align-items : center;
+}
+
+.todo-view {
+    flex: 1 0 auto;
+    justify-content : center;
+    text-align : center;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid steelblue;
+}

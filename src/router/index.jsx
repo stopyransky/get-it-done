@@ -5,7 +5,7 @@ import TodoLogin from 'TodoLogin';
 import firebase from './../firebase/index.js';
 
 var App = require('App');
-var Weather = require("Weather");
+// var Weather = require("Weather");
 // var Greeter = require("Greeter");
 // var Examples  = require("Examples");
 // var About = require('AppAbout');
@@ -38,7 +38,7 @@ export default (
 			{/*<Route path="greeter" 	component={Greeter} />*/}
 			{/*<Route path="timer" 	component={Timer} />*/}
 			{/*<Route path="countdown" component={Countdown} />*/}
-			<Route path="weather" 	component={Weather} />
+			{/*<Route path="weather" 	component={Weather} />*/}
 			{/* <Route path="examples" 	component={Examples}/> */}
 			<Route path="todo" 		component={TodoApp} onEnter={requireLogin}/>
 			{/* <Route path="about" 	component={About} /> */}

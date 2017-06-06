@@ -4,6 +4,7 @@ import * as Redux from 'react-redux';
 import TodoList from 'TodoList';
 import TodoAdd from 'TodoAdd';
 import TodoSearch from 'TodoSearch';
+import TodoViewsMenu from 'TodoViewsMenu';
 import * as actions from 'actions';
 
 // import {TodoItem as RawTodo} from 'TodoItem';
@@ -30,6 +31,7 @@ export class TodoApp extends React.Component {
                 <div id="todo-app-header" className="row page-actions">
                     <a href="#" onClick ={this.onLogout}>Logout</a>
                 </div>
+                <TodoViewsMenu />
                 <div id="todo-app-body" className ="row">                    
                     <TodoSearch/>
                     <TodoAdd/>
