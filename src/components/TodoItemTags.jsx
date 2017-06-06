@@ -10,36 +10,42 @@ class TodoItemTags extends React.Component {
 		this.onFilterByTag = this.onFilterByTag.bind(this);
 		this.passRemoveTag = this.passRemoveTag.bind(this);
         this.passNewTag = this.passNewTag.bind(this);
+        this.cancelNewTag = this.cancelNewTag.bind(this);
         this.state = {
             editMode : false,
             toggleOnRemove : false
         }
     }
 
-    onAddTag() {
+    onAddTag(e) {
         this.setState({
             editMode: true
         });
+ 
     }
 
     onFilterByTag() {
         console.log("filter by tag action goes here");
     }
-
-    // onRemoveTag() {
-        
-    // }
         
     passNewTag(e) {
         e.preventDefault();
         var newTag= this.refs.newTag.value;
-        this.refs.newTag.value = "";
+        
         this.props.onNewTag(newTag);
         this.setState({
             editMode: false
         });
     }
-
+    
+    cancelNewTag(e) {
+        e.preventDefault();
+        this.refs.newTag.value = "";
+        this.setState({
+            editMode: false
+        });
+    }
+    
     passRemoveTag(index) {
         // console.log("remove tag action goes here");
         if(this.props.tags[index] || this.props.tags[index] === "") {
@@ -50,6 +56,11 @@ class TodoItemTags extends React.Component {
         }
     }
 
+    componentDidUpdate() {
+        if(this.state.editMode) {
+            this.refs.newTag.focus();
+        }
+    }
 
 
     render() {
@@ -58,41 +69,51 @@ class TodoItemTags extends React.Component {
         var listItems = [];
 
         var self = this;
-        var renderAddTagForm = () => {
+
+        var renderAddTag = () =>{
             if(this.state.editMode ) {
-                return (<form onSubmit={this.passNewTag}>
-                    <input type="text" ref="newTag" placeholder="new tag"/>
-                </form>);
+                return (
+                    <div className="tag add-tag-form">
+                        <form onSubmit={this.passNewTag}>
+                            <input type="text" ref="newTag" size="10" placeholder="new tag" onBlur={this.cancelNewTag}/>
+                        </form>
+                    </div>
+                );
+            } else {
+                return  (
+                    <div className="tag add-tag-button" style={{display:"inline"}}>
+                        <button className ="tag-add button hollow small success" onClick={this.onAddTag}> + </button>
+                    </div>
+                );
             }
-        }
+        };
 
         if(tags && tags.length > 0) {
             listItems = tags.map(( tag, index ) => {
-                    return (
-                        <div className="tag" key={index}  style={{display:"inline"}}>
-                            <button className ="tag-content button hollow small alert collapse" 
-                                    onClick={self.onFilterByTag}>{tag}
-                            </button>
-                            <button className ="tag-remove button small alert collapse" 
-                                    onClick={() => {
-                                        self.passRemoveTag(index);
-                                    }}> - 
-                            </button>
-                        </div>
-                    );
+                return (
+                    <div className="tag" key={index}  style={{display:"inline"}}>
+                        <button className ="tag-content button hollow small alert collapse" 
+                                onClick={self.onFilterByTag}>{tag}
+                        </button>
+                        <button className ="tag-remove button small alert collapse" 
+                                onClick={() => {
+                                    self.passRemoveTag(index);
+                                }}> - 
+                        </button>
+                    </div>
+                );
             });
         }
-            
-        listItems.push (
-            <div key="-1" className="tag" style={{display:"inline"}}>
-                <button  className ="tag-add button hollow small success" onClick={self.onAddTag}> + </button>
-            </div>);
 
 
         return (
-            <div>
-                <ul className='tag-list'>{listItems}</ul>
-                {renderAddTagForm() }
+            <div className="todo-item-tags">
+                <ul className='tag-list'>
+                    {listItems}
+                    {renderAddTag()}
+                </ul>
+                
+                
             </div>
         );
         

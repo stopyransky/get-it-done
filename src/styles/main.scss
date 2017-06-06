@@ -15,14 +15,17 @@
 @import "components/todo-search";
 @import "components/todo-add";
 @import "components/todo-list";
+
 @import "components/page-actions";
 @import "components/callout-auth";
 
 
 input {
-	height: 1.6rem;
-	display: inline-flex;
+	height: 1rem;
+	line-height : 1rem;
+	display: flex;
 }
+
 input[type=search] {
 	box-shadow :  none;
 }
@@ -31,13 +34,3 @@ div {
 	// border: 1px dashed red;
 }
 
-.tag {
-	padding-left: 2px;
-	padding-right: 2px;
-	margin: 0px;
-}
-
-.tag-content, .tag-remove, .tag-add {
-	padding: 5px;
-	margin: 0px;
-}

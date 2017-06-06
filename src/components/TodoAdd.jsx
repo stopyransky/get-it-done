@@ -49,7 +49,7 @@ export class TodoAdd extends React.Component {
 						<label> Due date <input type='date' ref='dueDate'/> </label>
 						<label> Tags <input type="text" ref='tags' placeholder="enter coma separated tags" /> </label>
 					</div>
-					<button className="button large expanded"> GET IT DONE </button>
+					<button className="button expanded large"> GET IT DONE </button>
 				</form>
 			</div>
 		);

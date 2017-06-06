@@ -5,7 +5,7 @@
 	margin-top : 1rem;
 	padding : 1rem;
 	transition : background .3s ease;
-	font-size : 1rem;
+	// font-size : 1rem;
 	border : 1px solid #d0d0d0;
 	justify-content: space-around;
 	p, input{
@@ -30,13 +30,40 @@
 
 .todo-completed {
 	color : $light-color;
-	text-decoration : line-through;
-	.todo-subtext {
-		text-decoration : none;
+	// text-decoration : line-through;
+	// .todo-subtext {
+	// 	text-decoration : none;
+	// }
+}
+
+.todo-controls {
+	.button-edit, .button-save,.button-remove {
+		background-color : #ffffff;
 	}
 }
 
-.tag {
-	padding : 0px;
-	margin: 1px 1px 5px 5px;
+
+.todo-item-tags {
+	display : flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items : center;
+	align-content : flex-start;
 }
+.tag {
+	padding-left: 2px;
+	padding-right: 2px;
+	margin: 0px;
+}
+
+.tag-content, .tag-add, .tag-remove {
+	display: inline;
+	background-color :#ffffff;
+	padding: 5px;
+	margin: 0px;
+}
+
+.add-tag-form, .add-tag-button, .tag-list {
+	display: inline;
+}
+

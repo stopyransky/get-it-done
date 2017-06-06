@@ -16,7 +16,7 @@ export class TodoItem extends React.Component {
 		this.submitNewTag =  this.submitNewTag.bind(this);
 		this.submitRemoveTag =  this.submitRemoveTag.bind(this);
 		this.onSaveEdit = this.onSaveEdit.bind(this);
-		
+		this.cancelTextEdit = this.cancelTextEdit.bind(this);
 		// state is not saved to db, for app only
 		this.state = {
 			editMode : false
@@ -46,9 +46,15 @@ export class TodoItem extends React.Component {
 			});
 		} else {
 			this.refs.newText.focus();
-		}
-		
-							
+		}					
+	}
+
+	cancelTextEdit(e) {
+		e.preventDefault();
+		this.refs.newText.value ="";
+		this.setState({
+			editMode : false
+		});
 	}
 
 	submitNewTag( newTag ) {
@@ -82,6 +88,12 @@ export class TodoItem extends React.Component {
 		dispatch(actions.startUpdateTodo(id, { tags : tags}));
 	}
 
+	componentDidUpdate() {
+		if(this.state.editMode) {
+			this.refs.newText.focus();
+		}
+	}
+
 	render() {
 		// dispatch comes from redux.connect
 		var { id, 
@@ -104,6 +116,7 @@ export class TodoItem extends React.Component {
 							type="text" 
 							defaultValue={text} 
 							ref="newText"
+							onBlur={this.cancelTextEdit}
 							/>
 					</form>
 				);
@@ -162,9 +175,9 @@ export class TodoItem extends React.Component {
 				<div className="todo-content columns small-8 medium-8 large-8" >
 					{renderTodoText()}
 					<br />
-					<span className="todo-subtext">{renderDate()}. {renderDueDate()}</span>
+					<p className="todo-subtext">{renderDate()}</p>
+					<p className="todo-subtext">{renderDueDate()}</p>
 					<br />
-					{/*{renderTagList()}*/}
 					<TodoItemTags tags={tags} 
 						onNewTag={this.submitNewTag}
 						onRemoveTag={ this.submitRemoveTag}/>
