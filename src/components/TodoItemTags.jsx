@@ -89,9 +89,10 @@ class TodoItemTags extends React.Component {
             </div>);
 
 
-        return (<div>
-            <ul className='tag-list'>{listItems}</ul>
-            {renderAddTagForm() }
+        return (
+            <div>
+                <ul className='tag-list'>{listItems}</ul>
+                {renderAddTagForm() }
             </div>
         );
         

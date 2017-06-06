@@ -5,9 +5,9 @@
 	margin-top : 1rem;
 	padding : 1rem;
 	transition : background .3s ease;
-	font-size : 1.2rem;
+	font-size : 1rem;
 	border : 1px solid #d0d0d0;
-	justify-content: space-between;
+	justify-content: space-around;
 	p, input{
 		margin : 0;
 	}
@@ -32,7 +32,7 @@
 	color : $light-color;
 	text-decoration : line-through;
 	.todo-subtext {
-
+		text-decoration : none;
 	}
 }
 

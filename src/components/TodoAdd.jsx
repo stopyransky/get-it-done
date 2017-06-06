@@ -42,13 +42,14 @@ export class TodoAdd extends React.Component {
 
 	render() {
 		return (
-			<div id="todoAddForm" 
-				className="columns large-8 medium-6 small-12">
+			<div id="todo-add" className="columns large-8 medium-8 small-12">
 				<form onSubmit={this.onFormSubmit.bind(this)}>
-					<input type='text' ref='text' placeholder="Enter new todo..."/>
-					<input type='date' ref='dueDate'/>
-					<input type="text" ref='tags' />
-					<button className="button expanded">Add Todo</button>
+					<label> Text <input type='text' ref='text' placeholder="Enter new task..."/> </label>
+					<div className="optional">
+						<label> Due date <input type='date' ref='dueDate'/> </label>
+						<label> Tags <input type="text" ref='tags' placeholder="enter coma separated tags" /> </label>
+					</div>
+					<button className="button large expanded"> GET IT DONE </button>
 				</form>
 			</div>
 		);

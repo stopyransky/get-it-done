@@ -8,13 +8,16 @@
 
 // components
 @import "components/navigation";
-@import "components/clock";
-@import "components/countdownControls";
 @import "components/page-title";
 @import "components/container";
-@import "components/todo";
+
+@import "components/todo-item";
+@import "components/todo-search";
+@import "components/todo-add";
+@import "components/todo-list";
 @import "components/page-actions";
 @import "components/callout-auth";
+
 
 input {
 	height: 1.6rem;

@@ -19,24 +19,21 @@ export class TodoApp extends React.Component {
     }
     
     onLogout (e) {
-        var {dispatch} = this.props;
         e.preventDefault();
-
+        var {dispatch} = this.props;
         dispatch(actions.startLogout());
     }
 
  	render() {
 		return (
-            <div>
-                <div className="row page-actions">
+            <div id="todo-app">
+                <div id="todo-app-header" className="row page-actions">
                     <a href="#" onClick ={this.onLogout}>Logout</a>
                 </div>
-                <div className ="row">
-                    <div className="columns small-centered medium-uncentered large-uncentered  small-12 medium-12 large-12">
-                        <TodoSearch/>
-                        <TodoAdd/>
-                        <TodoList/>
-                    </div>
+                <div id="todo-app-body" className ="row">                    
+                    <TodoSearch/>
+                    <TodoAdd/>
+                    <TodoList/>
                 </div>
             </div>
 		);
