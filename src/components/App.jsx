@@ -1,9 +1,7 @@
-var React = require("react");
-var AppNav = require("AppNav");
+import React from 'react';
 
 var App = (props) =>
 	<div id='app'>
-		<AppNav/>
 		<div className="row">
 			<div>
 				{/* props.children are the routes provided by router in router.jsx

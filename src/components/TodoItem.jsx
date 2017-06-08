@@ -10,8 +10,8 @@ export class TodoItem extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.onClickToggle = this.onClickToggle.bind(this);
-		this.onClickDelete = this.onClickDelete.bind(this);
+		// this.onClickToggle = this.onClickToggle.bind(this);
+		// this.onClickDelete = this.onClickDelete.bind(this);
 		// this.onFilterByTag = this.onFilterByTag.bind(this);
 		this.submitNewTag =  this.submitNewTag.bind(this);
 		this.submitRemoveTag =  this.submitRemoveTag.bind(this);
@@ -23,15 +23,15 @@ export class TodoItem extends React.Component {
 		}
 	}
 
-	onClickToggle() {
-		var { id, completed, dispatch } = this.props;
-		dispatch(actions.startToggleTodo(id, !completed))
-	}
+	// onClickToggle() {
+	// 	var { id, completed, dispatch } = this.props;
+	// 	dispatch(actions.startToggleTodo(id, !completed))
+	// }
 
-	onClickDelete() {
-		var { id, dispatch } = this.props;
-		dispatch(actions.startDeleteTodo(id));
-	}
+	// onClickDelete() {
+	// 	var { id, dispatch } = this.props;
+	// 	dispatch(actions.startDeleteTodo(id));
+	// }
 	
 	onSaveEdit(e) {
 		e.preventDefault();
@@ -170,7 +170,7 @@ export class TodoItem extends React.Component {
 		return (
 			<div className={todoClassName} >
 				<div className="todo-checkbox columns small-1 medium-1 large-1">
-					<input type='checkbox' defaultChecked={completed} onChange={this.onClickToggle} />
+					<input type='checkbox' defaultChecked={completed} onChange={this.props.onClickToggle} />
 				</div>
 				<div className="todo-content columns small-8 medium-8 large-8" >
 					{renderTodoText()}
@@ -184,13 +184,34 @@ export class TodoItem extends React.Component {
 				</div>
 				<div className="todo-controls columns small-3 medium-3 large-3">
 					{ renderEditButton() }
-					<div className="button expanded hollow alert button-remove" onClick={this.onClickDelete}>remove</div>
+					<div className="button expanded hollow alert button-remove" onClick={this.props.onClickDelete}>remove</div>
 				</div>
 			</div>
 		);
-
-		}
-
+	}
 }
-// by default exporting redux-connected TodoItem
-export default connect()(TodoItem);
+
+/**
+ * Identify which props on this component should be overwritten with store state
+ * Allows using store state in connected component
+ * @param {*} state store state 
+ * @param {*} ownProps this component props
+ */
+var mapStateToProps = state => state;
+
+var mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		dispatch,  
+		onClickToggle : () => {
+			var { id, completed } = ownProps;
+			dispatch(actions.startToggleTodo(id, !completed))
+		},
+
+		onClickDelete : () => {
+			var { id } = ownProps;
+			dispatch(actions.startDeleteTodo(id));
+		}
+	}
+};
+
+export default connect( mapStateToProps, mapDispatchToProps )( TodoItem );
