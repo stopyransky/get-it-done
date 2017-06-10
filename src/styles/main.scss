@@ -18,7 +18,7 @@
 @import "components/todo-views-menu";
 @import "components/page-actions";
 @import "components/callout-auth";
-
+@import "components/todo-app-new";
 
 input {
 	height: 1rem;
@@ -30,7 +30,14 @@ input[type=search] {
 	box-shadow :  none;
 }
 
-div {
-	// border: 1px dashed red;
+html, body, #container, #app {
+  background-color : #232323;
+  margin: 0;
+  height: 100%;
 }
 
+div {
+  display: grid;
+/*   border : 1px dashed red; */
+  color: #696969;
+}

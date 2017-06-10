@@ -120,7 +120,7 @@ describe("Actions", () => {
 				});
 			})
 			.then(()=> done())
-			.catch(done);
+			.catch(done());
 		});
 
 		afterEach(() => {
@@ -158,7 +158,7 @@ describe("Actions", () => {
 				expect(mockActions[0].todos.length).toEqual(1);
 				expect(mockActions[0].todos[0].text).toEqual('Something to do')
 				done();
-			}).catch(done);
+			}).catch(done());
 		});
 		it('should create todo and dispatch ADD_TODO', (done) => {
 
@@ -178,7 +178,7 @@ describe("Actions", () => {
 				expect(actions[0].todo).toInclude({'text': todoItem.todoText});
 				done();
 
-			}).catch(done);
+			}).catch(done());
 		});
 
 	});

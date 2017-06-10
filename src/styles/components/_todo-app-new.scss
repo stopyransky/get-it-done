@@ -1,0 +1,87 @@
+
+.child:hover {
+  color: white;
+  background-color : #696969;
+}
+
+#todo-app-new {
+  min-height:300px;
+  min-width: 700px;
+  height: 100%;
+  grid-template-columns : 64px auto;
+  grid-template-rows : 64px auto;
+  grid-gap : 2px 2px;
+  grid-auto-columns: 60px;
+  grid-auto-rows: 60px;
+  justify-items : stretch;
+  align-items : stretch;
+  justify-content: stretch;
+  align-content: stretch; 
+  /* start | end | center | stretch | space-around | space-between | space-evenly;*/
+}
+
+.child {
+  border-left: 5px solid #696969;
+/*   border-bottom: 5px solid #696969; */
+  cursor: pointer;
+}
+
+#menu {
+  grid-column : 1 / 2;
+  grid-row : 1 / 2;
+/*   justify-items: center; */
+/*   align-items: center; */
+}
+
+#topbar {
+  grid-column : 2 / 3 ;
+  grid-row: 1 / 2;
+  grid-template-columns: auto 50px;
+  padding : 0px 10px;
+  justify-items: left;
+/*   align-items: center; */
+/*   justify-content: center; */
+  // align-content: center;
+}
+
+#topbar .child {
+  margin: 0px 5px;
+
+  
+}
+#todo-app-settings {
+    align-self: center;
+    align-content: center;
+    padding : 5px;
+}
+#add {
+    padding: 10px;
+    // justify-items: stretch;
+    align-items: stretch;
+    justify-content: stretch;
+    align-content: stretch;
+}
+
+#leftbar {
+  grid-column : 1 / 2;
+  grid-row : 2 / 3;
+/*   justify-items: center; */
+/*   align-items: center; */
+
+}
+#leftbar .child, #menu .child {
+    margin: 5px;
+/*     height: 32px; */
+    justify-items: center;
+    align-items: center;
+}
+
+#content {
+  background-color: #2f2f2f;
+/*   border : 1px solid #696969; */
+  margin: 5px;
+  grid-column : 2 / 3;
+  grid-row: 2 / 3;
+  justify-items: center;
+  align-items: center;
+}

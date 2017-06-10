@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import * as actions from 'actions';
 import { configure } from 'configureStore';
 import firebase from './firebase/index.js';
-import router from './router/index.jsx';
+import router from './router/router.jsx';
 
 const store = configure();
 
