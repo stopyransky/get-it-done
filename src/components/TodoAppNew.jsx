@@ -29,28 +29,23 @@ export class TodoApp extends React.Component {
 		return (
             <div id="todo-app-new">
             <div id="menu">
-                <div className="child"> menu</div>
+                {/*<div className="child"> menu</div>*/}
+                <div className="child" id="add">+</div>
             </div>
             <div id="topbar">
-                <div id='todo-app-settings'>
-                <form>
-                    <input type="text"/>
-                    <button>Search
-                    </button>
-                    <label >
-                    <input type="checkbox" />
-                    Check me 
-                    </label>
-                </form>
+                <TodoSearch />
+                <div className="child" id="todo-app-logout" >
+                    <a href="#" onClick ={this.onLogout}>Logout</a>
                 </div>
-                <div className="child" id="add">+</div>
             </div>
             <div id="leftbar">
                 <div className="child">view1</div>
                 <div className="child">view2</div>
                 <div className="child">view3</div>
             </div>
-            <div id="content">content</div>
+            <div id="content">
+                <TodoList />
+            </div>
             </div>
 		);
 	}

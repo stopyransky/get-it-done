@@ -20,7 +20,7 @@ firebase.auth().onAuthStateChanged((user) => {
 		hashHistory.push('/');
 	}
 })
-// $(document).foundation();
+$(document).foundation();
 
 // load main css styles
 require('style-loader!css-loader!sass-loader!mainStyles');

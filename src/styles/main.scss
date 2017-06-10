@@ -2,42 +2,47 @@
 @import "base/variables"; // no underscore and extension
 
 // foundation
-// @import 'base/foundation-settings';
-// @import 'foundation';
-// @include foundation-everything;
+@import 'base/foundation-settings';
+@import 'foundation';
+@include foundation-everything;
 
 // components
-@import "components/navigation";
-@import "components/page-title";
-@import "components/container";
+// @import "components/navigation";
+// @import "components/page-title";
+// @import "components/container";
 
 @import "components/todo-item";
-@import "components/todo-search";
-@import "components/todo-add";
+// @import "components/todo-search";
+// @import "components/todo-add";
 @import "components/todo-list";
-@import "components/todo-views-menu";
-@import "components/page-actions";
+// @import "components/todo-views-menu";
+// @import "components/page-actions";
 @import "components/callout-auth";
 @import "components/todo-app-new";
 
-input {
-	height: 1rem;
-	line-height : 1rem;
-	display: flex;
-}
+// input {
+// 	height: 1rem;
+// 	line-height : 1rem;
+// 	display: flex;
+// }
 
 input[type=search] {
 	box-shadow :  none;
 }
 
+* {
+  font-family: sans-serif;
+}
+
 html, body, #container, #app {
-  background-color : #232323;
-  margin: 0;
+  background-color : #fafafb;
+  margin: 0px;
+  padding: 0px;
   height: 100%;
 }
 
 div {
   display: grid;
-/*   border : 1px dashed red; */
-  color: #696969;
+  // border : 1px dashed red;
+  color: #afafaf;
 }

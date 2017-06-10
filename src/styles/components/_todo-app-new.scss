@@ -1,15 +1,11 @@
 
-.child:hover {
-  color: white;
-  background-color : #696969;
-}
 
 #todo-app-new {
   min-height:300px;
   min-width: 700px;
   height: 100%;
-  grid-template-columns : 64px auto;
-  grid-template-rows : 64px auto;
+  grid-template-columns : 80px auto;
+  grid-template-rows : 80px auto;
   grid-gap : 2px 2px;
   grid-auto-columns: 60px;
   grid-auto-rows: 60px;
@@ -26,6 +22,11 @@
   cursor: pointer;
 }
 
+.child:hover {
+  color: white;
+  background-color : orange;
+}
+
 #menu {
   grid-column : 1 / 2;
   grid-row : 1 / 2;
@@ -33,51 +34,77 @@
 /*   align-items: center; */
 }
 
+#add {
+    grid-column : 1 / 2;
+    grid-rows : 1 / 2;
+    // padding: 10px;
+    // justify-items: stretch;
+    // align-items: stretch;
+    // justify-content: stretch;
+    // align-content: stretch;
+}
+
 #topbar {
   grid-column : 2 / 3 ;
   grid-row: 1 / 2;
-  grid-template-columns: auto 50px;
+  grid-template-columns: 300px auto 100px 100px;
   padding : 0px 10px;
-  justify-items: left;
-/*   align-items: center; */
-/*   justify-content: center; */
+  // justify-items: left;
+  align-items: center;
+  // justify-content: center;
   // align-content: center;
 }
 
-#topbar .child {
-  margin: 0px 5px;
-
-  
-}
-#todo-app-settings {
-    align-self: center;
-    align-content: center;
+#todo-search {
+    grid-columns : 1 / 4;
+    grid-rows : 1 / 2;
+    // grid-template-columns : 200px 200px;
+    align-content : center;
+    align-items : center;
+    justify-items: space-around;
+    justify-content : space-around;
     padding : 5px;
 }
-#add {
-    padding: 10px;
-    // justify-items: stretch;
-    align-items: stretch;
-    justify-content: stretch;
-    align-content: stretch;
+
+#todo-search-text {
+  align-self : center;
+  align-content: center;
+  align-items: center;
+  grid-column: 1 / 2;
+  grid-rows : 1 / 2;
+
 }
+
+#todo-search-show-completed {
+    align-self : center;
+  align-content: center;
+  align-items: center;
+  grid-column: 2 / 3;
+  grid-rows : 1 / 2;
+}
+
+
+#todo-app-logout {
+  grid-rows : 1 / 2;
+  grid-column : 4 / 5
+}
+
 
 #leftbar {
   grid-column : 1 / 2;
   grid-row : 2 / 3;
-/*   justify-items: center; */
-/*   align-items: center; */
+  align-content: start;
 
 }
 #leftbar .child, #menu .child {
     margin: 5px;
-/*     height: 32px; */
+    // height: 32px;
     justify-items: center;
     align-items: center;
 }
 
 #content {
-  background-color: #2f2f2f;
+  // background-color: #f2f2f2;
 /*   border : 1px solid #696969; */
   margin: 5px;
   grid-column : 2 / 3;

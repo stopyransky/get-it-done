@@ -16,7 +16,7 @@ module.exports = {
   entry: [
     // libraries
     'script-loader!jquery/dist/jquery.min.js',
-    // 'script-loader!foundation-sites/dist/foundation.min.js',
+    'script-loader!foundation-sites/dist/foundation.min.js',
     // own start point
     './src/main.jsx',
   ],
@@ -47,17 +47,17 @@ module.exports = {
         }
 
     })
-    // ,
-    // new webpack.LoaderOptionsPlugin({
-    //      // test: /\.xxx$/, // may apply this only for some modules
-    //      options: {
-    //        sassLoader: {
-    //         includePaths: [
-    //           path.resolve(__dirname, './node_modules/foundation-sites/scss'),
-    //         ]
-    //       },
-    //     }
-    // })
+    ,
+    new webpack.LoaderOptionsPlugin({
+         // test: /\.xxx$/, // may apply this only for some modules
+         options: {
+           sassLoader: {
+            includePaths: [
+              path.resolve(__dirname, './node_modules/foundation-sites/scss'),
+            ]
+          },
+        }
+    })
   ],
   output: {
     path: __dirname,
