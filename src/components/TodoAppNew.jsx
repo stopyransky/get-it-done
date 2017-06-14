@@ -1,10 +1,7 @@
 import React from 'react';
 import * as Redux from 'react-redux';
 
-// import TodoList from 'TodoList';
-// import TodoAdd from 'TodoAdd';
-// import TodoAddModal from 'TodoAddModal';
-
+import TodoList from 'TodoList';
 import TodoSearch from 'TodoSearch';
 // import TodoViewsMenu from 'TodoViewsMenu';
 import * as actions from 'actions';
@@ -75,30 +72,17 @@ export class TodoAppNew extends React.Component {
                 <div id="menu" className="child"> menu </div>
                 <div id="topbar">
                     <TodoSearch />
+                    <div className="child todo-add">add</div>
                 </div>
                 <div id="leftbar">
                     <div className="child">view1</div>
                     <div className="child">view2</div>
                     <div className="child">view3</div>
+                    <div className="child">view4</div>
+                    <div className="child">view5</div>
                 </div>
                 <div id="content">
-                    <div id="item-list" >
-                        <div className="item">item-first</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item</div>
-                        <div className="item">item-last</div>
-                    </div>
+                    <TodoList />
                 </div>
             </div>
 		);

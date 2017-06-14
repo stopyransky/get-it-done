@@ -1,5 +1,5 @@
 
-//@import "base/variables"; // no underscore and extension
+@import "base/variables"; // no underscore and extension
 
 // foundation
 // @import 'base/foundation-settings';
@@ -7,147 +7,149 @@
 // @include foundation-everything;
 
 @import "components/scrollbar-style";
-//@import "components/todo-app";
+@import "components/todo-item";
+@import "components/todo-search";
+@import "components/todo-item-tag";
 
-html, body, #container, #app {
-  background-color : #232324;
-  margin: 0;
+html, body {
   height: 100%;
+  margin: 0px;
+  background-color: #232324;
+  color: #696969;
   overflow: hidden;
 }
 
 div {
-/*   border : 1px dashed red; */
-  color: #696969;
+  margin: 2px;
+}
+#container {
+  // border: 1px dashed red;
+  
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  min-width : 300px;
+  min-height: 200px;
 }
 
-button {
-  padding: 5px;
-}
-
-input[type=text] {
-  padding: 5px;
-}
-
-input[type=checkbox] {
-  margin: 5px;
+#app {
+  // border: 1px dashed steelblue;
 }
 
 #todo-app {
+  // border: 1px dashed pink;
+  
   display: grid;
-/*   min-height:300px; */
-/*   min-width: 700px; */
-  height: 100%;
   grid-template-columns : 64px auto;
   grid-template-rows : 64px auto;
-  grid-gap : 2px 2px;
-  grid-auto-columns: 64px;
-  grid-auto-rows: 64px;
-  justify-items : stretch;
-  align-items : stretch;
+  align-content: stretch;
   justify-content: stretch;
-  align-content: stretch; 
-  /* start | end | center | stretch | space-around | space-between | space-evenly;*/
+  
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
 }
 
 .child {
-  border-left: 5px solid #696969;
-/*   border-bottom: 5px solid #696969; */
-  cursor: pointer;
+  // border: 1px dashed gray;
+  // border-left : 5px solid #696969;
 }
 
 .child:hover {
+  background-color: #696969;
   color: white;
-  background-color : #696969;
 }
 
 #menu {
-    display: grid;
-  grid-column : 1 / 2;
-  grid-row : 1 / 2;
-/*   justify-items: center; */
-/*   align-items: center; */
+  // border: 1px dashed purple;
+  
+  display:grid;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2 ;
+  align-content: center;
+  justify-content: center;
 }
 
 #topbar {
-    display: grid;
-  grid-column : 2 / 3 ;
-  grid-row: 1 / 2;
-  grid-template-columns: auto 50px;
-  padding : 0px 10px;
-  justify-items: left;
-/*   align-items: center; */
-/*   justify-content: center; */
+  // border: 1px dashed green;
+  
+  display: inline-grid;
+  grid-column : 2 / 3;
+  grid-row : 1 / 2;
   align-content: center;
-}
-
- #topbar .child {
-  margin: 0px 5px;
-}
-
-#settings {
-    display: grid;
-  align-content: center;
-  padding :5px;
-}
-
-#add {
-    display: grid;
-  padding: 17px;
-  border : none;
-  border-right: 5px solid #696969;
-  justify-items: stretch;
-  align-items: stretch;
   justify-content: stretch;
-  align-content: stretch;
+  
+  grid-template-columns :  auto 64px;
+  grid-template-rows : auto;
+}
+
+#todo-search {
+  // border: 1px dashed gray;
+  display: grid;
+  grid-column: 1 /2;
+}
+
+#todo-add {
+  // border: 1px dashed gray;
+  display: grid;
+  grid-column: 2 / 3;
+  align-content: center;
+  justify-content: stretch;
+  text-align: center;
 }
 
 #leftbar {
-    display: grid;
-  grid-column : 1 / 2;
-  grid-row : 2 / 3;
-/*   justify-items: center; */
-  align-items: start;
-  align-content: start;
-
-}
-#leftbar .child, #menu .child {
-    margin: 5px;
-    height: 48px;
-    justify-items: center;
-    align-items: center;
+  // border: 1px dashed yellow;
+  
+  display: grid;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
 }
 
 #content {
+  // border: 1px dashed blue;
+  
   display: grid;
-  background-color: #232323;
-  border : 1px solid #696969;
-  margin: 4px;
-  padding: 2px;
-  grid-column : 2 / 3;
-  grid-row: 2 / 3;
-  overflow: auto;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  
+  position: absolute;  
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 
-#item-list {
-/*   min-height: 200px; */
+#todo-list {
+  // border: 1px dashed green;
+  
   display: flex;
-  flex-flow : column nowrap;
+  flex-flow: column nowrap;
+  
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  
   overflow: auto;
+
 }
 
 .item {
-  display : flex;
-  background-color: #2f2f2f;
-/*   border : 1px solid #696969; */
-  min-height: 50px;
-  margin: 5px 5px;
-  justify-content: center;
-  align-items: center;
-  
+  // border: 1px dashed gray;
+  display: flex;
+  flex: 0 0 auto;
+
+  padding: 10px;
+  margin: 2px;
 }
 
 .item:hover {
   background-color: #696969;
-  color: #fff;
+  color: white;
 }

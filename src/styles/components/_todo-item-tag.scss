@@ -1,0 +1,53 @@
+ul.tag-list {
+  display: flex ;
+  flex: 0 1 auto;
+  flex-flow : row wrap;
+  padding: 0px;
+  margin: 0px;
+  align-items: flex-start;
+}
+
+.tag {
+  // border: 2px solid $tag-color ;
+  background-color: $tag-color;
+  color: $tag-text-color;
+  margin: 1px 3px;
+  display:flex;
+  flex-flow: row nowrap;
+  
+}
+
+.tag-content {
+/*   border: 1px solid steelblue; */
+	display:flex ;
+	flex: 0 0 auto;
+  padding : 0px 5px 0px 5px;
+}
+
+.tag-remove {
+/*   border: 1px solid #690000; */
+	display:flex;
+  background-color: $tag-remove-color;
+  color: $tag-text-color;
+	flex: 0 0 auto;
+  padding : 0px 5px 0px 5px;
+
+}
+.tag-add {
+  display : flex;
+  background-color: $tag-add-color;
+  color: $tag-text-color;
+  // border: 1px solid $tag-add-color;
+  padding : 0px 5px 0px 5px;
+}
+
+.tag-content:hover {
+  color: $foreground-color-highlight;
+}
+.tag-remove:hover {
+  color: $foreground-color-highlight;
+}
+.tag-add:hover {
+  color: $foreground-color-highlight;
+}
+

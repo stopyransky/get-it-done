@@ -73,7 +73,7 @@ class TodoItemTags extends React.Component {
         var renderAddTag = () =>{
             if(this.state.editMode ) {
                 return (
-                    <div className="tag add-tag-form">
+                    <div key={-1} className="tag-add-form">
                         <form onSubmit={this.passNewTag}>
                             <input type="text" ref="newTag" size="10" placeholder="new tag" onBlur={this.cancelNewTag}/>
                         </form>
@@ -81,9 +81,8 @@ class TodoItemTags extends React.Component {
                 );
             } else {
                 return  (
-                    <div className="tag add-tag-button" style={{display:"inline"}}>
-                        <button className ="tag-add button hollow small success" onClick={this.onAddTag}> + </button>
-                    </div>
+                    <div key={-1} className ="tag-add" onClick={this.onAddTag}> + </div>
+                    
                 );
             }
         };
@@ -91,30 +90,27 @@ class TodoItemTags extends React.Component {
         if(tags && tags.length > 0) {
             listItems = tags.map(( tag, index ) => {
                 return (
-                    <div className="tag" key={index}  style={{display:"inline"}}>
-                        <button className ="tag-content button hollow small alert collapse" 
+                    <div className="tag" key={index} >
+                        <div className ="tag-content" 
                                 onClick={self.onFilterByTag}>{tag}
-                        </button>
-                        <button className ="tag-remove button small alert collapse" 
+                        </div>
+                        <div className ="tag-remove" 
                                 onClick={() => {
                                     self.passRemoveTag(index);
                                 }}> - 
-                        </button>
+                        </div>
                     </div>
                 );
             });
         }
-
+        listItems.push(renderAddTag());
 
         return (
-            <div className="todo-item-tags">
+            // <div className="todo-item-tags">
                 <ul className='tag-list'>
                     {listItems}
-                    {renderAddTag()}
                 </ul>
-                
-                
-            </div>
+            // </div>
         );
         
 	}

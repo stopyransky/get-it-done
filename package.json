@@ -1,7 +1,7 @@
 {
-  "name": "react-from-scratch",
+  "name": "get-it-done",
   "version": "1.0.0",
-  "description": "udemy react course project",
+  "description": "ultimate todo app react project",
   "main": "main.jsx",
   "scripts": {
     "test": "NODE_ENV=test karma start",

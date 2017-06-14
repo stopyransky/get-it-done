@@ -1,0 +1,60 @@
+html, body {
+  background-color: $background-color; 
+  color: $foreground-color;
+}
+
+.todo-item {
+  border : 1px solid $background-color-highlight;
+  
+  display: flex;
+  flex-flow : row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  // padding: 2px;
+}
+
+.todo-item:hover {
+  background-color: $background-color-highlight;
+}
+
+.todo-item-checkbox {
+  // border: 1px dashed red;
+  display: flex;
+  flex: 0 0 20%;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-item-contents {
+  // border: 1px dashed yellow;
+  display: flex;
+  flex: 0 0 50%;
+  flex-flow : column wrap;
+  justify-content: space-around;
+
+}
+.todo-item-contents-subtext {
+  display: flex ;
+  margin: 0px;
+  padding: 0px;
+}
+
+.todo-item-controls {
+  // border: 1px dashed blue;
+  display : flex;
+  flex-flow: column nowrap;
+  flex: 0 0 20%;
+}
+
+.todo-item-controls div {
+  // border: 1px dashed gray;
+  display:flex;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-item-controls div:hover {
+  background-color: $background-color-highlight;
+  color: $foreground-color-highlight;
+}

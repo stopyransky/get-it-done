@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 
-import TodoApp from 'TodoApp';
+// import TodoApp from 'TodoApp';
 import TodoAppNew from 'TodoAppNew';
 import TodoLogin from 'TodoLogin';
 import firebase from './../firebase/index.js';

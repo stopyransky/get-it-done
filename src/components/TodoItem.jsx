@@ -105,7 +105,7 @@ export class TodoItem extends React.Component {
 			tags, 
 			dispatch } = this.props;
 
-		var todoClassName = completed ? 'todo todo-completed' : 'todo todo-inprogress';
+		var todoClassName = completed ? 'todo-item todo-completed' : 'todo-item todo-inprogress';
 		todoClassName = todoClassName+' columns centered small-12 medium-12 large-12';
 
 		var renderTodoText = () => {
@@ -169,20 +169,18 @@ export class TodoItem extends React.Component {
 
 		return (
 			<div className={todoClassName} >
-				<div className="todo-checkbox columns small-1 medium-1 large-1">
+				<div className="todo-item-checkbox columns small-1 medium-1 large-1">
 					<input type='checkbox' defaultChecked={completed} onChange={this.props.onClickToggle} />
 				</div>
-				<div className="todo-content columns small-8 medium-8 large-8" >
+				<div className="todo-item-contents columns small-8 medium-8 large-8" >
 					{renderTodoText()}
-					<br />
-					<p className="todo-subtext">{renderDate()}</p>
-					<p className="todo-subtext">{renderDueDate()}</p>
-					<br />
+					<p className="todo-item-contents-subtext">{renderDate()}</p>
+					<p className="todo-item-contents-subtext">{renderDueDate()}</p>
 					<TodoItemTags tags={tags} 
 						onNewTag={this.submitNewTag}
 						onRemoveTag={ this.submitRemoveTag}/>
 				</div>
-				<div className="todo-controls columns small-3 medium-3 large-3">
+				<div className="todo-item-controls columns small-3 medium-3 large-3">
 					{ renderEditButton() }
 					<div className="button expanded hollow alert button-remove" onClick={this.props.onClickDelete}>remove</div>
 				</div>
