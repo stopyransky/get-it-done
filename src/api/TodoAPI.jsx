@@ -21,6 +21,7 @@ module.exports = {
 	// },
 
 	filterTodos: function(todos, showCompleted, searchText /*, tagFilter*/) {
+		
 		var filteredTodos= todos;
 
 		//filter by showCompleted
@@ -38,7 +39,11 @@ module.exports = {
 		// filteredTodos = filteredTodos.filter( (todo) => {
 		// 	return todo.tags.includes(tagFilter)
 		// } );
-
+		filteredTodos.sort( function( a,b ) {
+		 	if(a.createdAt < b.createdAt) return 1;
+			else if( a.createdAt > b.createdAt) return -1; 
+			else return 0;
+		});
 		// sort todos with non-completed
 		filteredTodos.sort( function(a,b) {
 			if(!a.completed && b.completed ) return -1;
@@ -47,5 +52,5 @@ module.exports = {
 		});
 
 		return filteredTodos;
-	}
+	} 
 }

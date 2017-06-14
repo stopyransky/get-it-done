@@ -42,6 +42,13 @@ export var startAddTodo = (newTodo) => {
 		});
 	};
 };
+
+export var toggleExpandAddTodo = () => {
+	return {
+		type: "TOGGLE_EXPAND_ADD_TODO"
+	}
+};
+
 export var addTodos = (todos) => {
 	return {
 		type : "ADD_TODOS",

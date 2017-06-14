@@ -34,8 +34,6 @@ export class TodoLogin extends React.Component {
 					<div className="columns small-centered small-10 medium-6 large-4">
 						<p>Login with one of social accounts below.</p>
 						<div className ="callout callout-auth">
-							{/*<h3>Login</h3>*/}
-							
 							<button className="button" onClick={this.onGithubLogin}>
 								<img src="assets/github-48.png" /> Github </button>
 							<button className="button" onClick={this.onFacebookLogin}>

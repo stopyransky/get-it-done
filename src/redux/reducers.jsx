@@ -1,5 +1,5 @@
-// var uuid = require("node-uuid");
-var moment = require("moment");
+import moment from 'moment';
+// import TodoAPI from 'TodoAPI';
 
 export var searchTextReducer = (state = "", action) => {
 
@@ -38,7 +38,16 @@ export var tagReducer = (state=[], action) => {
 			]
 		default : return state;
 	}
-}
+};
+
+export  var addTodoReducer = (state= false, action ) => {
+	switch(action.type) {
+		case "TOGGLE_EXPAND_ADD_TODO" :
+			return !state;
+		default: 
+			return state;
+	}
+};
 
 export var todosReducer = (state = [], action) => {
 	switch(action.type) {
@@ -50,6 +59,7 @@ export var todosReducer = (state = [], action) => {
 		case "ADD_TODOS" :
 			return [
 				...state,
+
 				...action.todos
 			];
 		case "TOGGLE_EDIT_TODO" : 

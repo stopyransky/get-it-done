@@ -1,48 +1,153 @@
 
-@import "base/variables"; // no underscore and extension
+//@import "base/variables"; // no underscore and extension
 
 // foundation
-@import 'base/foundation-settings';
-@import 'foundation';
-@include foundation-everything;
+// @import 'base/foundation-settings';
+// @import 'foundation';
+// @include foundation-everything;
 
-// components
-// @import "components/navigation";
-// @import "components/page-title";
-// @import "components/container";
-
-@import "components/todo-item";
-// @import "components/todo-search";
-// @import "components/todo-add";
-@import "components/todo-list";
-// @import "components/todo-views-menu";
-// @import "components/page-actions";
-@import "components/callout-auth";
-@import "components/todo-app-new";
-
-// input {
-// 	height: 1rem;
-// 	line-height : 1rem;
-// 	display: flex;
-// }
-
-input[type=search] {
-	box-shadow :  none;
-}
-
-* {
-  font-family: sans-serif;
-}
+@import "components/scrollbar-style";
+//@import "components/todo-app";
 
 html, body, #container, #app {
-  background-color : #fafafb;
-  margin: 0px;
-  padding: 0px;
+  background-color : #232324;
+  margin: 0;
   height: 100%;
+  overflow: hidden;
 }
 
 div {
+/*   border : 1px dashed red; */
+  color: #696969;
+}
+
+button {
+  padding: 5px;
+}
+
+input[type=text] {
+  padding: 5px;
+}
+
+input[type=checkbox] {
+  margin: 5px;
+}
+
+#todo-app {
   display: grid;
-  // border : 1px dashed red;
-  color: #afafaf;
+/*   min-height:300px; */
+/*   min-width: 700px; */
+  height: 100%;
+  grid-template-columns : 64px auto;
+  grid-template-rows : 64px auto;
+  grid-gap : 2px 2px;
+  grid-auto-columns: 64px;
+  grid-auto-rows: 64px;
+  justify-items : stretch;
+  align-items : stretch;
+  justify-content: stretch;
+  align-content: stretch; 
+  /* start | end | center | stretch | space-around | space-between | space-evenly;*/
+}
+
+.child {
+  border-left: 5px solid #696969;
+/*   border-bottom: 5px solid #696969; */
+  cursor: pointer;
+}
+
+.child:hover {
+  color: white;
+  background-color : #696969;
+}
+
+#menu {
+    display: grid;
+  grid-column : 1 / 2;
+  grid-row : 1 / 2;
+/*   justify-items: center; */
+/*   align-items: center; */
+}
+
+#topbar {
+    display: grid;
+  grid-column : 2 / 3 ;
+  grid-row: 1 / 2;
+  grid-template-columns: auto 50px;
+  padding : 0px 10px;
+  justify-items: left;
+/*   align-items: center; */
+/*   justify-content: center; */
+  align-content: center;
+}
+
+ #topbar .child {
+  margin: 0px 5px;
+}
+
+#settings {
+    display: grid;
+  align-content: center;
+  padding :5px;
+}
+
+#add {
+    display: grid;
+  padding: 17px;
+  border : none;
+  border-right: 5px solid #696969;
+  justify-items: stretch;
+  align-items: stretch;
+  justify-content: stretch;
+  align-content: stretch;
+}
+
+#leftbar {
+    display: grid;
+  grid-column : 1 / 2;
+  grid-row : 2 / 3;
+/*   justify-items: center; */
+  align-items: start;
+  align-content: start;
+
+}
+#leftbar .child, #menu .child {
+    margin: 5px;
+    height: 48px;
+    justify-items: center;
+    align-items: center;
+}
+
+#content {
+  display: grid;
+  background-color: #232323;
+  border : 1px solid #696969;
+  margin: 4px;
+  padding: 2px;
+  grid-column : 2 / 3;
+  grid-row: 2 / 3;
+  overflow: auto;
+}
+
+#item-list {
+/*   min-height: 200px; */
+  display: flex;
+  flex-flow : column nowrap;
+  overflow: auto;
+}
+
+.item {
+  display : flex;
+  background-color: #2f2f2f;
+/*   border : 1px solid #696969; */
+  min-height: 50px;
+  margin: 5px 5px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.item:hover {
+  background-color: #696969;
+  color: #fff;
 }
