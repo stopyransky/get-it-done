@@ -1,0 +1,13 @@
+#todo-leftbar {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items : flex-start;
+    justify-content: center;
+}
+
+#todo-leftbar div {
+    display: flex;
+    min-height: 60px;
+    align-items: center;
+    justify-content: center;
+}

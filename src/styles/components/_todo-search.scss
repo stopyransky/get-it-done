@@ -1,6 +1,7 @@
 #todo-search-inner {
 	display: flex;
 	flex-flow: rows nowrap;
+	justify-content: flex-start;
 }
 #todo-search-text {
 	display:flex ;

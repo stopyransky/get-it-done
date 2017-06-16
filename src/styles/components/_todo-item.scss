@@ -3,58 +3,79 @@ html, body {
   color: $foreground-color;
 }
 
+
 .todo-item {
-  border : 1px solid $background-color-highlight;
-  
+  border : 1px solid #2f2f2f;
   display: flex;
   flex-flow : row nowrap;
-  justify-content: center;
-  align-items: stretch;
-  // padding: 2px;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  min-height: 150px; // just patch
+  padding: 5px;
 }
 
-.todo-item:hover {
-  background-color: $background-color-highlight;
-}
-
-.todo-item-checkbox {
+.todo-item-checkbox { 
   // border: 1px dashed red;
   display: flex;
-  flex: 0 0 20%;
+  flex: 0 0 auto;
+  align-content: center;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.todo-item-checkbox div {
+  // border: 1px dashed gray; 
+  cursor: pointer;
+  background-color: #2f2f2f;
+  display:flex;
+  flex: 0 0 auto;
+  min-width: 160px;
+  min-height: 160px;
   align-items: center;
   justify-content: center;
+  
+}
+
+.todo-item-checkbox div:hover {
+  background-color: #436EAE;
+  color: white;
 }
 
 .todo-item-contents {
   // border: 1px dashed yellow;
+  background-color: #2f2f2f;
   display: flex;
-  flex: 0 0 50%;
-  flex-flow : column wrap;
-  justify-content: space-around;
-
-}
-.todo-item-contents-subtext {
-  display: flex ;
-  margin: 0px;
-  padding: 0px;
+  flex: 1 1 auto;
+  flex-flow : column nowrap;
+/*   max-height: 100px; */
+/*   overflow: auto; */
 }
 
 .todo-item-controls {
   // border: 1px dashed blue;
   display : flex;
   flex-flow: column nowrap;
-  flex: 0 0 20%;
+  flex: 0 0 auto;
+  // align-items: stretch;
+  // align-content: stretch;
+  align-self: stretch;
 }
 
 .todo-item-controls div {
-  // border: 1px dashed gray;
+/*   border: 1px dashed gray; */
+  cursor: pointer;
+  background-color: #2f2f2f;
   display:flex;
   flex: 1 0 auto;
+  min-width: 80px;
   align-items: center;
   justify-content: center;
 }
 
 .todo-item-controls div:hover {
-  background-color: $background-color-highlight;
-  color: $foreground-color-highlight;
+  background-color: #436EAE;
+  color: white;
 }
+

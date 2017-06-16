@@ -3,7 +3,7 @@ import * as Redux from 'react-redux';
 
 import TodoList from 'TodoList';
 import TodoSearch from 'TodoSearch';
-// import TodoViewsMenu from 'TodoViewsMenu';
+import TodoLeftbar from 'TodoLeftbar';
 import * as actions from 'actions';
 
 export class TodoAppNew extends React.Component {
@@ -69,17 +69,13 @@ export class TodoAppNew extends React.Component {
 		
         return (
             <div id="todo-app">
-                <div id="menu" className="child"> menu </div>
+                <div id="menu" className="child"> |||| </div>
                 <div id="topbar">
                     <TodoSearch />
                     <div className="child todo-add">add</div>
                 </div>
                 <div id="leftbar">
-                    <div className="child">view1</div>
-                    <div className="child">view2</div>
-                    <div className="child">view3</div>
-                    <div className="child">view4</div>
-                    <div className="child">view5</div>
+                    <TodoLeftbar />
                 </div>
                 <div id="content">
                     <TodoList />

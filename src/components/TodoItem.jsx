@@ -153,12 +153,9 @@ export class TodoItem extends React.Component {
 
 		var renderEditButton = () => {
 			if(this.state.editMode) {
-				return <div className="button expanded hollow success button-save" 
-							onClick={this.onSaveEdit}>save
-					   </div>;
+				return <div onClick={this.onSaveEdit}>save </div>;
 			} else {
-				return <div className="button expanded hollow warning button-edit" 
-							onClick={()=>{
+				return <div onClick={()=>{
 								this.setState( {
 									editMode : true
 								})
@@ -169,10 +166,10 @@ export class TodoItem extends React.Component {
 
 		return (
 			<div className={todoClassName} >
-				<div className="todo-item-checkbox columns small-1 medium-1 large-1">
-					<input type='checkbox' defaultChecked={completed} onChange={this.props.onClickToggle} />
+				<div className="todo-item-checkbox">
+					<input type="checkbox" defaultChecked={completed} onChecked={this.props.onClickToggle}/>
 				</div>
-				<div className="todo-item-contents columns small-8 medium-8 large-8" >
+				<div className="todo-item-contents" >
 					{renderTodoText()}
 					<p className="todo-item-contents-subtext">{renderDate()}</p>
 					<p className="todo-item-contents-subtext">{renderDueDate()}</p>
@@ -180,9 +177,9 @@ export class TodoItem extends React.Component {
 						onNewTag={this.submitNewTag}
 						onRemoveTag={ this.submitRemoveTag}/>
 				</div>
-				<div className="todo-item-controls columns small-3 medium-3 large-3">
+				<div className="todo-item-controls">
 					{ renderEditButton() }
-					<div className="button expanded hollow alert button-remove" onClick={this.props.onClickDelete}>remove</div>
+					<div onClick={this.props.onClickDelete}>delete</div>
 				</div>
 			</div>
 		);

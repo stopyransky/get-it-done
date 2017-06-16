@@ -1,24 +1,12 @@
-#item-list::-webkit-scrollbar {
-  width: 5px;
+#todo-list::-webkit-scrollbar {
+  width : 8px;
+/*   background-color: #696969; */
 }
-#item-list::-webkit-scrollbar-track {
-/*   background-color : #2f2f2f; */
-/*   color: #0ff; */
-}
-#item-list::-webkit-scrollbar-button {
-/*   border: 1px solid white; */
-/*   height: 5px; */
-/*   background-color: red; */
-}
-#item-list::-webkit-scrollbar-track-piece {
-  background-color : #2f2f2f;
 
+#todo-list::-webkit-scrollbar-thumb {
+  background-color: #2f2f2f;
 }
-#item-list::-webkit-scrollbar-thumb {
+
+#todo-list::-webkit-scrollbar-thumb:hover {
   background-color: #696969;
-/*   border : 1px solid red; */
-}
-
-#item-list::-webkit-scrollbar-corner {
-  background-color: #f00;
 }

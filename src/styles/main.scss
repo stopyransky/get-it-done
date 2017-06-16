@@ -10,6 +10,7 @@
 @import "components/todo-item";
 @import "components/todo-search";
 @import "components/todo-item-tag";
+@import "components/todo-leftbar";
 
 html, body {
   height: 100%;
@@ -17,6 +18,7 @@ html, body {
   background-color: #232324;
   color: #696969;
   overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
 div {
@@ -76,13 +78,11 @@ div {
 
 #topbar {
   // border: 1px dashed green;
-  
   display: inline-grid;
   grid-column : 2 / 3;
   grid-row : 1 / 2;
   align-content: center;
   justify-content: stretch;
-  
   grid-template-columns :  auto 64px;
   grid-template-rows : auto;
 }
@@ -90,7 +90,7 @@ div {
 #todo-search {
   // border: 1px dashed gray;
   display: grid;
-  grid-column: 1 /2;
+  grid-column: 1 / 2;
 }
 
 #todo-add {
@@ -104,7 +104,6 @@ div {
 
 #leftbar {
   // border: 1px dashed yellow;
-  
   display: grid;
   grid-column: 1 / 2;
   grid-row: 2 / 3;
@@ -129,6 +128,10 @@ div {
   
   display: flex;
   flex-flow: column nowrap;
+  
+  // justify-content: stretch;
+  // align-content: stretch;
+  // align-items: stretch;
   
   position: absolute;
   top: 0px;
