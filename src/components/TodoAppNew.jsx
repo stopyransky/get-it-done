@@ -1,20 +1,22 @@
 import React from 'react';
 import * as Redux from 'react-redux';
 
+
 import TodoList from 'TodoList';
 import TodoSearch from 'TodoSearch';
 import TodoLeftbar from 'TodoLeftbar';
 import * as actions from 'actions';
+import TodoMenu from 'TodoMenu';
 
 export class TodoAppNew extends React.Component {
 
     constructor(props) {
         super(props);
-        this.onLogout = this.onLogout.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
         this.handleTodoAdd = this.handleTodoAdd.bind(this);
     }
     
-    onLogout (e) {
+    handleLogout (e) {
         e.preventDefault();
         var {dispatch} = this.props;
         dispatch(actions.startLogout());
@@ -69,7 +71,9 @@ export class TodoAppNew extends React.Component {
 		
         return (
             <div id="todo-app">
-                <div id="menu" className="child"> |||| </div>
+                <div id="menu">
+                    <TodoMenu />
+                </div>
                 <div id="topbar">
                     <TodoSearch />
                     <div className="child todo-add">add</div>

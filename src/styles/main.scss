@@ -11,6 +11,7 @@
 @import "components/todo-search";
 @import "components/todo-item-tag";
 @import "components/todo-leftbar";
+@import "components/todo-menu";
 
 html, body {
   height: 100%;
@@ -143,16 +144,16 @@ div {
 
 }
 
-.item {
-  // border: 1px dashed gray;
-  display: flex;
-  flex: 0 0 auto;
+// .item {
+//   // border: 1px dashed gray;
+//   display: flex;
+//   flex: 0 0 auto;
 
-  padding: 10px;
-  margin: 2px;
-}
+//   padding: 10px;
+//   margin: 2px;
+// }
 
-.item:hover {
-  background-color: #696969;
-  color: white;
-}
+// .item:hover {
+//   background-color: #696969;
+//   color: white;
+// }
