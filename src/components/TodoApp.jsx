@@ -2,25 +2,26 @@ import React from 'react';
 import * as Redux from 'react-redux';
 
 
-import TodoList from 'TodoList';
-import TodoSearch from 'TodoSearch';
-import TodoLeftbar from 'TodoLeftbar';
+
 import * as actions from 'actions';
 import TodoMenu from 'TodoMenu';
+import TodoSearch from 'TodoSearch';
+import TodoLeftbar from 'TodoLeftbar';
+import TodoList from 'TodoList';
 
-export class TodoAppNew extends React.Component {
+export class TodoApp extends React.Component {
 
     constructor(props) {
         super(props);
-        this.handleLogout = this.handleLogout.bind(this);
+        // this.handleLogout = this.handleLogout.bind(this);
         this.handleTodoAdd = this.handleTodoAdd.bind(this);
     }
     
-    handleLogout (e) {
-        e.preventDefault();
-        var {dispatch} = this.props;
-        dispatch(actions.startLogout());
-    }
+    // handleLogout (e) {
+    //     e.preventDefault();
+    //     var {dispatch} = this.props;
+    //     dispatch(actions.startLogout());
+    // }
 
 
  	handleTodoAdd( data ) {
@@ -93,4 +94,4 @@ export default Redux.connect((state) => {
     return {
         expanded : state.addExpanded
     } 
-})(TodoAppNew);
+})(TodoApp);

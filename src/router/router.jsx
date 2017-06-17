@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 
 // import TodoApp from 'TodoApp';
-import TodoAppNew from 'TodoAppNew';
+import TodoApp from 'TodoApp';
 import TodoLogin from 'TodoLogin';
 import firebase from './../firebase/index.js';
 
@@ -29,7 +29,7 @@ export default (
 	<Router history={hashHistory}>
 		<Route path="/" component={App}>
 			<IndexRoute component={TodoLogin} onEnter={redirectIfLogin}/>
-			<Route path="todo" component={TodoAppNew} onEnter={requireLogin}/>
+			<Route path="todo" component={TodoApp} onEnter={requireLogin}/>
 		</Route>
 	</Router>
 );
