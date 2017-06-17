@@ -1,13 +1,36 @@
-#todo-leftbar {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items : flex-start;
-    justify-content: center;
+
+#leftbar {
+//   border: 1px dashed yellow;
+  display: grid;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
 }
 
-#todo-leftbar div {
+#todo-leftbar {
+    // border: 1px solid #2f2f2f;
     display: flex;
-    min-height: 60px;
-    align-items: center;
+    flex-flow: column nowrap;
+    // align-content: space-between;
+    align-items : space-between;
+
+}
+
+.todo-leftbar-group {
+    display: flex;
+    flex-flow: column nowrap;
+    
+}
+.todo-leftbar-item {
+    border: 1px solid #2f2f2f;
+    display: flex;
+    margin: 2px;
+    min-height: 64px;
     justify-content: center;
+    align-items: center;
+}
+
+.todo-leftbar-item:hover {
+    color: white; 
+    background-color: #2f2f2f;
+    border-color : #696969;
 }

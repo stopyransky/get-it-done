@@ -7,23 +7,28 @@
 // @include foundation-everything;
 
 @import "components/scrollbar-style";
-@import "components/todo-item";
-@import "components/todo-search";
-@import "components/todo-item-tag";
-@import "components/todo-leftbar";
-@import "components/todo-menu";
+@import "components/todo-app";
+  @import "components/todo-menu"; // menu
+  @import "components/todo-topbar"; // topbar
+    @import "components/todo-search";
+    @import "components/todo-add";
+  @import "components/todo-leftbar"; // leftbar
+  @import "components/todo-list"; // contents
+    @import "components/todo-item";
+      @import "components/todo-item-tag";
 
 html, body {
   height: 100%;
   margin: 0px;
+  padding: 0px;
   background-color: #232324;
   color: #696969;
   overflow: hidden;
   font-family: Arial, sans-serif;
 }
 
-div {
-  margin: 2px;
+input[type=text] {
+  font-size : 1rem;
 }
 #container {
   // border: 1px dashed red;
@@ -33,127 +38,12 @@ div {
   left: 10px;
   bottom: 10px;
   right: 10px;
-  min-width : 300px;
+  // min-width : 300px;
   min-height: 200px;
 }
 
 #app {
+  
   // border: 1px dashed steelblue;
 }
 
-#todo-app {
-  // border: 1px dashed pink;
-  
-  display: grid;
-  grid-template-columns : 64px auto;
-  grid-template-rows : 64px auto;
-  align-content: stretch;
-  justify-content: stretch;
-  
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-}
-
-.child {
-  // border: 1px dashed gray;
-  // border-left : 5px solid #696969;
-}
-
-.child:hover {
-  background-color: #696969;
-  color: white;
-}
-
-#menu {
-  // border: 1px dashed purple;
-  
-  display:grid;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2 ;
-  align-content: center;
-  justify-content: center;
-}
-
-#topbar {
-  // border: 1px dashed green;
-  display: inline-grid;
-  grid-column : 2 / 3;
-  grid-row : 1 / 2;
-  align-content: center;
-  justify-content: stretch;
-  grid-template-columns :  auto 64px;
-  grid-template-rows : auto;
-}
-
-#todo-search {
-  // border: 1px dashed gray;
-  display: grid;
-  grid-column: 1 / 2;
-}
-
-#todo-add {
-  // border: 1px dashed gray;
-  display: grid;
-  grid-column: 2 / 3;
-  align-content: center;
-  justify-content: stretch;
-  text-align: center;
-}
-
-#leftbar {
-  // border: 1px dashed yellow;
-  display: grid;
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-}
-
-#content {
-  // border: 1px dashed blue;
-  
-  display: grid;
-  grid-column: 2/3;
-  grid-row: 2/3;
-  
-  position: absolute;  
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
-
-#todo-list {
-  // border: 1px dashed green;
-  
-  display: flex;
-  flex-flow: column nowrap;
-  
-  // justify-content: stretch;
-  // align-content: stretch;
-  // align-items: stretch;
-  
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  
-  overflow: auto;
-
-}
-
-// .item {
-//   // border: 1px dashed gray;
-//   display: flex;
-//   flex: 0 0 auto;
-
-//   padding: 10px;
-//   margin: 2px;
-// }
-
-// .item:hover {
-//   background-color: #696969;
-//   color: white;
-// }

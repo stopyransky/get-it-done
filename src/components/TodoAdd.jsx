@@ -9,75 +9,15 @@ import * as actions from 'actions';
 
 export class TodoAdd extends React.Component {
 
-	constructor( props ) {
-		super(props);
-	
-		// this.toggleExpanded.bind(this);
-	}
-
-	// onFormSubmit( e ) {
-	// 	e.preventDefault();
-		
-	// 	var { dispatch } = this.props;
-
-
-	// 	var tagsRef = this.refs.tags.value.split(",");
-	// 	var tags = [];
-		
-		
-	// 	if(tagsRef.length > 0) {
-			
-	// 		tagsRef.forEach( ( tag )=> {
-	// 			var t = tag.trim();
-	// 			if(t) tags.push(t);
-	// 		});
-	// 	}
-
-	// 	// check due date input here
-		
-	// 	var newTodo = {
-	// 		text: _.capitalize(this.refs.text.value),
-	// 		dueDate : moment(this.refs.dueDate.value, "YYYY-MM-DD").unix(),
-	// 		tags 
-	// 	} 
-
-	// 	if(newTodo.text.length > 0) {
-	// 		this.refs.text.value = "";
-	// 		this.refs.dueDate.value="";
-	// 		this.refs.tags.value="";
-	// 		dispatch(actions.startAddTodo(newTodo))
-	// 	} else {
-	// 		this.refs.text.focus();
-	// 	}
-	// }
 	
 	render() {
 		
 		var {dispatch, expanded }  = this.props;
 		
 		return (
-			<div id="add">
-                <div className="child" onClick={() => {
-					if(!expanded) dispatch(actions.toggleExpandAddTodo())
-				}}> add </div>
-            </div>
+			<div id="todo-add">ADD</div>
 		);
 	}
-			// <div id="menu">
-            //         <div className="child"> add </div>
-            // </div>
-			// <div id="todo-add" className="columns large-8 medium-8 small-12">
-			// 	<form onSubmit={this.onFormSubmit.bind(this)}>
-			// 		<label> Text <input type='text' ref='text' placeholder="Enter new task..."/> </label>
-			// 		<div className="optional">
-			// 			<label> Due date <input type='date' ref='dueDate'/> </label>
-			// 			<label> Tags <input type="text" ref='tags' placeholder="enter coma separated tags" /> </label>
-			// 		</div>
-			// 		<button className="button expanded large"> GET IT DONE </button>
-			// 	</form>
-			// </div>
-		
-	
 }
 
 var mapStateToProps = (state, ownProps ) => {

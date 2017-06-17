@@ -1,18 +1,27 @@
-#todo-search-inner {
+
+
+#todo-search {
 	display: flex;
 	flex-flow: rows nowrap;
 	justify-content: flex-start;
+	align-items: center;
 }
 #todo-search-text {
 	display:flex ;
 	flex: 1 0 auto;
 }
 
+#todo-search-by-tag {
+	display: flex;
+
+}
+#todo-search input {
+	padding: 5px;
+
+}
 #todo-search-show-completed {
 	display:flex;
+	flex-flow : row nowrap;
 	flex: 1 0 auto;
 }
 
-#todo-search-by-tag {
-	
-}

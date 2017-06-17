@@ -104,14 +104,22 @@ export class TodoItem extends React.Component {
 			dueDate, 
 			tags, 
 			dispatch } = this.props;
+		
+		var { editMode } = this.state;
+
+		var setEditModeTrue = () => {
+			this.setState( {
+				editMode : true
+			})
+		}
 
 		var todoClassName = completed ? 'todo-item todo-completed' : 'todo-item todo-inprogress';
 		todoClassName = todoClassName+' columns centered small-12 medium-12 large-12';
 
 		var renderTodoText = () => {
-			if(this.state.editMode) {
+			if(editMode) {
 				return (
-					<form onSubmit={this.onSaveEdit} >
+					<form className="todo-item-contents-maintext" onSubmit={this.onSaveEdit} >
 						<input className="edit-text"
 							type="text" 
 							defaultValue={text} 
@@ -123,11 +131,11 @@ export class TodoItem extends React.Component {
 
 					
 			} else {
-				return <div onClick={()=>{
-						this.setState( {
-							editMode : true
-						})
-					}}> {text} </div>
+				return ( 
+					<div className="todo-item-contents-maintext" onClick={ setEditModeTrue }>
+						<span >{text}</span>
+					</div>
+				);
 			}   
 		}
 		
@@ -155,11 +163,7 @@ export class TodoItem extends React.Component {
 			if(this.state.editMode) {
 				return <div onClick={this.onSaveEdit}>save </div>;
 			} else {
-				return <div onClick={()=>{
-								this.setState( {
-									editMode : true
-								})
-							}}>edit</div>;
+				return <div onClick={ setEditModeTrue }>edit</div>;
 			}
 		}
 
@@ -171,8 +175,8 @@ export class TodoItem extends React.Component {
 				</div>
 				<div className="todo-item-contents" >
 					{renderTodoText()}
-					<p className="todo-item-contents-subtext">{renderDate()}</p>
-					<p className="todo-item-contents-subtext">{renderDueDate()}</p>
+					<div className="todo-item-contents-subtext">{renderDate()}</div>
+					<div className="todo-item-contents-subtext">{renderDueDate()}</div>
 					<TodoItemTags tags={tags} 
 						onNewTag={this.submitNewTag}
 						onRemoveTag={ this.submitRemoveTag}/>

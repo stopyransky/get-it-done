@@ -1,17 +1,25 @@
+#menu {
+  // border: 1px dashed purple;
+  display:grid;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2 ;
+  align-content: center;
+  justify-content: center;
+}
 
 #todo-menu {
   border: 1px solid #2f2f2f;
   position: relative;
   padding: 20px;
-  margin: 20px;
+  // margin: 20px;
   display: inline-block;
   align-items: center;
   justify-content: center;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #todo-menu:before {
-    content: "||||";
+  content: "||||";
 }
 
 #todo-menu:focus {

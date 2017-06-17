@@ -1,11 +1,9 @@
 import React from 'react';
 import * as Redux from 'react-redux';
 
-
-
 import * as actions from 'actions';
 import TodoMenu from 'TodoMenu';
-import TodoSearch from 'TodoSearch';
+import TodoTopbar from 'TodoTopbar';
 import TodoLeftbar from 'TodoLeftbar';
 import TodoList from 'TodoList';
 
@@ -13,19 +11,11 @@ export class TodoApp extends React.Component {
 
     constructor(props) {
         super(props);
-        // this.handleLogout = this.handleLogout.bind(this);
         this.handleTodoAdd = this.handleTodoAdd.bind(this);
     }
-    
-    // handleLogout (e) {
-    //     e.preventDefault();
-    //     var {dispatch} = this.props;
-    //     dispatch(actions.startLogout());
-    // }
-
 
  	handleTodoAdd( data ) {
-            console.log("handle Todo add",data)
+            console.log("handle Todo add", data )
         	var { dispatch } = this.props;
 
         	var tagsRef = data.tags.value.split(",");
@@ -61,14 +51,6 @@ export class TodoApp extends React.Component {
     } 
     
     render() {
-        
-        // var { dispatch, expanded } = this.props;
-        
-        // var renderAddModal = () => {
-        //     if(expanded) {
-        //         return <TodoAddModal onTodoAdd={this.handleTodoAdd} />;
-        //     }
-        // };
 		
         return (
             <div id="todo-app">
@@ -76,13 +58,12 @@ export class TodoApp extends React.Component {
                     <TodoMenu />
                 </div>
                 <div id="topbar">
-                    <TodoSearch />
-                    <div className="child todo-add">add</div>
+                    <TodoTopbar />
                 </div>
                 <div id="leftbar">
                     <TodoLeftbar />
                 </div>
-                <div id="content">
+                <div id="contents">
                     <TodoList />
                 </div>
             </div>

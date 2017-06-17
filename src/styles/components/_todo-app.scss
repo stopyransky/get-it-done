@@ -1,0 +1,26 @@
+#todo-app {
+  // border: 1px dashed pink;
+  
+  display: grid;
+  grid-template-columns : 64px auto;
+  grid-template-rows : 64px auto;
+  grid-gap: 5px;
+  align-content: stretch;
+  justify-content: stretch;
+  
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+// .child {
+//   // border: 1px dashed gray;
+//   // border-left : 5px solid #696969;
+// }
+
+// .child:hover {
+//   background-color: #696969;
+//   color: white;
+// }

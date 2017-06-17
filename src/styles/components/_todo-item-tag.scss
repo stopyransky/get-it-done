@@ -2,13 +2,13 @@ ul.tag-list {
   display: flex ;
   flex-flow : row wrap;
   padding: 0px;
-  margin: 0px;
+  margin: 5px;
 }
 
 .tag {
   cursor: pointer;
   border: 1px solid #696969 ;
-  margin: 1px 2px;
+  margin: 2px;
   padding: 1px;
   display:flex;
   flex-flow: row nowrap;
@@ -32,8 +32,10 @@ ul.tag-list {
   cursor: pointer;
   display : flex;
   border: 1px solid #696969;
+  justify-content: center;
+  text-align: center;
   padding : 1px 5px;
-  margin: 1px 5px;
+  margin: 1px 2px;
 }
 
 .tag-content:hover {

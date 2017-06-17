@@ -1,0 +1,21 @@
+#topbar {
+  // border: 1px dashed green;
+  display: grid;
+  grid-column : 2 / 3;
+  grid-row : 1 / 2;
+  align-content: center;
+  justify-content: stretch;
+  align-items: center;
+  // grid-template-columns :  auto 64px;
+  // grid-template-rows : auto;
+}
+
+#todo-topbar {
+   border: 1px solid #2f2f2f;
+  display : flex; 
+  flex-flow : row nowrap;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  align-content: center;
+}
