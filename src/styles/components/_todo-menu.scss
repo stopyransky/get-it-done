@@ -1,0 +1,66 @@
+
+#todo-menu {
+  border: 1px solid #2f2f2f;
+  position: relative;
+  padding: 20px;
+  margin: 20px;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+    cursor: pointer;
+}
+
+#todo-menu:before {
+    content: "||||";
+}
+
+#todo-menu:focus {
+  border :1px solid #696969;
+  background-color: #2f2f2f;
+  color: white;
+  outline-color: transparent;
+  outline-style: none;
+  pointer-events: none;
+}
+
+#todo-menu:hover {
+  border :1px solid #696969;
+  color: white;
+}
+
+#todo-menu:focus #todo-menu-content {
+    display: flex;
+    flex-flow: column nowrap;
+    
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#todo-menu-content {
+  border: 1px solid #696969;
+  background-color: #232323;
+  color: #696969;
+   
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  min-width: 140px;
+  padding: 0px 0px;
+  z-index: 9999;
+  
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s;
+}
+
+.todo-menu-item {
+  padding: 10px;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.todo-menu-item:hover {
+  background-color: #2f2f2f;
+  color: white;
+}

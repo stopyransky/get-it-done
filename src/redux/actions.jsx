@@ -163,9 +163,9 @@ export var filterByTag = (tag) => {
 export var startLogin =  () => {
 	return (dispatch, getState) => {
 		return firebase.auth().signInWithPopup(githubProvider).then((result)=>{
-			// console.log("auth worked", result);
+			console.log("auth worked", result);
 		}, (error)=>{
-			// console.log("unable to log", error);
+			console.log("unable to log", error);
 			console.log("Unable to log with Github.", error.message || error);
 		});
 	};
