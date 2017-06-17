@@ -15,7 +15,9 @@ export class TodoAdd extends React.Component {
 		var {dispatch, expanded }  = this.props;
 		
 		return (
-			<div id="todo-add">ADD</div>
+			<div id="todo-add">
+				<div id="todo-add-button">ADD</div>
+			</div>
 		);
 	}
 }

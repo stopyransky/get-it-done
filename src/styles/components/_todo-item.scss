@@ -6,8 +6,12 @@
   justify-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
- 
+  margin: 2px;
   padding: 5px;
+}
+
+.todo-item:hover {
+  border-color: #696969;
 }
 
 .todo-item-checkbox { 
@@ -42,10 +46,11 @@
 .todo-item-contents-maintext {
   display: flex;
   align-items : stretch;
-  // padding: 5px;
-  // height: 1rem;
+  color: #969696;
+  font-size: 1.2rem;
 
 }
+
 .todo-item-contents-maintext .edit-text {
   display: inline-flex;
   align-items : stretch;

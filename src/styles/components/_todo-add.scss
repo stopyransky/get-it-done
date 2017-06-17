@@ -1,8 +1,23 @@
 #todo-add {
-  // border: 1px dashed gray;
-  display: grid;
-  grid-column: 2 / 3;
-  align-content: center;
-  justify-content: stretch;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#todo-add-button {
+  border: 1px solid #2f2f2f;
+  display: flex;
+  margin: 2px;
+  min-height: 58px;
+  min-width: 58px;
+  justify-content : center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#todo-add-button:hover {
+  border-color : #696969;
+  color: white;
+  background-color: #2f2f2f;
+
 }
