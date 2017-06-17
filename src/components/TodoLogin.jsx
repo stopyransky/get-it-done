@@ -28,19 +28,15 @@ export class TodoLogin extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h1 className="page-title">TodoApp login</h1>
-				<div className="row">
-					<div className="columns small-centered small-10 medium-6 large-4">
-						<p>Login with one of social accounts below.</p>
-						<div className ="callout callout-auth">
-							<button className="button" onClick={this.onGithubLogin}>
-								<img src="assets/github-48.png" /> Github </button>
-							<button className="button" onClick={this.onFacebookLogin}>
-								<img src="assets/facebook-48.png" /> Facebook </button>
-							{/*<button className="button" onClick={this.onTwitterLogin}>Login with Twitter</button>*/}
-						</div>
-					</div>
+			<div className="todo-login">
+				<div className="login-button" onClick={this.onGithubLogin}>
+					<img src="assets/github-48.png" />
+				</div>
+				<div className="login-button" onClick={this.onFacebookLogin}>
+					<img src="assets/facebook-48.png" />
+				</div>
+				<div className="login-button" onClick={this.onTwitterLogin}>
+					<img src="assets/twitter-48.png" />
 				</div>
 			</div>
 		);

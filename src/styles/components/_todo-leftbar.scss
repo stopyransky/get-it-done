@@ -12,13 +12,13 @@
     // border: 1px solid #2f2f2f;
     display: flex;
     flex-flow: column nowrap;
-
+    justify-content : space-between;
 }
 
 .todo-leftbar-group {
     display: flex;
     flex-flow: column nowrap;
-    align-content: space-between;
+    
 
 }
 .todo-leftbar-item {
