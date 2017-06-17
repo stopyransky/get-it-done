@@ -18,6 +18,7 @@
 .todo-leftbar-group {
     display: flex;
     flex-flow: column nowrap;
+    align-content: space-between;
 
 }
 .todo-leftbar-item {
