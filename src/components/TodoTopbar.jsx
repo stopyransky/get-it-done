@@ -7,9 +7,10 @@ class TodoTopbar extends React.Component {
     render() {
 
         return (
-            <div id="todo-topbar">
-                <TodoSearch />
+            <div id="todo-topbar"> 
                 <TodoAdd />
+                {/*<TodoSearch />*/}
+               
             </div>
         );
     }
