@@ -152,11 +152,11 @@ export class TodoItem extends React.Component {
 		
 		var renderDueDate = () => {
 			if(dueDate) {
-				var message = 'Due date : ';
+				var message = ' Due date : ';
 				var timestamp = dueDate;
 				return message + moment.unix(timestamp).format("MMMM Do, YYYY");
 			}
-			return "No due date for this task.";
+			return " No due date for this task.";
 		}
 
 		var renderEditButton = () => {
@@ -175,8 +175,8 @@ export class TodoItem extends React.Component {
 				</div>
 				<div className="todo-item-contents" >
 					{renderTodoText()}
-					<div className="todo-item-contents-subtext">{renderDate()}</div>
-					<div className="todo-item-contents-subtext">{renderDueDate()}</div>
+					<div className="todo-item-contents-subtext">{renderDate()}.&nbsp;{renderDueDate()}</div>
+					{/*<div className="todo-item-contents-subtext"></div>*/}
 					<TodoItemTags tags={tags} 
 						onNewTag={this.submitNewTag}
 						onRemoveTag={ this.submitRemoveTag}/>
