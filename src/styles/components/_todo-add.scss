@@ -24,18 +24,23 @@
   align-items: center;
   cursor: pointer
 }
-#todo-add-button {
+
+.todo-add-button {
+  background-color: #232323;
+  color: #696969;
   border: 1px solid #2f2f2f;
   display: flex;
-  margin: 2px;
-  min-height: 58px;
+  position: absolute;
+  right: $scrollbar-width + 7px;
+  // margin: 2px 0px;
+  min-height: $grid-row-top;
   min-width: 80px;
   justify-content : center;
   align-items: center;
   cursor: pointer;
 }
 
-#todo-add-button:hover {
+.todo-add-button:hover {
   border-color : #696969;
   color: white;
   background-color: #2f2f2f;

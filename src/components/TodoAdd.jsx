@@ -75,7 +75,7 @@ export class TodoAdd extends React.Component {
 				<form id="todo-add" onSubmit={this.handleSimpleTodoAdd}>
 					<input type="text" ref="newTodo" placeholder="Add todo..." />
 					{/*<button id="todo-add-more">more...</button>*/}
-					<div id="todo-add-button" /*onClick={this.handleSimpleTodoAdd}*/ onClick={()=>{
+					<div className="todo-add-button" /*onClick={this.handleSimpleTodoAdd}*/ onClick={()=>{
 						var addModal = document.getElementById("add-modal");
 							addModal.style.display = "block";
 					}}>ADD</div>

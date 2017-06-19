@@ -69,6 +69,10 @@
 }
 
 .todo-item-controls {
+  visibility: hidden;
+}
+
+.todo-item:hover .todo-item-controls {
   // border: 1px dashed blue;
   display : flex;
   flex-flow: column nowrap;
@@ -76,6 +80,9 @@
   // align-items: stretch;
   // align-content: stretch;
   align-self: stretch;
+  
+  visibility: visible;  
+  transition: visibility 0.5s;
 }
 
 .todo-item-controls div {

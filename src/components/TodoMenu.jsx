@@ -21,7 +21,7 @@ export class TodoMenu extends React.Component {
     render() {
         
         return (
-            <div tabIndex="0" id="todo-menu" >
+            <div tabIndex="1" id="todo-menu" >
                 <div id="todo-menu-content">
                     <div className="todo-menu-item">Options</div>
                     <div className="todo-menu-item" onClick={ this.handleLogout }>Logout</div>

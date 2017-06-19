@@ -27,9 +27,9 @@ class DeleteTodoModal extends React.Component {
 
     render() {
         return (
-            <div id={this.props.id+"-modal"} className="modal delete">
+            <div id={this.props.id+"-modal"} className="modal-delete">
                 <div className="todo-modal-delete-content">
-                    <span className="modal-close" onClick={this.onClose}>&times;</span>
+                    <span className="modal-delete-close" onClick={this.onClose}>&times;</span>
                     <p>Are you sure you want to delete this todo? </p>
                     <p>{this.props.text}</p>
                     <button onClick={this.onConfirm}>Yes</button>

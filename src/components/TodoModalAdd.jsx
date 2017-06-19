@@ -28,14 +28,16 @@ class TodoModalAdd extends React.Component {
 
 	render() {
         return (
-            <div id="add-modal" className="modal">
+            <div id="add-modal" className="modal-add">
                 <form className="todo-modal-add-content" onSubmit={this.onConfirm} >
-                    <span className="modal-close" onClick={this.onClose}>&times;</span>
-                    <input type="text" ref="text" placeholder="Todo text"/>
+                   
+                    <input className="todo-modal-add-text" type="text" ref="text" placeholder="Todo text"/>
 					<button onClick={(e)=>{
 						e.preventDefault();
 						console.log("more clicked : create/expand existing modal");
-						}}>more...</button>
+						}}><b>more options</b></button>
+                    <div className="todo-modal-add-button" >ADD</div>
+                    <div className="modal-add-close" onClick={this.onClose}>&times;</div>
                 </form>
             </div>
         );

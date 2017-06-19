@@ -171,13 +171,13 @@ export class TodoItem extends React.Component {
 
 
 		return (
-			<div className={todoClassName} >
+			<div tabIndex="2" className={todoClassName} >
 				<div className="todo-item-checkbox">
 					<input type="checkbox" defaultChecked={completed} onChange={this.props.onClickToggle}/>
 				</div>
 				<div className="todo-item-contents" >
 					{renderTodoText()}
-					<div className="todo-item-contents-subtext">{renderDate()}.&nbsp;{renderDueDate()}</div>
+					{/*<div className="todo-item-contents-subtext">{renderDate()}.&nbsp;{renderDueDate()}</div>*/}
 					<TodoItemTags tags={tags} 
 						onNewTag={this.submitNewTag}
 						onRemoveTag={ this.submitRemoveTag}/>
