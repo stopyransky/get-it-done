@@ -11,11 +11,10 @@
 }
 
 #todo-topbar {
-  //  border: 1px solid #2f2f2f;
+  border: 1px solid #2f2f2f;
   display : flex; 
   flex-flow : row nowrap;
   justify-content: stretch;
-  padding: 0px 10px;
   align-items: center;
-  // align-content: center;
+  min-height: $topbar-height;
 }

@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import * as actions from "actions";
 import TodoItemTags from 'TodoItemTags';
+import TodoModalDelete from 'TodoModalDelete';
 
 // exporting raw React component for testing purposes
 export class TodoItem extends React.Component {
@@ -142,12 +143,13 @@ export class TodoItem extends React.Component {
 		var renderDate = () => {
 			var message = 'Created ';
 			var timestamp = createdAt;
-			if(completed) {
-				message = "Completed ";
-				timestamp = completedAt;
-			}
+			// if(completed) {
+			// 	message = "Completed ";
+			// 	timestamp = completedAt;
+			// }
 	
-			return message + moment.unix(timestamp).format("MMMM Do, YYYY @ h:mm a");
+			// return createdAt;
+			return message + moment.unix(timestamp).format("DD MM YYYY @ hh:mm ");
 		}
 		
 		var renderDueDate = () => {
@@ -175,17 +177,22 @@ export class TodoItem extends React.Component {
 				</div>
 				<div className="todo-item-contents" >
 					{renderTodoText()}
-					{/*<div className="todo-item-contents-subtext">{renderDate()}.&nbsp;{renderDueDate()}</div>*/}
-					{/*<div className="todo-item-contents-subtext"></div>*/}
+					<div className="todo-item-contents-subtext">{renderDate()}.&nbsp;{renderDueDate()}</div>
 					<TodoItemTags tags={tags} 
 						onNewTag={this.submitNewTag}
 						onRemoveTag={ this.submitRemoveTag}/>
 				</div>
 				<div className="todo-item-controls">
 					{ renderEditButton() }
-					<div onClick={this.props.onClickDelete}>delete</div>
+					<div onClick ={ () => {
+						
+						var modal = document.getElementById(id+"-modal");
+        				modal.style.display = "block";
+					} }>delete</div>
 				</div>
+				<TodoModalDelete id={id} text={text} onConfirm={this.props.onClickDelete} />
 			</div>
+
 		);
 	}
 }

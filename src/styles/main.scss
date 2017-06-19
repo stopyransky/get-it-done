@@ -7,6 +7,9 @@
 // @include foundation-everything;
 
 @import "components/scrollbar-style";
+@import "components/todo-modal";
+  @import "components/todo-modal-add";
+  @import "components/todo-modal-delete";
 @import "components/todo-login";
 @import "components/todo-app";
   @import "components/todo-menu"; // menu
@@ -36,10 +39,10 @@ input[type=text] {
   // border: 1px dashed red;
   
   position: absolute;
-  top: 10px;
-  left: 10px;
-  bottom: 10px;
-  right: 10px;
+  top: $container-offset;
+  left: $container-offset;
+  bottom: $container-offset;
+  right: $container-offset;
   // min-width : 300px;
   min-height: 200px;
 }

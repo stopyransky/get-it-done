@@ -5,3 +5,13 @@ $border-color : $background-color-highlight;
 $foreground-color-highlight: #ffffff;
 $tag-color : $foreground-color;
 $tag-text-color: white;
+
+$grid-gap: 5px;
+$grid-column-left : 64px;
+$grid-column-right : 1fr;
+$grid-row-top: 64px; 
+$grid-row-bottom: 1fr;
+$scrollbar-width: 10px;
+$topbar-height: $grid-row-top;
+$topbar-width: $grid-column-right;
+$container-offset: 0px;

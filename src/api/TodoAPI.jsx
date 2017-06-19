@@ -23,6 +23,13 @@ module.exports = {
 	filterTodos: function(todos, showCompleted, searchText) {
 		
 		var filteredTodos= todos;
+		
+		// sort todos with according to create date (newest first) 
+		filteredTodos.sort( function( a, b ) {
+			if(a.createdAt > b.createdAt) return -1;
+			else if( a.createdAt < b.createdAt) return 1
+			return 0;  
+		});
 
 		//filter by showCompleted
 		filteredTodos = filteredTodos.filter( (todo) =>{
@@ -34,13 +41,14 @@ module.exports = {
 			var text = todo.text.toLowerCase();
 			return !searchText || text.indexOf(searchText.toLowerCase()) > -1;
 		} );
-
+		
+		
 		// sort todos with non-completed
-		filteredTodos.sort( function(a,b) {
-			if(!a.completed && b.completed ) return -1;
-			else if(a.completed && !b.completed) return 1;
-			else return 0;
-		});
+		// filteredTodos.sort( function(a,b) {
+		// 	if(!a.completed && b.completed ) return -1;
+		// 	else if(a.completed && !b.completed) return 1;
+		// 	else return 0;
+		// });
 
 		return filteredTodos;
 	}

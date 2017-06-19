@@ -13,7 +13,7 @@
   flex : 1 0 auto;
   justify-content :stretch;
   padding: 5px 0px;
-  margin-left: 10px;
+  margin: 0px 10px;
 }
 
 #todo-add-more {
@@ -29,7 +29,7 @@
   display: flex;
   margin: 2px;
   min-height: 58px;
-  min-width: 58px;
+  min-width: 80px;
   justify-content : center;
   align-items: center;
   cursor: pointer;

@@ -2,9 +2,9 @@
   // border: 1px dashed pink;
   
   display: grid;
-  grid-template-columns : 64px auto;
-  grid-template-rows : 64px auto;
-  grid-gap: 5px;
+  grid-template-columns : $grid-column-left $grid-column-right;
+  grid-template-rows : $grid-row-top $grid-row-bottom;
+  grid-gap: $grid-gap;
   align-content: stretch;
   justify-content: stretch;
   

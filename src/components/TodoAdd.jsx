@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import * as _ from 'lodash';
 // import moment from 'moment';
 
-
+import TodoModalAdd from "TodoModalAdd";
 import * as actions from 'actions';
 
 export class TodoAdd extends React.Component {
@@ -71,11 +71,17 @@ export class TodoAdd extends React.Component {
 		var {dispatch, expanded }  = this.props;
 		
 		return (
-			<form id="todo-add" onSubmit={this.handleSimpleTodoAdd}>
-				<input type="text" ref="newTodo" placeholder="Add todo..." />
-				{/*<button id="todo-add-more">more...</button>*/}
-				<div id="todo-add-button" onClick={this.handleSimpleTodoAdd}>ADD</div>
-			</form>
+			<div>
+				<form id="todo-add" onSubmit={this.handleSimpleTodoAdd}>
+					<input type="text" ref="newTodo" placeholder="Add todo..." />
+					{/*<button id="todo-add-more">more...</button>*/}
+					<div id="todo-add-button" /*onClick={this.handleSimpleTodoAdd}*/ onClick={()=>{
+						var addModal = document.getElementById("add-modal");
+							addModal.style.display = "block";
+					}}>ADD</div>
+				</form>
+				<TodoModalAdd />
+			</div>
 		);
 	}
 }
