@@ -31,9 +31,8 @@ class TodoModalAdd extends React.Component {
         /* if user clicks outside add-modal - close modal*/
         window.addEventListener("click", (event) => {
             var modal = document.getElementById("add-modal");
-            
             if (event.target == modal) {
-                this.refs.text.value="";
+                if(this.refs.text) this.refs.text.value="";
                 modal.style.display = "none";
             }
         });
