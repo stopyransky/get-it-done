@@ -21,6 +21,12 @@
     @import "components/todo-item";
       @import "components/todo-item-tag";
 
+* {
+  // disable blue border on focus
+  outline-color: transparent;
+  outline-style: none;
+}
+
 html, body {
   height: 100%;
   margin: 0px;

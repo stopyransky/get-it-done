@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 // import moment from 'moment';
 
 import TodoModalAdd from "TodoModalAdd";
@@ -15,19 +15,20 @@ export class TodoAdd extends React.Component {
 		this.handleSimpleTodoAdd = this.handleSimpleTodoAdd.bind(this);
     }
 
-	handleSimpleTodoAdd( e ) {
-		e.preventDefault();
+	handleSimpleTodoAdd( newTodoText ) {
+		// e.preventDefault();
 		var { dispatch } = this.props;
-		var newTodo = _.capitalize(this.refs.newTodo.value);
+		var newTodo =  newTodoText;
 		
-		if(newTodo.length > 0) {
-			this.refs.newTodo.value = "";
+		// this is checked in add modal now - ulitmately whole handler will be moved there
+		// if(newTodo.length > 0) {
+			// this.refs.newTodo.value = "";
 
-			dispatch(actions.startAddTodo({ text: newTodo}))
+		dispatch(actions.startAddTodo({ text: newTodo}))
 
-		} else {
-			this.refs.newTodo.focus();
-		}
+		// } else {
+		// 	this.refs.newTodo.focus();
+		// }
 	}
 
 	handleTodoAdd( data ) {
@@ -72,15 +73,15 @@ export class TodoAdd extends React.Component {
 		
 		return (
 			<div>
-				<form id="todo-add" onSubmit={this.handleSimpleTodoAdd}>
-					<input type="text" ref="newTodo" placeholder="Add todo..." />
+				<form id="todo-add" /*onSubmit={this.handleSimpleTodoAdd}*/>
+					{/*<input type="text" ref="newTodo" placeholder="Add todo..." />*/}
 					{/*<button id="todo-add-more">more...</button>*/}
 					<div className="todo-add-button" /*onClick={this.handleSimpleTodoAdd}*/ onClick={()=>{
 						var addModal = document.getElementById("add-modal");
 							addModal.style.display = "block";
 					}}>ADD</div>
 				</form>
-				<TodoModalAdd />
+				<TodoModalAdd onSubmit={this.handleSimpleTodoAdd} />
 			</div>
 		);
 	}

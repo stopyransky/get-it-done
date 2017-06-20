@@ -9,10 +9,21 @@ import * as actions from 'actions';
 
 class TodoModalAdd extends React.Component {
 	
-    onConfirm = () => this.props.onConfirm();
-
-    onClose = () => {
+    onConfirm = (e) => {
+        e.preventDefault();
+        // console.log(newText);
+        var newText = this.refs.text.value;
+        if(newText.length > 0) {
+            this.refs.text.value = "";
+            this.props.onSubmit(newText);
+        } else {
+            this.refs.text.focus();
+        }
+        
+    }
+    onClose = (event) => {
          var modal = document.getElementById("add-modal");
+         this.refs.text.value="";
          modal.style.display = "none";
     }
 	
@@ -20,7 +31,9 @@ class TodoModalAdd extends React.Component {
         /* if user clicks outside add-modal - close modal*/
         window.addEventListener("click", (event) => {
             var modal = document.getElementById("add-modal");
+            
             if (event.target == modal) {
+                this.refs.text.value="";
                 modal.style.display = "none";
             }
         });
@@ -31,13 +44,13 @@ class TodoModalAdd extends React.Component {
             <div id="add-modal" className="modal-add">
                 <form className="todo-modal-add-content" onSubmit={this.onConfirm} >
                    
-                    <input className="todo-modal-add-text" type="text" ref="text" placeholder="Todo text"/>
-					<button onClick={(e)=>{
+                    <input className="todo-modal-add-text" type="text" ref="text" placeholder="Enter todo text here..."/>
+					<div className="todo-modal-add-more" onClick={(e)=>{
 						e.preventDefault();
-						console.log("more clicked : create/expand existing modal");
-						}}><b>more options</b></button>
-                    <div className="todo-modal-add-button" >ADD</div>
-                    <div className="modal-add-close" onClick={this.onClose}>&times;</div>
+						console.log("more clicked : this functionality not wired yet.");
+						}}>more options</div>
+                    <div className="todo-modal-add-button" onClick={this.onConfirm}>ADD</div>
+                    <div className="todo-modal-add-close" onClick={this.onClose}>&times;</div>
                 </form>
             </div>
         );

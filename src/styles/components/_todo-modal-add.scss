@@ -11,22 +11,9 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-/* The Close Button */
-.modal-add-close {
-    color: #aaa;
-    display:flex; 
-    font-size: 28px;
-    font-weight: bold;
-}
 
-.modal-add-close:hover,
-.modal-add-close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 .todo-modal-add-content {
-    background-color: #2f2f2f;
+    background-color: #232323;
     // border: 1px solid #888;
     // width: 75%; /* Could be more or less, depending on screen size */
 
@@ -39,24 +26,63 @@
     height: $grid-row-top;
     align-items: stretch;
     justify-content: stretch;
-}
-
-#todo-add-more {
-  display: flex;
-  padding: 6px 0px;
-  margin-right:10px;
-  justify-content : center;
-  align-items: center;
-  cursor: pointer
+    
 }
 
 .todo-modal-add-text {
     display: flex;
     flex: 1 0 auto;
-}
-.todo-modal-add-text, .todo-modal-add-more, .todo-modal-add-button , .modal-add-close {
     border: none;
-    background-color: rgba(0, 0, 0, 0.1);
     color: white;
-    padding: 0px 10px;
+    padding: 0px 5px;
+    background-color: #232323;
+}
+
+.todo-modal-add-text:focus {
+    background-color: #2f2f2f;
+}   
+
+.todo-modal-add-more {
+  display: flex;
+//   padding: 6px 0px;
+  margin: 0px 5px;;
+  justify-content : center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.todo-modal-add-button {
+    border: 1px solid #2f2f2f;
+    display: flex ;
+    flex : 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    min-height: $grid-row-top - 4px;
+    min-width: 80px;
+    margin: 2px;
+    cursor: pointer;
+}
+.todo-modal-add-button:hover {
+    color: white;
+    background-color: #2f2f2f;
+    border-color: #696969;
+}
+
+/* The Close Button */
+.todo-modal-add-close {
+    color: #aaa;
+    display:flex; 
+    font-size: 24px;
+    font-weight: bold;
+    min-width: 24px;
+    justify-content: flex-end;
+    padding-right: 2px;
+}
+
+.todo-modal-add-close:hover,
+.todo-modal-add-close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }

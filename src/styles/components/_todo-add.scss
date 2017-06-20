@@ -31,9 +31,10 @@
   border: 1px solid #2f2f2f;
   display: flex;
   position: absolute;
-  right: $scrollbar-width + 7px;
-  // margin: 2px 0px;
-  min-height: $grid-row-top;
+  top: 0px;
+  right: 26px ; //$scrollbar-width + 7px;
+  margin: 2px;
+  min-height: $grid-row-top - 4px;
   min-width: 80px;
   justify-content : center;
   align-items: center;
