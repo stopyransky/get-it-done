@@ -31,7 +31,7 @@
 }
 
 .todo-leftbar-item:hover {
-    color: white; 
+    color: $foreground-color-highlight; 
     background-color: $background-color-highlight;
     border-color : $foreground-color;
     cursor : pointer;
