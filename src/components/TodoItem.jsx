@@ -115,7 +115,6 @@ export class TodoItem extends React.Component {
 		}
 
 		var todoClassName = completed ? 'todo-item todo-completed' : 'todo-item todo-inprogress';
-		todoClassName = todoClassName+' columns centered small-12 medium-12 large-12';
 
 		var renderTodoText = () => {
 			if(editMode) {

@@ -1,10 +1,11 @@
 $background-color : #232323;
 $background-color-highlight :#2f2f2f;
 $foreground-color : #696969;
-$border-color : $background-color-highlight;
+$foreground-color-bright : #969696;
 $foreground-color-highlight: #ffffff;
-$tag-color : $foreground-color;
-$tag-text-color: white;
+
+$modal-background : #000;
+$todo-controls-hover : $background-color-highlight;
 
 $grid-gap: 5px;
 $grid-column-left : 64px;
@@ -15,3 +16,4 @@ $scrollbar-width: 10px;
 $topbar-height: $grid-row-top;
 $topbar-width: $grid-column-right;
 $container-offset: 0px;
+

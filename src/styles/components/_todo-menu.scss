@@ -8,7 +8,7 @@
 }
 
 #todo-menu {
-  border: 1px solid #2f2f2f;
+  border: 1px solid $background-color-highlight;
   /* position set to relative, as it can't be default (static
    * because #todo-menu-content position is set in relation to #todo-menu 
    */
@@ -26,17 +26,17 @@
 }
 
 #todo-menu:focus {
-  border :1px solid #696969;
-  background-color: #2f2f2f;
-  color: white;
+  border :1px solid $foreground-color;
+  background-color: $background-color-highlight;
+  color: $foreground-color-highlight;
   outline-color: transparent;
   outline-style: none;
   pointer-events: none;
 }
 
 #todo-menu:hover {
-  border :1px solid #696969;
-  color: white;
+  border :1px solid $foreground-color;
+  color: $foreground-color-highlight;
 }
 
 #todo-menu:focus #todo-menu-content {
@@ -49,9 +49,9 @@
 }
 
 #todo-menu-content {
-  border: 1px solid #696969;
-  background-color: #232323;
-  color: #696969;
+  border: 1px solid $foreground-color;
+  background-color: $background-color;
+  color: $foreground-color;
    
   position: absolute;
   top: 40px;
@@ -72,6 +72,6 @@
   cursor: pointer;
 }
 .todo-menu-item:hover {
-  background-color: #2f2f2f;
-  color: white;
+  background-color: $background-color-highlight;
+  color: $foreground-color-highlight;
 }

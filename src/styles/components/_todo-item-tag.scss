@@ -31,7 +31,7 @@ ul.tag-list {
 .tag-add {
   cursor: pointer;
   display : flex;
-  border: 1px solid #696969;
+  border: 1px solid $foreground-color;
   justify-content: center;
   text-align: center;
   padding : 1px 5px;
@@ -39,11 +39,12 @@ ul.tag-list {
 }
 
 .tag-content:hover {
-  color: white;
+  color: $foreground-color-highlight;
 }
 .tag-remove:hover {
-  color: white;
+  color: $foreground-color-highlight;
 }
+
 .tag-add:hover {
-  color: white;
+  color: $foreground-color-highlight;
 }

@@ -20,15 +20,20 @@ export var addTodo = (todo) => {
 };
 
 export var startAddTodo = (newTodo) => {
+	
 	return (dispatch, getState) => {
+	
+		var currentDate = moment().unix();
 		var todo = {
 			// id: uuid(), //added by firebase now
 			text : newTodo.text,
-			completed : false,
-			createdAt : moment().unix(),
+			completed : false ,
+			createdAt : currentDate,
+			startDate: newTodo.startDate || currentDate,
+			dueDate : newTodo.dueDate || "",
 			completedAt : null,
-			tags : newTodo.tags || [],
-			dueDate : newTodo.dueDate || ""
+			tags : newTodo.tags || []
+			
 		};
 
 		var uid = getState().auth.uid;

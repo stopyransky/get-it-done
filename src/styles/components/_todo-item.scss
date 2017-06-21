@@ -1,5 +1,5 @@
 .todo-item {
-  border : 1px solid #2f2f2f;
+  border : 1px solid $background-color-highlight;
   display: flex;
   flex-flow : row nowrap;
   flex: 0 0 auto;
@@ -11,7 +11,7 @@
 }
 
 .todo-item:hover {
-  border-color: #696969;
+  border-color: $foreground-color;
 }
 
 .todo-item-checkbox { 
@@ -46,7 +46,7 @@
 .todo-item-contents-maintext {
   display: flex;
   align-items : stretch;
-  color: #969696;
+  color: $foreground-color-bright;
   font-size: 1.2rem;
 
 }
@@ -88,7 +88,7 @@
 .todo-item-controls div {
 /*   border: 1px dashed gray; */
   cursor: pointer;
-  background-color: #2f2f2f;
+  background-color: $background-color-highlight;
   display:flex;
   flex: 1 0 auto;
   margin: 1px 0px;
@@ -98,7 +98,7 @@
 }
 
 .todo-item-controls div:hover {
-  background-color: #436EAE;
-  color: white;
+  background-color: $todo-controls-hover;
+  color: $foreground-color-highlight;
 }
 

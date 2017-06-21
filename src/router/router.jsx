@@ -23,6 +23,7 @@ var redirectIfLogin = (nextState, replace, next) => {
 	next();
 };
 
+
 const App = props => <div id='app'>{props.children}</div>;
 
 export default (

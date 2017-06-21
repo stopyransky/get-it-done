@@ -26,9 +26,9 @@
 }
 
 .todo-add-button {
-  background-color: #232323;
-  color: #696969;
-  border: 1px solid #2f2f2f;
+  background-color: $background-color;
+  color: $foreground-color;
+  border: 1px solid $background-color-highlight;
   display: flex;
   position: absolute;
   top: 0px;
@@ -42,8 +42,8 @@
 }
 
 .todo-add-button:hover {
-  border-color : #696969;
-  color: white;
-  background-color: #2f2f2f;
+  border-color : $foreground-color;
+  color: $foreground-color-highlight;
+  background-color: $background-color-highlight;
 
 }

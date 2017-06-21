@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 import moment from 'moment';
 
 import * as actions from 'actions';
@@ -9,48 +9,114 @@ import * as actions from 'actions';
 
 class TodoModalAdd extends React.Component {
 	
+    constructor(props) {
+        super(props);
+        this.state = {
+            showMore: false
+        }
+    }
+
     onConfirm = (e) => {
         e.preventDefault();
-        // console.log(newText);
+
+        var startDateRef = this.refs.startDate;
+        var dueDateRef = this.refs.dueDate;
+        var tagsRef = this.refs.tags;
+        
         var newText = this.refs.text.value;
+        var startDate = "";
+        var dueDate = "";
+        var tags = [];
+        
+        if(tagsRef) {
+           var tarr = tagsRef.value.split(","); 
+            if(tarr.length > 0) {
+                tarr.forEach( ( tag )=> {
+                    var t = tag.trim();
+                    if(t) tags.push(t);
+                });
+            }
+        }
+        
+        if(dueDateRef) dueDate = moment(dueDateRef.value, "YYYY-MM-DD").unix();
+        if(startDateRef) startDate = moment(startDateRef.value, "YYYY-MM-DD").unix();
+        
+        
+        var newTodo = {
+            text: newText,
+            startDate,
+            dueDate,
+            tags 
+        } 
+
         if(newText.length > 0) {
-            this.refs.text.value = "";
-            this.props.onSubmit(newText);
+           if( this.refs.text) this.refs.text.value = "";
+           if(this.refs.startDate) this.refs.startDate.value = "";
+           if(this.refs.dueDate) this.refs.dueDate.value = "";
+           if(this.refs.tags) this.refs.tags.value = [];
+           
+           this.props.onSubmit(newTodo);
         } else {
             this.refs.text.focus();
         }
         
     }
+
     onClose = (event) => {
-         var modal = document.getElementById("add-modal");
+         var modal = document.getElementById("todo-add-modal");
          this.refs.text.value="";
-         modal.style.display = "none";
+        if(this.refs.text) this.refs.text.value="";
+        if(this.refs.startDate) this.refs.startDate.value="";
+        if(this.refs.dueDate) this.refs.dueDate.value="";
+         this.setState({showMore : false}, () => modal.style.display = "none");
+         
     }
 	
 	componentDidMount() {
         /* if user clicks outside add-modal - close modal*/
         window.addEventListener("click", (event) => {
-            var modal = document.getElementById("add-modal");
+            var modal = document.getElementById("todo-add-modal");
             if (event.target == modal) {
                 if(this.refs.text) this.refs.text.value="";
+                if(this.refs.startDate) this.refs.startDate.value="";
+                if(this.refs.dueDate) this.refs.dueDate.value="";
                 modal.style.display = "none";
             }
         });
     }
 
 	render() {
+
+        var renderMoreOptions = () => {
+            if(this.state.showMore) {
+                return (
+                    <div className="todo-modal-add-more-options">
+                        <label>Start date: <input type="date" ref="startDate"/></label>
+                        <label>Due date: <input type="date" ref="dueDate" /></label>
+                        <label>Tags: <input type="text" ref="tags" /></label>
+                    </div>
+                );
+            }
+        }
         return (
-            <div id="add-modal" className="modal-add">
-                <form className="todo-modal-add-content" onSubmit={this.onConfirm} >
-                   
-                    <input className="todo-modal-add-text" type="text" ref="text" placeholder="Enter todo text here..."/>
-					<div className="todo-modal-add-more" onClick={(e)=>{
-						e.preventDefault();
-						console.log("more clicked : this functionality not wired yet.");
-						}}>more options</div>
-                    <div className="todo-modal-add-button" onClick={this.onConfirm}>ADD</div>
-                    <div className="todo-modal-add-close" onClick={this.onClose}>&times;</div>
+            <div id="todo-add-modal" >
+                <form onSubmit={this.onConfirm} >
+                    <div className="todo-modal-add-content" >
+                        <input className="todo-modal-add-text" type="text" ref="text" placeholder="Enter todo text here..."/>
+                        <div className="todo-modal-add-more" onClick={(e)=>{
+                            e.preventDefault();
+                            {/*console.log("more clicked : this functionality not wired yet.");*/}
+                            this.setState({
+                                showMore : !this.state.showMore
+                            })
+                            }}>more options</div>
+                        <div className="todo-modal-add-button" onClick={this.onConfirm}>ADD</div>
+                        <div className="todo-modal-add-close" onClick={this.onClose}>&times;</div>
+                    </div>
+                    {renderMoreOptions()}
                 </form>
+                
+                
             </div>
         );
     }

@@ -1,19 +1,23 @@
-
-.modal-add {
+#todo-add-modal { 
+    opacity: 0; 
+    transition: opacity 1.5s;
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
+    left: 0px;
+    top: 0px;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: $modal-background; /* Fallback color */
+    background-color: rgba($modal-background, 0.4); /* Black w/ opacity */
+    
+
 }
 
+
 .todo-modal-add-content {
-    background-color: #232323;
+    background-color: $background-color;
     // border: 1px solid #888;
     // width: 75%; /* Could be more or less, depending on screen size */
 
@@ -33,13 +37,13 @@
     display: flex;
     flex: 1 0 auto;
     border: none;
-    color: white;
+    color: $foreground-color-highlight;
     padding: 0px 5px;
-    background-color: #232323;
+    background-color:  $background-color;
 }
 
 .todo-modal-add-text:focus {
-    background-color: #2f2f2f;
+    background-color: $background-color-highlight;
 }   
 
 .todo-modal-add-more {
@@ -52,8 +56,21 @@
   font-weight: bold;
 }
 
+.todo-modal-add-more-options {
+    display: flex;
+    flex: 1 0 auto;
+    flex-flow: row nowrap;
+    position: absolute;
+    top: $grid-row-top + $container-offset;
+    left: $container-offset + $grid-column-left + $grid-gap;
+    right: 0px;
+    background-color: $background-color;
+    color : $foreground-color;
+
+}
+
 .todo-modal-add-button {
-    border: 1px solid #2f2f2f;
+    border: 1px solid $background-color-highlight;
     display: flex ;
     flex : 0 0 auto;
     justify-content: center;
@@ -64,14 +81,14 @@
     cursor: pointer;
 }
 .todo-modal-add-button:hover {
-    color: white;
-    background-color: #2f2f2f;
-    border-color: #696969;
+    color: $foreground-color-highlight;
+    background-color: $background-color-highlight;
+    border-color: $foreground-color;
 }
 
 /* The Close Button */
 .todo-modal-add-close {
-    color: #aaa;
+    color: $foreground-color;
     display:flex; 
     font-size: 24px;
     font-weight: bold;
@@ -82,7 +99,7 @@
 
 .todo-modal-add-close:hover,
 .todo-modal-add-close:focus {
-    color: white;
+    color: $foreground-color-highlight;
     text-decoration: none;
     cursor: pointer;
 }
