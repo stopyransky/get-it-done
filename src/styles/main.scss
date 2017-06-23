@@ -1,11 +1,14 @@
 
 @import "base/variables"; // no underscore and extension
 
-// foundation
-// @import 'base/foundation-settings';
-// @import 'foundation';
-// @include foundation-everything;
+/**
 
+responsive websites cases 
+width 320 (iphones)
+width 480 (mobiles)
+width 768 (ipads/tablets
+
+*/
 @import "components/scrollbar-style";
 // @import "components/todo-modal";
   
@@ -37,7 +40,7 @@ html, body {
   color: $foreground-color;
   overflow: hidden;
   font-family: Arial, sans-serif;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 }
 
 input[type=text] {

@@ -114,8 +114,6 @@ export class TodoItem extends React.Component {
 			})
 		}
 
-		var todoClassName = completed ? 'todo-item todo-completed' : 'todo-item todo-inprogress';
-
 		var renderTodoText = () => {
 			if(editMode) {
 				return (
@@ -170,25 +168,27 @@ export class TodoItem extends React.Component {
 
 
 		return (
-			<div tabIndex="2" className={todoClassName} >
-				<div className="todo-item-checkbox">
-					<input type="checkbox" defaultChecked={completed} onChange={this.props.onClickToggle}/>
-				</div>
-				<div className="todo-item-contents" >
-					{renderTodoText()}
-					{/*<div className="todo-item-contents-subtext">{renderDate()}.&nbsp;{renderDueDate()}</div>*/}
-					<TodoItemTags tags={tags} 
-						onNewTag={this.submitNewTag}
-						onRemoveTag={ this.submitRemoveTag}/>
+			<div tabIndex="2" className="todo-item">
+				<div className="group">
+					<div className="todo-item-checkbox">
+						<input type="checkbox" defaultChecked={completed} onChange={this.props.onClickToggle}/>
+					</div>
+					<div className="todo-item-contents" >
+						{renderTodoText()}
+						<TodoItemTags tags={tags} 
+							onNewTag={this.submitNewTag}
+							onRemoveTag={ this.submitRemoveTag}/>
+					</div>
 				</div>
 				<div className="todo-item-controls">
 					{ renderEditButton() }
 					<div onClick ={ () => {
 						
 						var modal = document.getElementById(id+"-modal");
-        				modal.style.display = "block";
+						modal.style.display = "block";
 					} }>delete</div>
 				</div>
+			
 				<TodoModalDelete id={id} text={text} onConfirm={this.props.onClickDelete} />
 			</div>
 
