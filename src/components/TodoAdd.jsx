@@ -22,7 +22,7 @@ export class TodoAdd extends React.Component {
 						var addModal = document.getElementById("todo-add-modal");
 							addModal.style.display = "block";
 							addModal.style.opacity = '1';
-					}}>ADD</div>
+					}}>New</div>
 				<TodoModalAdd onSubmit={this.handleTodoAdd} />
 			</div>
 		);

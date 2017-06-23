@@ -1,5 +1,5 @@
 #contents {
-  // border: 1px dashed blue;
+  // border: 1px solid $background-color-highlight;
   display: grid;
   grid-column: 2/3;
   grid-row: 2/3;
@@ -17,15 +17,13 @@
   display: flex;
   flex-flow: column nowrap;
   
-  // justify-content: stretch;
-  // align-content: stretch;
-  // align-items: stretch;
-  
   position: absolute;
   top: 0px;
   left: 0px;
   bottom: 0px;
   right: 0px;
+
+  padding: 2px;
   
   overflow: auto;
 

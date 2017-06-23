@@ -1,5 +1,5 @@
 #topbar {
-  // border: 1px dashed green;
+  // border: 1px solid $background-color-highlight;
   display: grid;
   grid-column : 2 / 3;
   grid-row : 1 / 2;
@@ -14,7 +14,7 @@
   // border: 1px solid $background-color-highlight;
   display : flex; 
   flex-flow : row nowrap;
-  justify-content: stretch;
-  align-items: center;
+  justify-content: space-between;
+  align-items: stretch;
   min-height: $topbar-height;
 }

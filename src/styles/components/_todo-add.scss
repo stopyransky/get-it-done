@@ -2,10 +2,10 @@
   // border: 1px solid #2f2f2f;
   display: flex;
   flex-flow : row nowrap;
-  align-items: center;
-  justify-content: stretch;
+  align-items: stretch;
+  justify-content: flex-end;
   flex: 1 0 auto;
-  min-width: 250px;
+  // min-width: 250px;
   // padding: 0px 10px;
 }
 #todo-add input {
@@ -30,12 +30,12 @@
   color: $foreground-color;
   border: 1px solid $background-color-highlight;
   display: flex;
-  position: absolute;
-  top: 0px;
-  right: 26px ;
+  // position: absolute;
+  // top: 0px;
+  // right: 26px ;
   margin: 2px;
-  min-height: $grid-row-top - 4px;
-  min-width: 80px;
+  // min-height: $grid-row-top - 4px;
+  min-width: 60px;
   justify-content : center;
   align-items: center;
   cursor: pointer;

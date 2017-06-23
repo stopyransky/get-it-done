@@ -111,20 +111,18 @@ class TodoModalAdd extends React.Component {
         }
         return (
             <div id="todo-add-modal" >
-                <form onSubmit={this.onConfirm} >
-                    <div className="todo-modal-add-content" >
-                        <div className="todo-modal-add-close" onClick={this.onClose}>&times;</div>
-                        <input className="todo-modal-add-text" type="text" ref="text" placeholder="Enter todo text here..."/>
-                        <div className="todo-modal-add-more" onClick={this.onMore}>more options
+                <div id="todo-modal-add-contents">
+                    <div className="todo-modal-add-close" onClick={this.onClose}>&times;</div>
+                    <form onSubmit={this.onConfirm} >
+                        <div className="todo-modal-add-group" >
+                            <input className="todo-modal-add-input" type="text" ref="text" placeholder="Enter new task text here..."/>
+                            <div className="todo-modal-add-button" onClick={this.onConfirm}>ADD</div>
                         </div>
-                        {renderMoreOptions()}
-                        <div className="todo-modal-add-button" onClick={this.onConfirm}>ADD</div>
-                        
-                    </div>
-                    
-                </form>
-                
-                
+                        <div className="todo-modal-add-more" onClick={this.onMore}>more options...
+                            {renderMoreOptions()}
+                        </div>   
+                    </form>
+                </div>
             </div>
         );
     }
