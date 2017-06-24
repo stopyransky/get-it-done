@@ -31,26 +31,10 @@ module.exports = {
 		} 
 	},
 
-	filterTodos: function(todos, showCompleted, searchText, tagFilter) {
+	filterTodos: function(todos, /*showCompleted,*/ statusFilter, searchText, tagFilter) {
 		
 		var filteredTodos= todos;
 		
-		if(tagFilter && tagFilter !== "ALL") {
-			
-			filteredTodos = filteredTodos.filter( (todo) => {
-				
-				if(todo.tags) {
-					var tags = todo.tags.slice();
-					return tags.indexOf(tagFilter) > -1;
-				} else if( tagFilter==="NO TAGS") {
-					// if todo has no tags and tag filter is 
-					return true;
-				}
-
-				// items with no tags are excluded  if tagfiler is set;
-				return false;
-			} );
-		}
 		// sort todos with according to create date (newest first) 
 		filteredTodos.sort( function( a, b ) {
 			if(a.createdAt > b.createdAt) return -1;
@@ -59,15 +43,47 @@ module.exports = {
 		});
 
 		//filter by showCompleted
-		filteredTodos = filteredTodos.filter( (todo) =>{
-			return !todo.completed || showCompleted;
-		});
+		// filteredTodos = filteredTodos.filter( (todo) =>{
+		// 	return !todo.completed || showCompleted;
+		// });
 
 		//filter by searchText
 		filteredTodos = filteredTodos.filter( (todo) => {
 			var text = todo.text.toLowerCase();
 			return !searchText || text.indexOf(searchText.toLowerCase()) > -1;
 		} );
+
+		// filter by status
+		filteredTodos = filteredTodos.filter( (todo) =>{
+			switch(statusFilter) {
+				case "ALL" : 
+					return true;
+				case "DONE" : 
+					return todo.completed;
+				case "TODO" :
+					return !todo.completed;
+				default : 
+					return true;
+			}
+			// return !todo.completed || showCompleted;
+		});
+
+		//filter by tag
+		if(tagFilter && tagFilter !== "ALL") {
+		
+			filteredTodos = filteredTodos.filter( (todo) => {
+				
+				if(todo.tags) {
+					var tags = todo.tags.slice();
+					return tags.indexOf(tagFilter) > -1;
+				}
+				if( !todo.tags && tagFilter === "NO TAGS") {
+					return true;
+				}
+				// items with no tags are excluded  if tagfiler is set;
+				return false;
+			} );
+		}
 	
 		// console.log(filteredTodos);
 		return filteredTodos;

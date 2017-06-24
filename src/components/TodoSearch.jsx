@@ -8,29 +8,42 @@ export class TodoSearch extends React.Component {
 
 	render() {
 
-		var {dispatch, showCompleted, searchText, todos} = this.props;
+		var {dispatch, /*showCompleted,*/ statusFilter, searchText, todos} = this.props;
 
 		var onChangeSearchText = () => {
 			var searchText = this.refs.searchText.value;
 			dispatch(actions.setSearchText(searchText))
 		};
 
-		var onChangeShowCompleted = () => {
-			dispatch(actions.toggleShowCompleted());
-		}
+		// var onChangeShowCompleted = () => {
+		// 	dispatch(actions.toggleShowCompleted());
+		// }
 		
+		var filterByStatus = () =>{
+			var status = this.refs.statusFilter.value;
+			dispatch(actions.filterByStatus(status));
+			console.log("filterByStatus actions dispatch goes here");
+		}
 		var filterByTag = () => {
-			var tagFilter =this.refs.tagFilter.value;
-			dispatch(actions.filterByTag(tagFilter));
-			console.log("filter by tag action goes here", tagFilter);
+			var tagFilter = this.refs.tagFilter.value;
+		 	dispatch(actions.filterByTag(tagFilter));
+			// console.log("filter by tag action goes here", tagFilter);
 		}
 
-		// var tagList = <option>dummy</option>;
+		// this does not neeed to be here in render but instead it needs to be 
+		// called on new todo/delete todo and update todo tags;
 		var tagList = TodoAPI.getAllTags(todos).map((tag, index) => <option key={index} value={tag}>{tag}</option>);
-		
 
 		return (
 			<div id="todo-search">
+				<div id="todo-search-status" >
+					<select onChange={filterByStatus} ref="statusFilter" defaultValue="TODO">
+						<option value="ALL">ALL </option>
+						<option value="DONE">DONE</option>
+						<option value="TODO">TO DO</option>
+					</select>
+				</div>
+
 				<div id="todo-search-text"> 
 				{/*<label> Search text in todos:*/}
 				<input
@@ -48,7 +61,7 @@ export class TodoSearch extends React.Component {
 						<option key={-1} value="NO TAGS" >NO TAGS</option>
 						</select>
 				</div>
-				<div id="todo-search-show-completed">   
+				{/*<div id="todo-search-show-completed">   
 				<label>
 					<input
 						type="checkbox"
@@ -57,7 +70,7 @@ export class TodoSearch extends React.Component {
 						onChange={onChangeShowCompleted}/>
 					Include Completed
 				</label>
-				</div>
+				</div>*/}
 			</div>
 		);
 	}

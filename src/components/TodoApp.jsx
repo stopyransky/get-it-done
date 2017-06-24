@@ -19,9 +19,9 @@ export class TodoApp extends React.Component {
                 <div id="topbar">
                     <TodoTopbar />
                 </div>
-                <div id="leftbar">
+                {/*<div id="leftbar">
                     <TodoLeftbar />
-                </div>
+                </div>*/}
                 <div id="contents">
                     <TodoList />
                 </div>

@@ -144,11 +144,17 @@ export var startToggleTodo = (id, completed) => {
 	};
 };
 
-export var toggleShowCompleted = () => {
+export var filterByStatus = (status) => {
 	return {
-		type : "TOGGLE_SHOW_COMPLETED"
+		type : "FILTER_BY_STATUS",
+		status
 	}
-};
+}
+// export var toggleShowCompleted = () => {
+// 	return {
+// 		type : "TOGGLE_SHOW_COMPLETED"
+// 	}
+// };
 
 export var filterByTag = (tagFilter) => {
 	return {
@@ -156,14 +162,6 @@ export var filterByTag = (tagFilter) => {
 		tagFilter
 	}
 };
-
-// export var addNewTag = (id, newTag) => {
-// 	return {
-// 		type : "ADD_NEW_TAG",
-// 		id,
-// 		newTag
-// 	}
-// }
 
 export var startLogin =  () => {
 	return (dispatch, getState) => {

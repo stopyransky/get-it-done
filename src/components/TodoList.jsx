@@ -8,9 +8,9 @@ export class TodoList extends React.Component {
 
 	render() {
 
-	 	const { todos, showCompleted, searchText, tagFilter } =  this.props;
+	 	const { todos, /*showCompleted,*/ statusFilter, searchText, tagFilter } =  this.props;
 
-		const filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText, tagFilter);
+		const filteredTodos = TodoAPI.filterTodos(todos, /*showCompleted,*/ statusFilter, searchText, tagFilter);
 
 		var renderTodos = () => {
 			if(filteredTodos.length === 0)  {

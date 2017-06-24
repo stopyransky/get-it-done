@@ -11,14 +11,23 @@ export var searchTextReducer = (state = "", action) => {
 	}
 };
 
-export var showCompletedReducer = (state = false, action) => {
+export var filterByStatusReducer = (state ="TODO", action ) => {
 	switch(action.type) {
-		case "TOGGLE_SHOW_COMPLETED" :
-			return !state;
-		default:
+		case "FILTER_BY_STATUS" :
+			return action.status;
+		default : 
 			return state;
 	}
-};
+}
+
+// export var showCompletedReducer = (state = false, action) => {
+// 	switch(action.type) {
+// 		case "TOGGLE_SHOW_COMPLETED" :
+// 			return !state;
+// 		default:
+// 			return state;
+// 	}
+// };
 
 // state is tagFilter string
 export var filterByTagReducer = (state = "", action) => {

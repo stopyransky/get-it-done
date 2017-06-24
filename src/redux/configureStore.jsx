@@ -2,7 +2,8 @@ import * as redux from 'redux';
 import thunk from 'redux-thunk';
 import { 
 	searchTextReducer, 
-	showCompletedReducer, 
+	// showCompletedReducer,
+	filterByStatusReducer, 
 	filterByTagReducer, 
 	todosReducer, 
 	authReducer } from 'reducers';
@@ -10,9 +11,9 @@ import {
 export var configure = (initialState = {}) => {
 	var reducer = redux.combineReducers({
 		searchText : searchTextReducer,
-		showCompleted : showCompletedReducer,
+		// showCompleted : showCompletedReducer,
+		statusFilter : filterByStatusReducer,
 		tagFilter : filterByTagReducer,
-		// addExpanded : addTodoReducer,
 		todos : todosReducer,
 		auth : authReducer
 	});

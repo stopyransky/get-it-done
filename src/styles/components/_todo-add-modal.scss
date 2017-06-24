@@ -18,6 +18,8 @@
     border: 1px solid $background-color-highlight;
     background-color: $background-color;
 
+    display:flex;
+    flex :1 0  auto;
     // justify-content: center;
     // align-items: center;
     // align-content: center;
@@ -28,6 +30,7 @@
     right: 0px;
     min-height: $grid-row-top + $container-offset + $grid-gap;
     min-width : 200px;
+    z-index: 2;
 }
 
 #todo-modal-add-contents form {
@@ -97,10 +100,11 @@ background-color: $background-color-highlight;
     display: flex;
     flex: 1 0 auto;
     flex-flow: column nowrap;
-    position: absolute;
-    top: $grid-row-top + $container-offset;
-    left: 0px; // $container-offset + $grid-column-left + $grid-gap;
-    right: 0px;
+    // position: absolute;
+    // top: 0px;
+    // top: $grid-row-top + $container-offset;
+    // left: 0px; // $container-offset + $grid-column-left + $grid-gap;
+    // right: 0px;
     background-color: $background-color;
     color : $foreground-color;
     padding: 10px 0px;
