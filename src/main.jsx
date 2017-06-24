@@ -19,8 +19,9 @@ firebase.auth().onAuthStateChanged((user) => {
 		store.dispatch(actions.logout());
 		hashHistory.push('/');
 	}
-})
-$(document).foundation();
+});
+
+// $(document).foundation();
 
 // load main css styles
 require('style-loader!css-loader!sass-loader!mainStyles');

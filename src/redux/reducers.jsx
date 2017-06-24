@@ -20,34 +20,36 @@ export var showCompletedReducer = (state = false, action) => {
 	}
 };
 
-export var filterByTagReducer = (state ="", action) => {
+// state is tagFilter string
+export var filterByTagReducer = (state = "", action) => {
 	switch(action.type) {
 		case "FILTER_BY_TAG" :
-			return action.tag;
+			console.log("filterbytag reducer: ", action.tagFilter);
+			return action.tagFilter;
 		default :
 			return state;
 	}
 }
 
-export var tagReducer = (state=[], action) => {
-	switch (action.type) {
-		case "ADD_NEW_TAG" :
-			return [
-				...state,
-				action.newTag
-			]
-		default : return state;
-	}
-};
+// export var tagReducer = (state=[], action) => {
+// 	switch (action.type) {
+// 		case "ADD_NEW_TAG" :
+// 			return [
+// 				...state,
+// 				action.newTag
+// 			]
+// 		default : return state;
+// 	}
+// };
 
-export  var addTodoReducer = (state= false, action ) => {
-	switch(action.type) {
-		case "TOGGLE_EXPAND_ADD_TODO" :
-			return !state;
-		default: 
-			return state;
-	}
-};
+// export  var addTodoReducer = (state= false, action ) => {
+// 	switch(action.type) {
+// 		case "TOGGLE_EXPAND_ADD_TODO" :
+// 			return !state;
+// 		default: 
+// 			return state;
+// 	}
+// };
 
 export var todosReducer = (state = [], action) => {
 	switch(action.type) {

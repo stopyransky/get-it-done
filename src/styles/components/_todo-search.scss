@@ -13,7 +13,11 @@
 
 #todo-search-by-tag {
 	display: flex;
-
+	margin: 0px 2px;
+	padding: 5px;
+}
+#todo-search-by-tag  select {
+	padding: 5px;
 }
 #todo-search input {
 	padding: 5px;

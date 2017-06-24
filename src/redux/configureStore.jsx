@@ -5,7 +5,6 @@ import {
 	showCompletedReducer, 
 	filterByTagReducer, 
 	todosReducer, 
-	addTodoReducer,
 	authReducer } from 'reducers';
 
 export var configure = (initialState = {}) => {
@@ -13,7 +12,7 @@ export var configure = (initialState = {}) => {
 		searchText : searchTextReducer,
 		showCompleted : showCompletedReducer,
 		tagFilter : filterByTagReducer,
-		addExpanded : addTodoReducer,
+		// addExpanded : addTodoReducer,
 		todos : todosReducer,
 		auth : authReducer
 	});

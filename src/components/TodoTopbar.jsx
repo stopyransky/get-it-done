@@ -8,7 +8,7 @@ class TodoTopbar extends React.Component {
 
         return (
             <div id="todo-topbar"> 
-                {/*<TodoSearch />*/}
+                <TodoSearch />
                 <TodoAdd />
             </div>
         );

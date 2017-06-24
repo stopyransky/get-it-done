@@ -8,13 +8,13 @@ export class TodoList extends React.Component {
 
 	render() {
 
-	 	const { todos, showCompleted, searchText } =  this.props;
+	 	const { todos, showCompleted, searchText, tagFilter } =  this.props;
 
-		const filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+		const filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText, tagFilter);
 
 		var renderTodos = () => {
 			if(filteredTodos.length === 0)  {
-				return (<p> Nothing to do. </p>)
+				return (<p> No tasks. </p>)
 			}
 			return filteredTodos.map((todo) => {
 				return (

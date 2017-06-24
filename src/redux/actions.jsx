@@ -48,11 +48,11 @@ export var startAddTodo = (newTodo) => {
 	};
 };
 
-export var toggleExpandAddTodo = () => {
-	return {
-		type: "TOGGLE_EXPAND_ADD_TODO"
-	}
-};
+// export var toggleExpandAddTodo = () => {
+// 	return {
+// 		type: "TOGGLE_EXPAND_ADD_TODO"
+// 	}
+// };
 
 export var addTodos = (todos) => {
 	return {
@@ -150,10 +150,10 @@ export var toggleShowCompleted = () => {
 	}
 };
 
-export var filterByTag = (tag) => {
+export var filterByTag = (tagFilter) => {
 	return {
 		type : "FILTER_BY_TAG",
-		tag
+		tagFilter
 	}
 };
 
@@ -168,7 +168,7 @@ export var filterByTag = (tag) => {
 export var startLogin =  () => {
 	return (dispatch, getState) => {
 		return firebase.auth().signInWithPopup(githubProvider).then((result)=>{
-			console.log("auth worked", result);
+			console.log("Github auth worked", result);
 		}, (error)=>{
 			console.log("unable to log", error);
 			console.log("Unable to log with Github.", error.message || error);

@@ -106,11 +106,10 @@ class TodoItemTags extends React.Component {
         listItems.push(renderAddTag());
 
         return (
-            // <div className="todo-item-tags">
-                <ul className='tag-list'>
-                    {listItems}
-                </ul>
-            // </div>
+            <ul className='tag-list'>
+                {listItems}
+            </ul>
+          
         );
         
 	}
