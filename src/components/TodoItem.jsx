@@ -70,8 +70,8 @@ export class TodoItem extends React.Component {
 				tags.forEach((tag)=>{
 					if(tag === newTag) return;
 				});
-
 			}
+			
 			tags.push(newTag);
 			var newTags = [ ...tags ];
 			dispatch(actions.startUpdateTodo(id, { tags : newTags}));
