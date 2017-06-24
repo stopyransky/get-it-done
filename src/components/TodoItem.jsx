@@ -81,12 +81,16 @@ export class TodoItem extends React.Component {
 
 	submitRemoveTag(index) {
 		var { id, dispatch, tags} = this.props;
-		console.log(tags[index]);
+		// console.log(tags[index]);
 		if(tags[index] || tags[index] === "") {
 			tags.splice(index,1);
 		}
 
 		dispatch(actions.startUpdateTodo(id, { tags : tags}));
+	}
+
+	submitFilterByTag = (tag) => {
+		this.props.dispatch(actions.filterByTag(tag));
 	}
 
 	componentDidUpdate() {
@@ -176,6 +180,7 @@ export class TodoItem extends React.Component {
 					<div className="todo-item-contents" >
 						{renderTodoText()}
 						<TodoItemTags tags={tags} 
+							onTagFilter={this.submitFilterByTag}
 							onNewTag={this.submitNewTag}
 							onRemoveTag={ this.submitRemoveTag}/>
 					</div>

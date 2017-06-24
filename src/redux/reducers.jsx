@@ -33,7 +33,7 @@ export var filterByStatusReducer = (state ="TODO", action ) => {
 export var filterByTagReducer = (state = "", action) => {
 	switch(action.type) {
 		case "FILTER_BY_TAG" :
-			console.log("filterbytag reducer: ", action.tagFilter);
+			// console.log("filterbytag reducer: ", action.tagFilter);
 			return action.tagFilter;
 		default :
 			return state;

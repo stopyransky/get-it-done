@@ -6,39 +6,40 @@ class TodoItemTags extends React.Component {
 
     constructor(props) {
         super(props);
-		this.onAddTag = this.onAddTag.bind(this);
-		this.onFilterByTag = this.onFilterByTag.bind(this);
-		this.passRemoveTag = this.passRemoveTag.bind(this);
-        this.passNewTag = this.passNewTag.bind(this);
-        this.cancelNewTag = this.cancelNewTag.bind(this);
+		// this.onAddTag = this.onAddTag.bind(this);
+		// this.onFilterByTag = this.onFilterByTag.bind(this);
+		// this.passRemoveTag = this.passRemoveTag.bind(this);
+        // this.passNewTag = this.passNewTag.bind(this);
+        // this.cancelNewTag = this.cancelNewTag.bind(this);
         this.state = {
             editMode : false,
             toggleOnRemove : false
         }
     }
 
-    onAddTag(e) {
+    onAddTag = (e) => {
         this.setState({
             editMode: true
         });
  
     }
 
-    onFilterByTag() {
-        console.log("filter by tag action goes here");
+    onFilterByTag = (tag) => {
+        this.props.onTagFilter(tag);
+        // console.log("filter by tag action goes here",tag);
     }
         
-    passNewTag(e) {
+    passNewTag = (e) => {
         e.preventDefault();
         var newTag= this.refs.newTag.value;
         
-        this.props.onNewTag(newTag);
+        this.props.onNewTag(newTag.trim());
         this.setState({
             editMode: false
         });
     }
     
-    cancelNewTag(e) {
+    cancelNewTag = (e) => {
         e.preventDefault();
         this.refs.newTag.value = "";
         this.setState({
@@ -46,7 +47,7 @@ class TodoItemTags extends React.Component {
         });
     }
     
-    passRemoveTag(index) {
+    passRemoveTag = (index) => {
         // console.log("remove tag action goes here");
         if(this.props.tags[index] || this.props.tags[index] === "") {
             this.props.onRemoveTag(index);
@@ -91,8 +92,7 @@ class TodoItemTags extends React.Component {
             listItems = tags.map(( tag, index ) => {
                 return (
                     <div className="tag" key={index} >
-                        <div className ="tag-content" 
-                                onClick={self.onFilterByTag}>{tag}
+                        <div className ="tag-content" onClick={() => self.onFilterByTag(tag)}>{tag}
                         </div>
                         <div className ="tag-remove" 
                                 onClick={() => {

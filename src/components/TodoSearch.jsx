@@ -5,24 +5,24 @@ import * as actions from 'actions';
 import TodoAPI from 'TodoAPI';
 
 export class TodoSearch extends React.Component {
-
+	componentDidUpdate() {
+		// props.tagFilter can be changed elsewere (TodoItemTags)
+		// so we need to update ref for tag filter here 
+		this.refs.tagFilter.value = this.props.tagFilter;
+	}
 	render() {
 
-		var {dispatch, /*showCompleted,*/ statusFilter, searchText, todos} = this.props;
+		var {dispatch, statusFilter, searchText, todos, tagFilter} = this.props;
 
 		var onChangeSearchText = () => {
 			var searchText = this.refs.searchText.value;
 			dispatch(actions.setSearchText(searchText))
 		};
-
-		// var onChangeShowCompleted = () => {
-		// 	dispatch(actions.toggleShowCompleted());
-		// }
 		
 		var filterByStatus = () =>{
 			var status = this.refs.statusFilter.value;
 			dispatch(actions.filterByStatus(status));
-			console.log("filterByStatus actions dispatch goes here");
+			// console.log("filterByStatus actions dispatch goes here");
 		}
 		var filterByTag = () => {
 			var tagFilter = this.refs.tagFilter.value;
@@ -61,16 +61,6 @@ export class TodoSearch extends React.Component {
 						<option key={-1} value="NO TAGS" >NO TAGS</option>
 						</select>
 				</div>
-				{/*<div id="todo-search-show-completed">   
-				<label>
-					<input
-						type="checkbox"
-						ref="showCompleted"
-						checked={showCompleted}
-						onChange={onChangeShowCompleted}/>
-					Include Completed
-				</label>
-				</div>*/}
 			</div>
 		);
 	}
@@ -80,7 +70,8 @@ var mapStateToProps = (state) => {
 	return {
 		showCompleted: state.showCompleted,
 		searchText : state.searchText,
-		todos : state.todos
+		todos : state.todos,
+		tagFilter : state.tagFilter
 	}
 };
 
