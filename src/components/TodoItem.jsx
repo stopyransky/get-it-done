@@ -134,7 +134,7 @@ export class TodoItem extends React.Component {
 					
 			} else {
 				return ( 
-					<div className="todo-item-contents-maintext" onClick={ setEditModeTrue }>
+					<div className="todo-item-contents-maintext" /*onClick={ setEditModeTrue } */>
 						<span >{text}</span>
 					</div>
 				);

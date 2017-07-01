@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import * as actions from 'actions';
 
 import TodoAPI from 'TodoAPI';
+// import TodoModalSearch from 'TodoModalSearch';
 
 export class TodoSearch extends React.Component {
-	componentDidUpdate() {
-		// props.tagFilter can be changed elsewere (TodoItemTags)
-		// so we need to update ref for tag filter here 
-		this.refs.tagFilter.value = this.props.tagFilter;
-	}
+	
+	// componentDidUpdate() {
+	// 	// props.tagFilter can be changed elsewere (TodoItemTags)
+	// 	// so we need to update ref for tag filter here 
+	// 	this.refs.tagFilter.value = this.props.tagFilter;
+	// }
+	
 	render() {
 
 		var {dispatch, statusFilter, searchText, todos, tagFilter} = this.props;
@@ -36,43 +39,40 @@ export class TodoSearch extends React.Component {
 
 		return (
 			<div id="todo-search">
-				<div id="todo-search-status" >
-					<select onChange={filterByStatus} ref="statusFilter" defaultValue="TODO">
-						<option value="ALL">ALL </option>
-						<option value="DONE">DONE</option>
-						<option value="TODO">TO DO</option>
-					</select>
-				</div>
+				<select id="todo-search-status" 
+						className="todo-active-item" 
+						onChange={filterByStatus} 
+						ref="statusFilter" 
+						defaultValue="TODO">
+					<option value="ALL">ALL </option>
+					<option value="DONE">DONE</option>
+					<option value="TODO">TODO</option>
+				</select>
 
-				<div id="todo-search-text"> 
-				{/*<label> Search text in todos:*/}
-				<input
-					type='text'
-					ref="searchText"
-					placeholder ="Search todos"
-					value={searchText}
-					onChange={onChangeSearchText} /> 
-				{/*</label>*/}
-				</div>
-				<div id="todo-search-by-tag" >
-					<select onChange={filterByTag} ref="tagFilter" defaultValue="ALL">
-						<option key={-2} value="ALL"> </option>
+				<input id="todo-search-text" 
+					   className="todo-active-item"
+					   type='text'
+					   ref="searchText"
+				  	   placeholder ="Enter search text..."
+					   value={searchText}
+					   onChange={onChangeSearchText} /> 
+
+				<select id="todo-search-by-tag" 
+					    className="todo-active-item" 
+						onChange={filterByTag} 
+						ref="tagFilter" 
+						defaultValue="ALL">
+					<option key={-2} value="ALL">Any Tag</option>
 						{tagList}
-						<option key={-1} value="NO TAGS" >NO TAGS</option>
-						</select>
-				</div>
+					<option key={-1} value="NO TAGS">No Tags</option>
+				</select>
+
 			</div>
 		);
 	}
 }
 
-var mapStateToProps = (state) => {
-	return {
-		showCompleted: state.showCompleted,
-		searchText : state.searchText,
-		todos : state.todos,
-		tagFilter : state.tagFilter
-	}
-};
 
-export default connect(mapStateToProps)(TodoSearch);
+export default connect(state => state)(TodoSearch);
+
+// export default TodoSearch;

@@ -25,8 +25,8 @@
     // align-content: center;
 
     position: absolute;
-    // left: 0px;
-    left: $container-offset + $grid-column-left + $grid-gap;
+    left: 0px;
+    // left: $container-offset + $grid-column-left + $grid-gap;
     right: 0px;
     min-height: $grid-row-top + $container-offset + $grid-gap;
     min-width : 200px;

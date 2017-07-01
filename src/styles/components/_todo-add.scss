@@ -1,43 +1,24 @@
 #todo-add {
-  // border: 1px solid #2f2f2f;
   display: flex;
-  flex-flow : row nowrap;
-  align-items: stretch;
-  justify-content: flex-end;
-  flex: 1 0 auto;
-  // min-width: 250px;
-  // padding: 0px 10px;
-}
-#todo-add input {
-  display: flex;
-  flex : 1 0 auto;
-  justify-content :stretch;
-  padding: 5px 0px;
-  margin: 0px 10px;
 }
 
-#todo-add-more {
-  display: flex;
-  padding: 6px 0px;
-  margin-right:10px;
-  justify-content : center;
-  align-items: center;
-  cursor: pointer
-}
 
 .todo-add-button {
   background-color: $background-color;
   color: $foreground-color;
   border: 1px solid $background-color-highlight;
   display: flex;
+  justify-content: center;
+  align-items: center;
   // position: absolute;
   // top: 0px;
   // right: 26px ;
   margin: 2px;
+  padding :15px;
   // min-height: $grid-row-top - 4px;
-  min-width: 60px;
-  justify-content : center;
-  align-items: center;
+  // min-width: 70px;
+  // justify-content : center;
+  // align-items: center;
   cursor: pointer;
 }
 
