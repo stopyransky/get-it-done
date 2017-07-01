@@ -2,16 +2,20 @@
   flex: 1 1 auto;
 
   display: flex;
-  min-width: 240px;
+  // min-width: 240px;
 }
 
 #todo-search-text {
-    flex: 1 1 auto;
+    flex: 1 1 120px;
     font-size : 0.8rem;
 }
 
-#todo-search-status, #todo-search-by-tag  {
-	flex: 0 0 auto;
+#todo-search-status  {
+	flex: 0 0 60px;
+}
+
+#todo-search-by-tag  {
+	flex: 0 0 80px;
 }
 
 @media screen and (max-width : 320px) {
