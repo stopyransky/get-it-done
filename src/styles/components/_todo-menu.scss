@@ -12,6 +12,7 @@
   /* position set to relative, as it can't be default (static
    * because #todo-menu-content position is set in relation to #todo-menu 
    */
+  order: 1;
   position: relative;
   padding: 20px;
   margin: 2px;

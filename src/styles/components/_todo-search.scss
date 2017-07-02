@@ -1,21 +1,28 @@
 #todo-search {
-  flex: 1 1 auto;
 
+  order: 2;
+  flex: 1 1 auto;
   display: flex;
-  // min-width: 240px;
+
 }
 
 #todo-search-text {
-    flex: 1 1 120px;
+    flex: 1 1 auto;
     font-size : 0.8rem;
+    width:20px;
+    min-width:20px;
+
 }
 
+
 #todo-search-status  {
-	flex: 0 0 60px;
+	// flex: 0 0 auto;
+  min-width: 60px;
 }
 
 #todo-search-by-tag  {
-	flex: 0 0 80px;
+	// flex: 0 0 auto;
+  min-width: 70px;
 }
 
 @media screen and (max-width : 320px) {
@@ -24,4 +31,15 @@
 		display: none;
 		
     }
+}
+@media screen and (max-width : 480px) {
+
+  #todo-search { flex-flow : row wrap;}
+  #todo-search-text { order : 2; }
+  #todo-search-status { order :1; }
+  #todo-search-by-tag { order: 3;}
+	// #todo-search-status, #todo-search-by-tag {
+	// 	display: none;
+		
+  //   }
 }

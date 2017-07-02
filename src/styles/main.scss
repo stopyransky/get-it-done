@@ -6,7 +6,7 @@
 responsive websites cases 
 width 320 (iphones)
 width 480 (mobiles)
-width 768 (ipads/tablets
+width 768 (ipads/tablets)
 
 */
 @import "components/scrollbar-style";
@@ -57,7 +57,7 @@ input[type=text] {
   right: $container-offset;
   max-width: 100%;
   max-height: 100%;
-  min-width : 320px;
+  // min-width : 320px;
   min-height: 200px;
 }
 

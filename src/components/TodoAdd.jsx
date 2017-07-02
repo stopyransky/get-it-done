@@ -23,7 +23,7 @@ export class TodoAdd extends React.Component {
 		
 		return (
 			<div id="todo-add">
-					<div className="todo-add-button" onClick={ this.openAddModal }>New</div>
+				<div className="todo-add-button" onClick={ this.openAddModal }>New</div>
 				<TodoModalAdd onSubmit={this.handleTodoAdd} />
 			</div>
 		);
