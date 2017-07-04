@@ -40,39 +40,39 @@
   color: $foreground-color-highlight;
 }
 
-#todo-menu:focus #todo-menu-content {
-    display: flex;
-    flex-flow: column nowrap;
+// #todo-menu:focus #todo-menu-content {
+//     display: flex;
+//     flex-flow: column nowrap;
     
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-}
+//     visibility: visible;
+//     opacity: 1;
+//     pointer-events: auto;
+// }
 
-#todo-menu-content {
-  border: 1px solid $foreground-color;
-  background-color: $background-color;
-  color: $foreground-color;
+// #todo-menu-content {
+//   border: 1px solid $foreground-color;
+//   background-color: $background-color;
+//   color: $foreground-color;
    
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  min-width: 160px;
-  padding: 0px 0px;
-  z-index: 9999;
+//   position: absolute;
+//   top: 40px;
+//   left: 40px;
+//   min-width: 160px;
+//   padding: 0px 0px;
+//   z-index: 9999;
   
-  display: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0.5s;
-}
+//   display: none;
+//   visibility: hidden;
+//   opacity: 0;
+//   transition: visibility 0.5s;
+// }
 
-.todo-menu-item {
-  padding: 10px;
-  pointer-events: auto;
-  cursor: pointer;
-}
-.todo-menu-item:hover {
-  background-color: $background-color-highlight;
-  color: $foreground-color-highlight;
-}
+// .todo-menu-item {
+//   padding: 10px;
+//   pointer-events: auto;
+//   cursor: pointer;
+// }
+// .todo-menu-item:hover {
+//   background-color: $background-color-highlight;
+//   color: $foreground-color-highlight;
+// }
