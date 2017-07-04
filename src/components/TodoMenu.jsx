@@ -2,33 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { TweenMax, Power4 } from 'gsap';
 
-import * as actions from 'actions';
+// import * as actions from 'actions';
 
 export class TodoMenu extends React.Component {
 
     constructor(props) {
         super(props); 
 
-        this.handleLogout = this.handleLogout.bind(this);
+        // this.handleLogout = this.handleLogout.bind(this);
 
         this.state = { 
             expanded : false
         }
     }
 
-    handleLogout (e) {
-        e.preventDefault();
-        var {dispatch} = this.props;
-        // console.log(typeof dispatch);
-        dispatch(actions.startLogout());
-    }
+
 
     handleMenuClick = () => {
-        console.log("handle menu click")
+        // console.log("handle menu click")
         // keeping panel state  local 
         this.setState({
             expanded : !this.state.expanded
-        }, () => { console.log("set state finished")});
+        });
 
         this.togglePanel();
     }
