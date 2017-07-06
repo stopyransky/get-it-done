@@ -28,8 +28,8 @@
 
 #todo-menu:focus {
   border :1px solid $foreground-color;
-  background-color: $background-color-highlight;
-  color: $foreground-color-highlight;
+  background-color: $background-color;
+  color: $foreground-color;
   outline-color: transparent;
   outline-style: none;
   pointer-events: none;
@@ -37,6 +37,7 @@
 
 #todo-menu:hover {
   border :1px solid $foreground-color;
+  background-color: $background-color-highlight;
   color: $foreground-color-highlight;
 }
 

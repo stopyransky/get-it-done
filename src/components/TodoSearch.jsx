@@ -7,11 +7,14 @@ import TodoAPI from 'TodoAPI';
 
 export class TodoSearch extends React.Component {
 	
-	// componentDidUpdate() {
-	// 	// props.tagFilter can be changed elsewere (TodoItemTags)
-	// 	// so we need to update ref for tag filter here 
-	// 	this.refs.tagFilter.value = this.props.tagFilter;
-	// }
+
+	componentDidUpdate(prevProps) {
+		// if tag filter is clicked elswere than search (clicking on todoitem tag)
+		// then update refs of todo-search to follow the change.
+		if( prevProps.tagFilter !== this.props.tagFilter) {
+			this.refs.tagFilter.value = this.props.tagFilter;
+		}
+	}
 	
 	render() {
 

@@ -11,9 +11,7 @@ export class TodoItem extends React.Component {
 
 	constructor(props) {
 		super(props);
-		// this.onClickToggle = this.onClickToggle.bind(this);
-		// this.onClickDelete = this.onClickDelete.bind(this);
-		// this.onFilterByTag = this.onFilterByTag.bind(this);
+
 		this.submitNewTag =  this.submitNewTag.bind(this);
 		this.submitRemoveTag =  this.submitRemoveTag.bind(this);
 		this.onSaveEdit = this.onSaveEdit.bind(this);
@@ -24,16 +22,10 @@ export class TodoItem extends React.Component {
 		}
 	}
 
-	// onClickToggle() {
-	// 	var { id, completed, dispatch } = this.props;
-	// 	dispatch(actions.startToggleTodo(id, !completed))
-	// }
-
-	// onClickDelete() {
-	// 	var { id, dispatch } = this.props;
-	// 	dispatch(actions.startDeleteTodo(id));
-	// }
+	componentDidMount() {
 	
+	}
+
 	onSaveEdit(e) {
 		e.preventDefault();
 		var { id, dispatch } = this.props;
@@ -93,10 +85,13 @@ export class TodoItem extends React.Component {
 		this.props.dispatch(actions.filterByTag(tag));
 	}
 
-	componentDidUpdate() {
+	componentDidUpdate(prevProps, prevState) {
+		// console.log(prevProps, prevState)
 		if(this.state.editMode) {
 			this.refs.newText.focus();
 		}
+	
+		
 	}
 
 	render() {
@@ -174,8 +169,9 @@ export class TodoItem extends React.Component {
 		return (
 			<div tabIndex="2" className="todo-item">
 				<div className="group">
-					<div className="todo-item-checkbox">
-						<input type="checkbox" defaultChecked={completed} onChange={this.props.onClickToggle}/>
+					<div className="todo-item-checkbox" onClick={this.props.onClickToggle}> 
+						{ completed? "UNDO" : "DONE"}
+						{/*<input type="checkbox" defaultChecked={completed} onChange={this.props.onClickToggle}/>*/}
 					</div>
 					<div className="todo-item-contents" >
 						{renderTodoText()}
@@ -223,5 +219,7 @@ var mapDispatchToProps = (dispatch, ownProps) => {
 		}
 	}
 };
+
+
 
 export default connect( mapStateToProps, mapDispatchToProps )( TodoItem );

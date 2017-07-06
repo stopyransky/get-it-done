@@ -7,7 +7,7 @@ ul.tag-list {
 
 .tag {
   cursor: pointer;
-  border: 1px solid #696969 ;
+  border: 1px solid $border-color ;
   margin: 2px;
   padding: 1px;
   display:flex;
@@ -38,13 +38,29 @@ ul.tag-list {
   margin: 1px 2px;
 }
 
+.tag-add-form input {
+  border : none;
+  border-bottom: 1px solid $border-color;
+  background-color: $background-color;
+  color: $text-color;
+  font-size: 0.8rem;
+}
+
+// .tag-add-form input:hover,.tag-add-form input:focus {
+//   background-color: $background-color;
+// }
+
+
 .tag-content:hover {
+  background-color: $background-color-highlight;
   color: $foreground-color-highlight;
 }
 .tag-remove:hover {
+  background-color: $background-color-highlight;
   color: $foreground-color-highlight;
 }
 
 .tag-add:hover {
+  background-color: $background-color-highlight;
   color: $foreground-color-highlight;
 }

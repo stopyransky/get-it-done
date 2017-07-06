@@ -28,8 +28,8 @@
 }
 
 .todo-leftbar-item:hover {
-    color: $foreground-color-highlight; 
-    background-color: $background-color-highlight;
+    color: $background-color; 
+    background-color: $foreground-color;
     border-color : $foreground-color;
     cursor : pointer;
 }

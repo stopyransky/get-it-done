@@ -1,20 +1,44 @@
 
 //DARK
-$background-color : #232323;
-$background-color-highlight :#2f2f2f;
-$foreground-color : #696969;
-$foreground-color-bright : #969696;
-$foreground-color-highlight: #ffffff;
-$modal-background : #000;
+$theme-dark-bg: #232323;
+$theme-dark-bg-hover: #2f2f2f;
+$theme-dark-fg : #696969;
+$theme-dark-fg-hover: #fff;
+$theme-dark-text : #969696;
+$theme-dark-text-hover: #aaa;
 
 // BRIGHT
-// $background-color : #efefef;
-// $background-color-highlight :#fefefe;
-// $foreground-color : #969699;
-// $foreground-color-bright :#000;
-// $foreground-color-highlight: darkorange;
-// $modal-background : #ccc;
+$theme-light-bg: white;
+$theme-light-bg-hover: orange;
+$theme-light-fg :orange;
+$theme-light-fg-hover: white;
+$theme-light-text : #696969;
+$theme-light-text-hover: black;
 
+// bright used
+// $background-color : $theme-light-bg;
+// $background-color-highlight :$theme-light-bg-hover;
+// $foreground-color : $theme-light-fg;
+// $foreground-color-highlight: $theme-light-fg-hover;
+// $border-color: $foreground-color;
+// $border-color-highlight: $foreground-color-highlight;
+// $text-color: $theme-light-text;
+// $text-color-highlight: $theme-light-text-hover;
+
+// dark used
+$background-color : $theme-dark-bg;
+$background-color-highlight :$theme-dark-bg-hover;
+$foreground-color : $theme-dark-fg;
+$foreground-color-highlight: $theme-dark-fg-hover;
+$border-color: $foreground-color;
+$border-color-highlight: $foreground-color-highlight;
+$text-color: $theme-dark-text;
+$text-color-highlight: $theme-dark-text-hover;
+// $background-color : $theme-dark-bg;
+// $background-color-highlight :$theme-dark-bg-hover;
+// $foreground-color : $theme-dark-fg;
+// $foreground-color-highlight: $theme-dark-fg-hover;
+$modal-background : #000;
 
 
 $todo-controls-hover : $background-color-highlight;

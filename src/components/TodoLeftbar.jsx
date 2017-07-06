@@ -9,8 +9,14 @@ export class TodoLeftbar extends React.Component {
         var {dispatch} = this.props;
         dispatch(actions.startLogout());
     }
-
+    
+    componentDidMount() {
+        var leftbar = document.getElementById("todo-leftbar");
+        console.log(window.getComputedStyle(leftbar,null));
+    }
+    
     render() {
+        
         return (
             <div id="todo-leftbar">
                 <div className="todo-leftbar-group">

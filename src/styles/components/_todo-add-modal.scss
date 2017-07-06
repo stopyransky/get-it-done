@@ -25,17 +25,20 @@
     // align-content: center;
 
     position: absolute;
-    left: 0px;
+    left: 20px;
     // left: $container-offset + $grid-column-left + $grid-gap;
-    right: 0px;
+    top: 20px;
+    right: 20px;
     min-height: $grid-row-top + $container-offset + $grid-gap;
-    min-width : 200px;
+    // min-width : 200px;
+
     z-index: 2;
 }
 
 #todo-modal-add-contents form {
     display: flex;
     flex: 1 0 auto;
+    height: 100px;
     min-height: $grid-row-top;
 }
 
@@ -158,8 +161,9 @@ background-color: $background-color-highlight;
 
 @media screen and (max-width: 480px) {
   #todo-modal-add-contents {
-    max-height: none;
     min-height: $grid-row-top;
+    left: 5px;
+    right: 5px;
   }
   
   .todo-modal-add-group {
