@@ -38,7 +38,12 @@ export class TodoSearch extends React.Component {
 
 		// this does not neeed to be here in render but instead it needs to be 
 		// called on new todo/delete todo and update todo tags;
-		var tagList = TodoAPI.getAllTags(todos).map((tag, index) => <option key={index} value={tag}>{tag}</option>);
+		// taglist could also be part of store state...
+
+		var tagList = TodoAPI.getTags(todos, statusFilter).map((tag, index) => {
+
+			return (<option key={index} value={tag}>{tag}</option>);
+		});
 
 		return (
 			<div id="todo-search">

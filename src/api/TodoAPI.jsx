@@ -20,14 +20,26 @@ module.exports = {
 	//
 	// },
 
-	getAllTags : function(todos)  {
-		var copy = todos.slice();
+	getTags : function(todos, statusFilter)  {
+		
+		var copy = todos.filter( todo => {
+			switch(statusFilter) {
+				case "DONE" : return todo.completed;
+				case "TODO" : return !todo.completed;
+				default: return true;
+			}
+		}).slice();
+		// var copy = todos.slice();
 		if(copy) {
 			var tagSet= new Set();
+
 			copy.forEach((todo) => todo.tags ? todo.tags.forEach((tag) => tagSet.add(tag)): []);
 			return [...tagSet];
+		
 		} else {
+			
 			return ["no tags available"];
+		
 		} 
 	},
 

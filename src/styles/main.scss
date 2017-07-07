@@ -61,6 +61,9 @@ input[type=text] {
   min-height: 200px;
 }
 
+select, option {
+  outline: none;
+}
 // #app {
   
 //   // border: 1px dashed steelblue;
