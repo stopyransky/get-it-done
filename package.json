@@ -10,7 +10,7 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": "6.9.2"
+    "node": "6.11.1"
   },
   "author": "Karol Stopyra",
   "license": "MIT",
