@@ -39,6 +39,7 @@
 }
 
 .todo-item-checkbox:hover {
+  border: 1px solid $border-color-highlight;
   background-color: $background-color-highlight;
   color: $foreground-color-highlight;
   cursor: pointer;

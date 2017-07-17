@@ -7,7 +7,7 @@
     width: 100%;
     display: none;
     z-index: 10;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.8);
 }
 
 #todo-leftbar-inner {
@@ -32,7 +32,7 @@
 
 }
 .todo-leftbar-item {
-    border: 1px solid $background-color-highlight;
+    border: 1px solid $border-color;
     display: flex;
     margin: 2px;
     min-height: 64px;
@@ -41,8 +41,8 @@
 }
 
 .todo-leftbar-item:hover {
-    color: $background-color; 
-    background-color: $foreground-color;
-    border-color : $foreground-color;
+    color: $foreground-color-highlight; 
+    background-color: $background-color;
+    border-color : $border-color-highlight;
     cursor : pointer;
 }

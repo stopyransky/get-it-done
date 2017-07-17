@@ -5,7 +5,7 @@ ul.tag-list {
   margin: 5px;
 }
 
-.tag {
+.tag, .tag-add {
   cursor: pointer;
   border: 1px solid $border-color ;
   margin: 2px;
@@ -31,14 +31,14 @@ ul.tag-list {
 .tag-add {
   cursor: pointer;
   display : flex;
-  border: 1px solid $foreground-color;
+  border: 1px solid $border-color;
   justify-content: center;
   text-align: center;
   padding : 1px 5px;
   margin: 1px 2px;
 }
 
-.tag-add-form input {
+.tag-add-form {
   border : none;
   border-bottom: 1px solid $border-color;
   background-color: $background-color;
@@ -50,17 +50,28 @@ ul.tag-list {
 //   background-color: $background-color;
 // }
 
+.tag {
+  border-color: $border-color;
+  color: $text-color;
+  background-color: $background-color;
+}
 
-.tag-content:hover {
+.tag:hover {
+  border-color: $border-color-highlight;
+  color: $text-color-highlight;
   background-color: $background-color-highlight;
+}
+.tag-content:hover {
+  // background-color: $background-color-highlight;
   color: $foreground-color-highlight;
 }
 .tag-remove:hover {
-  background-color: $background-color-highlight;
+//   background-color: $background-color-highlight;
   color: $foreground-color-highlight;
 }
 
 .tag-add:hover {
+  border-color: $border-color-highlight;
   background-color: $background-color-highlight;
   color: $foreground-color-highlight;
 }

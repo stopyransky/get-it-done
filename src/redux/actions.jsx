@@ -7,7 +7,7 @@ import firebase, {
 
 import moment from 'moment';
 
-import { TweenMax, Power4 } from 'gsap';
+import { TweenMax, Power2 } from 'gsap';
 
 
 export var setSearchText = (searchText) => {
@@ -230,8 +230,8 @@ export var logout = () => {
 	therefore returned object inside is just dummy type not handled by any reducer. 
 */
 var tween = {
-            duration : 0.3,
-            ease : Power4.easeOut, 
+            duration : 0.4,
+            ease : Power2.easeOut, 
             // link this with sass variable https://css-tricks.com/making-sass-talk-to-javascript-with-json/
             width : 200 
 
