@@ -1,9 +1,14 @@
+
 import firebase, { 
 	firebaseRef, 
 	twitterProvider, 
 	facebookProvider, 
 	githubProvider } from './../firebase/index.js';
+
 import moment from 'moment';
+
+import { TweenMax, Power4 } from 'gsap';
+
 
 export var setSearchText = (searchText) => {
 	return {
@@ -219,3 +224,46 @@ export var logout = () => {
 		type: "LOGOUT"
 	}
 };
+
+
+/** below actions do not modify state of the app (store), they manipulate css settings and animate stuff only
+	therefore returned object inside is just dummy type not handled by any reducer. 
+*/
+var tween = {
+            duration : 0.3,
+            ease : Power4.easeOut, 
+            // link this with sass variable https://css-tricks.com/making-sass-talk-to-javascript-with-json/
+            width : 200 
+
+}
+export var hideLeftbarPanel = () => {
+			
+		TweenMax.to('#todo-leftbar', tween.duration, { 
+			opacity: 0.0, 
+			ease: tween.ease
+		});
+		TweenMax.to('#todo-leftbar-inner', tween.duration, { 
+			left: -tween.width, 
+			ease: tween.ease,
+			onComplete : () => document.getElementById('todo-leftbar').style.display = "none"
+		});
+		TweenMax.to('#todo-app', tween.duration, { 
+			left: 0, 
+			ease: tween.ease
+		});
+	
+	return {
+		type: "TOGGLE_LEFTBAR_PANEL"
+	}
+}
+
+export var showLeftbarPanel = () => {
+			document.getElementById('todo-leftbar').style.display="flex";
+			TweenMax.to('#todo-leftbar', tween.duration, { opacity: 0.8 , ease: tween.ease})
+            TweenMax.to('#todo-leftbar-inner', tween.duration, { left: 0, width: tween.width, ease: tween.ease} )
+			TweenMax.to('#todo-app', tween.duration, { left: tween.width, ease: tween.ease} )
+	
+	return {
+		type: "TOGGLE_LEFTBAR_PANEL"
+	}
+}

@@ -7,6 +7,15 @@ import TodoLogin from 'TodoLogin';
 import firebase from './../firebase/index.js';
 
 
+var redirectIfLogin = (nextState, replace, next) => {
+	// console.log(firebase.auth())
+	if(firebase.auth().currentUser) {
+		// user is logged in
+		replace('/todo');
+	}
+	next();
+};
+
 var requireLogin = (nextState, replace, next) => {
 	if(!firebase.auth().currentUser) {
 		// nobody is logged in - move to root which by default is TodoLogin
@@ -15,13 +24,7 @@ var requireLogin = (nextState, replace, next) => {
 	next();
 };
 
-var redirectIfLogin = (nextState, replace, next) => {
-	if(firebase.auth().currentUser) {
-		// user is logged in
-		replace('/todo');
-	}
-	next();
-};
+
 
 
 const App = props => <div id='app'>{props.children}</div>;

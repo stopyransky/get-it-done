@@ -2,20 +2,20 @@ import * as redux from 'redux';
 import thunk from 'redux-thunk';
 import { 
 	searchTextReducer, 
-	// showCompletedReducer,
 	filterByStatusReducer, 
 	filterByTagReducer, 
-	todosReducer, 
-	authReducer } from 'reducers';
+	todosReducer,
+	authReducer,
+	panelReducer } from 'reducers';
 
 export var configure = (initialState = {}) => {
 	var reducer = redux.combineReducers({
 		searchText : searchTextReducer,
-		// showCompleted : showCompletedReducer,
 		statusFilter : filterByStatusReducer,
 		tagFilter : filterByTagReducer,
 		todos : todosReducer,
-		auth : authReducer
+		auth : authReducer,
+		expanded : panelReducer
 	});
 
 	var store = redux.createStore(reducer, initialState, redux.compose(

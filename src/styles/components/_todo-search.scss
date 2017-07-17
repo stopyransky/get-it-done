@@ -51,10 +51,12 @@
   #todo-search-text { 
     order : 2; 
   }
-  #todo-search-status { order :1; }
-  #todo-search-by-tag { order: 3;}
-	// #todo-search-status, #todo-search-by-tag {
-	// 	display: none;
+  // #todo-search-status { 
+  //   order :1; 
+  // }
+  // #todo-search-by-tag { order: 3;}
+	#todo-search-status, #todo-search-by-tag {
+		display: none;
 		
-  //   }
+    }
 }

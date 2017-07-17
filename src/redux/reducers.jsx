@@ -116,3 +116,12 @@ export var authReducer = ( state = {}, action ) => {
 			return state;
 	}
 };
+
+export var panelReducer = (state = false, action) => {
+	switch( action.type) {
+		case "TOGGLE_LEFTBAR_PANEL":
+			return !state;
+		default :
+			return state;
+	}
+}

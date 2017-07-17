@@ -1,59 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { TweenMax, Power4 } from 'gsap';
+
+
+import * as actions from 'actions';
 
 // import * as actions from 'actions';
 
 export class TodoMenu extends React.Component {
 
-    constructor(props) {
-        super(props); 
-
-        // this.handleLogout = this.handleLogout.bind(this);
-
-        this.state = { 
-            expanded : false
-        }
-    }
-
-
-
-    handleMenuClick = () => {
-        // console.log("handle menu click")
-        // keeping panel state  local 
-        this.setState({
-            expanded : !this.state.expanded
-        });
-
-        this.togglePanel();
-    }
-
     togglePanel = () => {
-
-        let tween = {
-            duration : 0.3,
-            ease : Power4.easeOut, 
-            width : 70 // link this with sass variable https://css-tricks.com/making-sass-talk-to-javascript-with-json/
-
-        }
-        if(this.state.expanded) {
-            TweenMax.to('#todo-leftbar', tween.duration, { left: -tween.width, ease: tween.ease} )
-            TweenMax.to('#todo-app', tween.duration, { left: 0, ease: tween.ease} )
+        if(this.props.expanded) {
+            this.props.dispatch(actions.hideLeftbarPanel());
         } else {
-            TweenMax.to('#todo-leftbar', tween.duration, { left: 0, ease: tween.ease} )
-            TweenMax.to('#todo-app', tween.duration, { left: tween.width, ease: tween.ease} )
+            this.props.dispatch(actions.showLeftbarPanel());
         }
     }
 
     render() {
         
         return (
-            <div id="todo-menu" className="todo-active-item" onClick={this.handleMenuClick}>
-
-                {/*<div id="todo-menu-content">
-                    <div className="todo-menu-item">Options</div>
-                    <div className="todo-menu-item" onClick={ this.handleLogout }>Logout</div>
-                </div>*/}
+            <div id="todo-menu" className="todo-active-item" onClick={this.togglePanel}>
             </div>
         );
     }

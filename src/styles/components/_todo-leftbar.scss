@@ -1,5 +1,18 @@
 #todo-leftbar {
+    position: absolute;
+    top: 0px;
+    // bottom: 0px;
+    top: 0px;
+    height:100%;
+    width: 100%;
+    display: none;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+}
+
+#todo-leftbar-inner {
     // border: 1px solid #2f2f2f;
+    background: $background-color;
     position: absolute;
     left: -$panelWidth;
     width: $panelWidth;
