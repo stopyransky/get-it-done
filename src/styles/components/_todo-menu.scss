@@ -1,11 +1,3 @@
-// #menu {
-//   // border: 1px dashed purple;
-//   display:grid;
-//   grid-column: 1 / 2;
-//   grid-row: 1 / 2 ;
-//   align-content: stretch;
-//   justify-content: stretch;
-// }
 
 #todo-menu {
   border: 1px solid $border-color;
@@ -19,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: $text-color;
   cursor: pointer;
 }
 
@@ -27,9 +20,9 @@
 }
 
 #todo-menu:focus {
-  border :1px solid $foreground-color;
-  background-color: $background-color;
-  color: $foreground-color;
+  border :1px solid $border-color-highlight;
+  background-color: $background-color-highlight;
+  color: $text-color-highlight;
   outline-color: transparent;
   outline-style: none;
   pointer-events: none;
@@ -38,42 +31,5 @@
 #todo-menu:hover {
   border :1px solid $border-color-highlight;
   background-color: $background-color-highlight;
-  color: $foreground-color-highlight;
+  color: $text-color-highlight;
 }
-
-// #todo-menu:focus #todo-menu-content {
-//     display: flex;
-//     flex-flow: column nowrap;
-    
-//     visibility: visible;
-//     opacity: 1;
-//     pointer-events: auto;
-// }
-
-// #todo-menu-content {
-//   border: 1px solid $foreground-color;
-//   background-color: $background-color;
-//   color: $foreground-color;
-   
-//   position: absolute;
-//   top: 40px;
-//   left: 40px;
-//   min-width: 160px;
-//   padding: 0px 0px;
-//   z-index: 9999;
-  
-//   display: none;
-//   visibility: hidden;
-//   opacity: 0;
-//   transition: visibility 0.5s;
-// }
-
-// .todo-menu-item {
-//   padding: 10px;
-//   pointer-events: auto;
-//   cursor: pointer;
-// }
-// .todo-menu-item:hover {
-//   background-color: $background-color-highlight;
-//   color: $foreground-color-highlight;
-// }

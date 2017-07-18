@@ -47,6 +47,19 @@ html, body {
 input[type=text] {
   font-size : 1rem;
 }
+
+::-webkit-input-placeholder:focus {
+  color : $text-color;
+}
+
+::-webkit-input-placeholder:hover {
+  color : $text-color;
+}
+::-webkit-input-placeholder {
+  color : $text-color;
+}
+
+
 #container {
   // border: 1px dashed red;
   

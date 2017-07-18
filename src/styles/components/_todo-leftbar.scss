@@ -11,7 +11,6 @@
 }
 
 #todo-leftbar-inner {
-    // border: 1px solid #2f2f2f;
     background: $background-color;
     position: absolute;
     left: -$panelWidth;
@@ -25,7 +24,6 @@
 
 
 .todo-leftbar-group {
-    // position: absolute;
     display: flex;
     flex-flow: column nowrap;
     
@@ -33,6 +31,8 @@
 }
 .todo-leftbar-item {
     border: 1px solid $border-color;
+    background-color : $background-color;
+    color: $text-color;
     display: flex;
     margin: 2px;
     min-height: 64px;
@@ -42,7 +42,7 @@
 
 .todo-leftbar-item:hover {
     color: $foreground-color-highlight; 
-    background-color: $background-color;
+    background-color: $background-color-highlight;
     border-color : $border-color-highlight;
     cursor : pointer;
 }

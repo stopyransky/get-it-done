@@ -226,8 +226,8 @@ export var logout = () => {
 };
 
 
-/** below actions do not modify state of the app (store), they manipulate css settings and animate stuff only
-	therefore returned object inside is just dummy type not handled by any reducer. 
+/** Below actions modify state of the app but their primary role is to manipulate css settings and animate stuff.
+ *  Additionally, thanks to this soltution the responsible reducer can handle after-animatin action activity if needed.
 */
 var tween = {
             duration : 0.4,

@@ -58,20 +58,20 @@ ul.tag-list {
 
 .tag:hover {
   border-color: $border-color-highlight;
-  color: $text-color-highlight;
+  // color: $text-color-highlight;
   background-color: $background-color-highlight;
 }
 .tag-content:hover {
   // background-color: $background-color-highlight;
-  color: $foreground-color-highlight;
+  color: $text-color-highlight;
 }
 .tag-remove:hover {
 //   background-color: $background-color-highlight;
-  color: $foreground-color-highlight;
+  color: $text-color-highlight;
 }
 
 .tag-add:hover {
   border-color: $border-color-highlight;
   background-color: $background-color-highlight;
-  color: $foreground-color-highlight;
+  color: $text-color-highlight;
 }
