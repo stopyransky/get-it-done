@@ -233,7 +233,7 @@ var tween = {
             duration : 0.4,
             ease : Power2.easeOut, 
             // link this with sass variable https://css-tricks.com/making-sass-talk-to-javascript-with-json/
-            width : 200 
+            width : 280 
 
 }
 export var hideLeftbarPanel = () => {
