@@ -30,13 +30,13 @@ export class TodoLogin extends React.Component {
 		return (
 			<div className="todo-login">
 				<div className="login-button" onClick={this.onGithubLogin}>
-					<img src="assets/github-48.png" />
+					<img src="assets/github-48.png" alt="github icon" />
 				</div>
 				<div className="login-button" onClick={this.onFacebookLogin}>
-					<img src="assets/facebook-48.png" />
+					<img src="assets/facebook-48.png" alt="facebook icon" />
 				</div>
 				<div className="login-button" onClick={this.onTwitterLogin}>
-					<img src="assets/twitter-48.png" />
+					<img src="assets/twitter-48.png" alt="twitter icon" />
 				</div>
 			</div>
 		);
