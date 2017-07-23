@@ -59,10 +59,12 @@ module.exports = {
         }
     })
   ],
+
   output: {
     path: __dirname,
     filename: './public/bundle.js'
   },
+
   resolve: {
       modules : [
         //root: path.resolve(__dirname),
@@ -71,7 +73,7 @@ module.exports = {
         'src/components',
         'src/redux',
         'playground/components'
-        
+
       ],
 
     alias : {
