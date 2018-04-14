@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-
 try {
 	var config = {
 	  apiKey: process.env.API_KEY,

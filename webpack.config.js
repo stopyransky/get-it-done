@@ -2,21 +2,21 @@ var path = require('path');
 var webpack = require('webpack');
 var envFile = require('node-env-file');
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV =  process.env.NODE_ENV  || 'development';
 
 // process.traceDeprecation = true;
 
 try {
     envFile(path.join(__dirname, 'config/'+process.env.NODE_ENV+'.env'))
 } catch (e) {
-
+  console.log('failed to load env file')
 }
 
 module.exports = {
   entry: [
     // libraries
     'script-loader!jquery/dist/jquery.min.js',
-    'script-loader!foundation-sites/dist/foundation.min.js',
+    'script-loader!foundation-sites/dist/js/foundation.min.js',
     // own start point
     './src/main.jsx',
   ],
@@ -32,7 +32,6 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
         compress: {
             warnings: false,
-
         },
         sourceMap: true
     })

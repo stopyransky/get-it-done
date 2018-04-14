@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 
 const PORT = process.env.PORT || 3000;
+const ENV = process.env.NODE_ENV || 'development';
 
 app.use( function( req, res, next ) {
 	if( req.headers['x-forwarded-proto'] === "https") {
@@ -34,5 +35,5 @@ app.use( express.static('public') );
 
 var server = app.listen( PORT, function() {
 	// var port = server.address().port;
-    console.log("Listening on port %s.", PORT);
+    console.log(`Listening on port ${PORT}, in ${ENV} environment.`);
 } );
