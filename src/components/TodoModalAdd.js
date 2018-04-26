@@ -4,7 +4,7 @@ import ReactDOMServer from 'react-dom/server';
 // import * as _ from 'lodash';
 import moment from 'moment';
 
-import * as actions from 'actions';
+import * as actions from '../redux/actions';
 
 
 class TodoModalAdd extends React.Component {

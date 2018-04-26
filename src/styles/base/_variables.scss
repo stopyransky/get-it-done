@@ -33,6 +33,10 @@ $border-color-highlight: $theme-light-border-hover;
 $text-color: $theme-light-text;
 $text-color-highlight: $theme-light-text-hover;
 
+
+$gid-color__white: white;
+$gid-color__darkblue: $theme-light-fg;
+
 // dark used
 // $background-color : $theme-dark-bg;
 // $background-color-highlight :$theme-dark-bg-hover;
@@ -53,7 +57,7 @@ $todo-controls-hover : $background-color-highlight;
 $grid-gap: 5px;
 $grid-column-left : 70px;
 $grid-column-right : 1fr;
-$grid-row-top: 70px; 
+$grid-row-top: 140px; 
 $grid-row-bottom: 1fr;
 $scrollbar-width: 10px;
 $topbar-height: $grid-row-top;

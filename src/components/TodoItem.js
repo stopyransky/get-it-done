@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from "react-redux";
 import moment from 'moment';
 
-import * as actions from "actions";
-import TodoItemTags from 'TodoItemTags';
-import TodoModalDelete from 'TodoModalDelete';
+import * as actions from "../redux/actions";
+import TodoItemTags from './TodoItemTags';
+import TodoModalDelete from './TodoModalDelete';
 
 // exporting raw React component for testing purposes
 export class TodoItem extends React.Component {

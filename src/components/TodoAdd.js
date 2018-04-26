@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import TodoModalAdd from "TodoModalAdd";
-import * as actions from 'actions';
+import TodoModalAdd from "./TodoModalAdd";
+import * as actions from '../redux/actions';
 
 export class TodoAdd extends React.Component {
  	

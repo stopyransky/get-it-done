@@ -15,17 +15,16 @@ width 768 (ipads/tablets)
   
 @import "components/todo-login";
 @import "components/todo-app";
-  @import "components/todo-menu"; // menu
-  @import "components/todo-topbar"; // topbar
-    @import "components/todo-search";
-      // @import "components/todo-search-modal";
-    @import "components/todo-add";
-      @import "components/todo-add-modal";
-  @import "components/todo-leftbar"; // leftbar
-  @import "components/todo-list"; // contents
-    @import "components/todo-item";
-      @import "components/todo-modal-delete";
-      @import "components/todo-item-tag";
+@import "components/todo-header";
+@import "components/todo-search";
+    // @import "components/todo-search-modal";
+@import "components/todo-add";
+@import "components/todo-add-modal";
+@import "components/todo-leftbar"; // leftbar
+@import "components/todo-list"; // contents
+@import "components/todo-item";
+@import "components/todo-modal-delete";
+@import "components/todo-item-tag";
 
 * {
   // disable blue border on focus
@@ -37,8 +36,8 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  background-color: $background-color;
-  color: $foreground-color;
+  // background-color: $background-color;
+  // color: $foreground-color;
   overflow: hidden;
   font-family: Arial, sans-serif;
   // box-sizing: border-box;

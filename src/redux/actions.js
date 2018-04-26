@@ -9,7 +9,6 @@ import moment from 'moment';
 
 import { TweenMax, Power2 } from 'gsap';
 
-
 export var setSearchText = (searchText) => {
 	return {
 		type : "SET_SEARCH_TEXT",

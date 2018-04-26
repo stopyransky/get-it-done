@@ -6,7 +6,7 @@ import {
 	filterByTagReducer, 
 	todosReducer,
 	authReducer,
-	panelReducer } from 'reducers';
+	panelReducer } from './reducers';
 
 export var configure = (initialState = {}) => {
 	var reducer = redux.combineReducers({

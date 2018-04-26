@@ -1,9 +1,8 @@
 #todo-app {
   // border: 1px dashed pink;
-  
   display: grid;
-  grid-template-columns : $grid-column-left $grid-column-right;
-  grid-template-rows : $grid-row-top $grid-row-bottom;
+  // grid-template-columns : $grid-column-left $grid-column-right;
+  grid-template-rows : $grid-row-top;
   grid-gap: $grid-gap;
   align-content: stretch;
   justify-content: stretch;

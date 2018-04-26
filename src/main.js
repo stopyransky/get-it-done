@@ -2,10 +2,13 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import { hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import * as actions from 'actions';
-import { configure } from 'configureStore';
-import firebase from './firebase/index.js';
-import router from './router/router.jsx';
+
+import * as actions from './redux/actions';
+import { configure } from './redux/configureStore';
+import firebase from './firebase/index';
+import router from './router/router';
+
+require('./styles/main.scss')
 
 const store = configure();
 
@@ -20,13 +23,6 @@ firebase.auth().onAuthStateChanged((user) => {
 		hashHistory.push('/');
 	}
 });
-
-// $(document).foundation();
-
-// load main css styles
-require('style-loader!css-loader!sass-loader!mainStyles');
-
-
 
 const element = (
 	<Provider store={store}>

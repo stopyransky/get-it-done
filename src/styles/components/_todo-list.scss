@@ -3,7 +3,8 @@
   // display: grid;
   grid-column: 1/3;
   grid-row: 2/3;
-  
+  background-color: $background-color;
+  color: $foreground-color;
   position: absolute;  
   top: 0px;
   left: 0px;
