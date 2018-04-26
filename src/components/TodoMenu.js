@@ -8,6 +8,7 @@ import * as actions from '../redux/actions';
 
 export class TodoMenu extends React.Component {
 
+    
     togglePanel = () => {
         if(this.props.expanded) {
             this.props.dispatch(actions.hideLeftbarPanel());
@@ -17,10 +18,8 @@ export class TodoMenu extends React.Component {
     }
 
     render() {
-        
         return (
-            <div id="todo-menu" className="todo-active-item" onClick={this.togglePanel}>
-            </div>
+            <div className="gid-menu todo-active-item" onClick={this.togglePanel}></div>
         );
     }
 }

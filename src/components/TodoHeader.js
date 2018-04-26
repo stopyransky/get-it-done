@@ -6,13 +6,13 @@ import TodoMenu from './TodoMenu';
 class TodoHeader extends React.Component {
   render () {
     return (
-      <div className='todo-header'>
-        <div className="topbar-main">
+      <div className='gid-header'>
+        <div className="gid-header-main">
           <TodoMenu />
-          <div className="todo-header__logo">Get It Done</div>
+          <div className="gid-logo">Get It Done</div>
           <TodoAdd />
         </div>
-        <div className="topbar"> 
+        <div className="gid-header-filters"> 
           <TodoSearch />
         </div>
       </div>

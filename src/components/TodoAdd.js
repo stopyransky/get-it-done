@@ -4,33 +4,30 @@ import {connect} from "react-redux";
 import TodoModalAdd from "./TodoModalAdd";
 import * as actions from '../redux/actions';
 
+const mapStateToProps = state => state;
+
 export class TodoAdd extends React.Component {
  	
-	handleTodoAdd = ( newTodo ) => {
-        var { dispatch } = this.props;
+	handleTodoAdd = (newTodo) => {
+    const { dispatch } = this.props;
 		dispatch(actions.startAddTodo(newTodo))
-    } 
+	} 
 
 	openAddModal = () => {
-		var addModal = document.getElementById("todo-add-modal");
+		const addModal = document.getElementById("todo-add-modal");
 		addModal.style.display = "block";
 		addModal.style.opacity = '1';
 	}
 	
 	render() {
-		
-		var { dispatch }  = this.props;
-		
+		const { dispatch } = this.props;
 		return (
-			<div id="todo-add">
-				<div className="todo-add-button" onClick={ this.openAddModal }>New</div>
+			<div className="gid-add">
+				<div className="gid-add-button" onClick={ this.openAddModal }>New</div>
 				<TodoModalAdd onSubmit={this.handleTodoAdd} />
 			</div>
 		);
 	}
 }
-
-var mapStateToProps = state  => state;
-// var mapDispatchToProps =  dispatch => dispatch ;
 
 export default connect(mapStateToProps)(TodoAdd);

@@ -46,11 +46,8 @@ export class TodoSearch extends React.Component {
 		});
 
 		return (
-			<div id="todo-search">
-
-
-				<select id="todo-search-status" 
-						className="todo-active-item" 
+			<div className="gid-search">
+				<select className="gid-search-status todo-active-item" 
 						onChange={filterByStatus} 
 						ref="statusFilter" 
 						defaultValue="TODO">
@@ -59,16 +56,14 @@ export class TodoSearch extends React.Component {
 					<option value="TODO">TODO</option>
 				</select>
 				
-				<input id="todo-search-text" 
-					   className="todo-active-item"
-					   type='text'
-					   ref="searchText"
-				  	   placeholder ="Enter search text..."
-					   value={searchText}
-					   onChange={onChangeSearchText} /> 
+				<input className="gid-search-text todo-active-item" 
+					type='text'
+					ref="searchText"
+					placeholder ="Enter search text..."
+					value={searchText}
+					onChange={onChangeSearchText} /> 
 				
-				<select id="todo-search-by-tag" 
-						className="todo-active-item" 
+				<select className="gid-search-by-tag todo-active-item" 
 						onChange={filterByTag} 
 						ref="tagFilter" 
 						defaultValue="ALL">
@@ -76,8 +71,6 @@ export class TodoSearch extends React.Component {
 						{tagList}
 					<option key={-1} value="NO TAGS">No Tags</option>
 				</select>
-
-
 			</div>
 		);
 	}

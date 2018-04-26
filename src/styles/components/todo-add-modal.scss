@@ -1,0 +1,168 @@
+#todo-add-modal { 
+    // opacity: 0; 
+    // transition: opacity 1.5s;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0px;
+    top: 0px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    // background-color: $modal-background; /* Fallback color */
+    // background-color: rgba($modal-background, 0.4); /* Black w/ opacity */
+
+}
+
+#todo-modal-add-contents {
+    border: 1px solid $background-color-highlight;
+    background-color: rgba($background-color, 0.95);
+    display:flex;
+    flex: 1 0 auto;
+    // justify-content: center;
+    // align-items: center;
+    // align-content: center;
+    padding: 40px;
+    position: absolute;
+    left: 0px;
+    // left: $container-offset + $grid-column-left + $grid-gap;
+    top: 0px;
+    right: 0px;
+    // bottom: 0px;
+    // min-height: $grid-row-top + $container-offset + $grid-gap;
+    // min-width : 200px;
+    z-index: 100;
+}
+
+#todo-modal-add-contents form {
+    display: flex;
+    flex: 1 0 auto;
+    height: 100px;
+    min-height: $grid-row-top;
+}
+
+.todo-modal-add-group {
+    display: flex;
+    flex: 1 0 auto;
+    padding-top: 2px;
+    padding-right: 10px;
+    padding-bottom: 1rem;
+
+    
+}
+
+
+.todo-modal-add-input {
+    display: flex;
+    flex: 1 1 auto;
+    align-content: center;
+    margin : 0px 10px;
+    border: none;
+    border-bottom: 1px solid $background-color;
+    // padding: 10px 0px; 
+    background-color: $background-color;
+    color: $foreground-color;
+    outline-style: none;
+    outline-color: transparent;
+    min-width: 30px;
+}
+
+.todo-modal-add-input:hover { 
+    border-color: $background-color-highlight;
+}
+.todo-modal-add-input:focus {
+    background-color: $background-color-highlight;
+    border-color: $foreground-color;
+}   
+
+.todo-modal-add-more {
+  padding-top: 2px;
+  font-size: 0.8rem;
+  padding :2px;
+  cursor: pointer;
+//   min-width: 60px;
+  max-height: 1rem;
+  display : flex;
+  flex :1 0 auto;
+  justify-content : center;
+  align-items: center;
+  align-content: flex-end;
+  
+  position: absolute;
+  bottom : 0px;
+  left : 0px;
+  right: 0px;
+}
+
+.todo-modal-add-more:hover {
+background-color: $background-color-highlight;
+}
+
+.todo-modal-add-more-options {
+    display: flex;
+    flex: 1 0 auto;
+    flex-flow: column nowrap;
+    // position: absolute;
+    // top: 0px;
+    // top: $grid-row-top + $container-offset;
+    // left: 0px; // $container-offset + $grid-column-left + $grid-gap;
+    // right: 0px;
+    background-color: $background-color;
+    color : $foreground-color;
+    padding: 10px 0px;
+    max-width :100%;
+
+}
+.todo-modal-add-more-options .row {
+    padding: 2px;
+    display: flex;
+    flex : 1 1 auto;
+}
+
+.todo-modal-add-button {
+    border: 1px solid $border-color;
+    color: $text-color;
+    background-color: $background-color;
+    margin: 5px;
+    padding :2px;
+    cursor: pointer;
+    min-width: 60px;
+    display : flex;
+    justify-content : center;
+    align-items: center;
+    
+
+}
+.todo-modal-add-button:hover {
+    color: $text-color-highlight;
+    background-color: $background-color-highlight;
+    border-color: $border-color-highlight;
+}
+
+/* The Close Button */
+.todo-modal-add-close {
+    color: $text-color;
+    position: absolute;
+    font-size: 42px;
+    right: 15px;
+    top : 15px;
+    cursor: pointer;
+}
+
+.todo-modal-add-close:hover {
+    color: $text-color-highlight;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 480px) {
+  #todo-modal-add-contents {
+    min-height: $grid-row-top;
+    left: 5px;
+    right: 5px;
+  }
+  
+  .todo-modal-add-group {
+    flex-flow: column nowrap;
+  }
+
+}
