@@ -1,20 +1,30 @@
-var express = require('express');
+const express = require('express');
+const helmet = require('helmet')
+const app = express();
 
-var app = express();
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const ENV = process.env.NODE_ENV || 'development';
 
-app.use( function( req, res, next ) {
-	if( req.headers['x-forwarded-proto'] === "https") {
-		res.redirect("http://" + req.hostname + req.url );
-	} else {
-		next();
-	}
-});
+app.use(helmet())
+if(ENV === 'production') {
 
-app.use( express.static('public') );
+	app.use( function( req, res, next ) {
+		if( req.headers['x-forwarded-proto'] === "https") {
+			res.redirect("http://" + req.hostname + req.url );
+		} else {
+			next();
+		}
+	});
+	
+	app.use( express.static('public') );
 
-var server = app.listen( PORT, function() {
-    console.log(`Listening on port ${PORT}, in ${ENV} environment.`);
+} else {
+	require('./serverDev')(app)
+}
+
+
+app.listen( PORT, function() {
+	console.log(`Listening on port ${PORT}, in ${ENV} environment.`);
 } );
+
+

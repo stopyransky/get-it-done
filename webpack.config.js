@@ -102,6 +102,16 @@ module.exports = {
             }
           ]
       },
+      {
+        test: /\.(svg|jpeg|jpg|gif|png|ico)/,
+        use: [
+          { loader: 'file-loader',
+            options: {
+              name: 'assets/[name].[ext]'
+            }
+          }
+        ]
+      },
     ]
   },
   devtool : process.env.NODE_ENV  === 'production' ? false : "cheap-module-eval-source-map"
