@@ -14,7 +14,7 @@ export class TodoAdd extends React.Component {
 	} 
 
 	openAddModal = () => {
-		const addModal = document.getElementById("todo-add-modal");
+		const addModal = document.getElementsByClassName("todo-add-modal")[0];
 		addModal.style.display = "block";
 		addModal.style.opacity = '1';
 	}
@@ -23,7 +23,7 @@ export class TodoAdd extends React.Component {
 		const { dispatch } = this.props;
 		return (
 			<div className="gid-add">
-				<div className="gid-add-button" onClick={ this.openAddModal }>New</div>
+				<div className="gid-add-button todo-active-item" onClick={ this.openAddModal }>New</div>
 				<TodoModalAdd onSubmit={this.handleTodoAdd} />
 			</div>
 		);

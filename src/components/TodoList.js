@@ -24,7 +24,7 @@ export class TodoList extends React.Component {
 			});
 		}
 		return (
-			<div id="todo-list">
+			<div className="gid-list">
 				{ renderTodos()}
 			</div>
 		);

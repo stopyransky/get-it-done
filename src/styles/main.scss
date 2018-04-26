@@ -1,31 +1,24 @@
 
-@import "base/variables"; // no underscore and extension
+@import "base/variables";
 
 /**
-
 responsive websites cases 
 width 320 (iphones)
 width 480 (mobiles)
 width 768 (ipads/tablets)
-
-*/
-@import "components/scrollbar-style";
-// @import "components/todo-modal";
-  
-  
+*/  
 @import "components/todo-login";
 @import "components/todo-app";
-@import "components/todo-header";
-@import "components/todo-add";
+
+@import "components/gid-header";
 @import "components/todo-add-modal";
-@import "components/todo-leftbar"; // leftbar
-@import "components/todo-list"; // contents
+@import "components/todo-leftbar";
+@import "components/gid-list";
 @import "components/todo-item";
 @import "components/todo-modal-delete";
 @import "components/todo-item-tag";
 
 * {
-  // disable blue border on focus
   outline-color: transparent;
   outline-style: none;
 }
@@ -34,11 +27,9 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  // background-color: $background-color;
-  // color: $foreground-color;
+  background-color: $background-color;
   overflow: hidden;
   font-family: Arial, sans-serif;
-  // box-sizing: border-box;
 }
 
 input[type=text] {
@@ -67,15 +58,10 @@ input[type=text] {
   right: $container-offset;
   max-width: 100%;
   max-height: 100%;
-  // min-width : 320px;
   min-height: 200px;
 }
 
 select, option {
   outline: none;
 }
-// #app {
-  
-//   // border: 1px dashed steelblue;
-// }
 

@@ -1,57 +1,50 @@
-#todo-add-modal { 
-    // opacity: 0; 
-    // transition: opacity 1.5s;
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+.todo-add-modal { 
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0px;
     top: 0px;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    // background-color: $modal-background; /* Fallback color */
-    // background-color: rgba($modal-background, 0.4); /* Black w/ opacity */
-
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
-#todo-modal-add-contents {
+.todo-modal-add-contents {
     border: 1px solid $background-color-highlight;
-    background-color: rgba($background-color, 0.95);
-    display:flex;
-    flex: 1 0 auto;
-    // justify-content: center;
-    // align-items: center;
-    // align-content: center;
+    background-color: $background-color;
+    display: flex;
+    flex-flow: column nowrap;
     padding: 40px;
     position: absolute;
     left: 0px;
-    // left: $container-offset + $grid-column-left + $grid-gap;
     top: 0px;
     right: 0px;
-    // bottom: 0px;
-    // min-height: $grid-row-top + $container-offset + $grid-gap;
-    // min-width : 200px;
+    bottom: 0px;
     z-index: 100;
 }
 
-#todo-modal-add-contents form {
+.todo-modal-add-contents form {
     display: flex;
     flex: 1 0 auto;
-    height: 100px;
+    // height: 100px;
     min-height: $grid-row-top;
 }
 
 .todo-modal-add-group {
     display: flex;
-    flex: 1 0 auto;
+    flex-flow: column nowrap;
     padding-top: 2px;
     padding-right: 10px;
     padding-bottom: 1rem;
-
-    
+    height: 120px;
+    width: 100%;
 }
 
-
+.todo-modal-add-title {
+    font-size: 24px;
+    color: white;
+    padding-bottom: 20px;
+}
 .todo-modal-add-input {
     display: flex;
     flex: 1 1 auto;
@@ -80,7 +73,6 @@
   font-size: 0.8rem;
   padding :2px;
   cursor: pointer;
-//   min-width: 60px;
   max-height: 1rem;
   display : flex;
   flex :1 0 auto;
@@ -102,11 +94,6 @@ background-color: $background-color-highlight;
     display: flex;
     flex: 1 0 auto;
     flex-flow: column nowrap;
-    // position: absolute;
-    // top: 0px;
-    // top: $grid-row-top + $container-offset;
-    // left: 0px; // $container-offset + $grid-column-left + $grid-gap;
-    // right: 0px;
     background-color: $background-color;
     color : $foreground-color;
     padding: 10px 0px;
@@ -127,6 +114,7 @@ background-color: $background-color-highlight;
     padding :2px;
     cursor: pointer;
     min-width: 60px;
+    min-height: 40px;
     display : flex;
     justify-content : center;
     align-items: center;
@@ -155,14 +143,5 @@ background-color: $background-color-highlight;
 }
 
 @media screen and (max-width: 480px) {
-  #todo-modal-add-contents {
-    min-height: $grid-row-top;
-    left: 5px;
-    right: 5px;
-  }
-  
-  .todo-modal-add-group {
-    flex-flow: column nowrap;
-  }
-
+//
 }
