@@ -1,39 +1,30 @@
-var express = require('express');
-	//MongoClient = require('mongodb').MongoClient;
+const express = require('express');
+const helmet = require('helmet')
+const app = express();
 
-var app = express();
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const ENV = process.env.NODE_ENV || 'development';
 
-app.use( function( req, res, next ) {
-	if( req.headers['x-forwarded-proto'] === "https") {
-		res.redirect("http://" + req.hostname + req.url );
-	} else {
-		next();
-		
-	}
-});
-// var allowCrossDomain = function(req, res, next) {
-//     res.header('Access-Control-Allow-Origin', "*");
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-// }
+app.use(helmet())
+if(ENV === 'production') {
 
-// // app.configure(function() {
-//     app.use(allowCrossDomain);
-//     //some other code
-// // });  
-app.use( express.static('public') );
+	app.use( function( req, res, next ) {
+		if( req.headers['x-forwarded-proto'] === "https") {
+			res.redirect("http://" + req.hostname + req.url );
+		} else {
+			next();
+		}
+	});
+	
+	app.use( express.static('public') );
+
+} else {
+	require('./serverDev')(app)
+}
 
 
-// MongoClient.connect("mongodb://localhost:27017/scratch", function onConnect( err, db ) {
-
-// } );
-
-
-var server = app.listen( PORT, function() {
-	// var port = server.address().port;
-    console.log(`Listening on port ${PORT}, in ${ENV} environment.`);
+app.listen( PORT, function() {
+	console.log(`Listening on port ${PORT}, in ${ENV} environment.`);
 } );
+
+

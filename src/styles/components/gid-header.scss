@@ -1,0 +1,128 @@
+.gid-header {
+  grid-column : 1 / 3;
+  grid-row : 1 / 2;
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  background-color: $gid-color__white;
+  color: $gid-color__darkblue;
+
+  .todo-active-item {
+    outline-style: none;
+    outline-color: transparent;
+    width: 24px;
+    height: 24px;
+    padding: 20px;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      border: 1px solid $foreground-color;
+    }
+    
+    &:focus {
+      background-color: $background-color-highlight;
+      border: 1px solid $foreground-color ;
+    }
+  }
+
+  &-main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:space-between;
+    align-items: center;
+    margin: 5px;
+
+    .gid-menu {
+      position: relative;
+      cursor: pointer;
+      
+      &:before {
+        content: "||||";
+      }
+      &:focus {
+        pointer-events: none;
+      }
+      // &:hover {
+      // }
+    }
+
+    .gid-logo {
+      position: relative;
+    }
+
+    .gid-add {
+      &-button {
+        border: 1px solid $border-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+          border: 1px solid $foreground-color;
+        }
+      }
+    }
+  }
+
+  &-filters {
+    .gid-search {
+      order: 2;
+      flex: 1 1 auto;
+      display: flex;
+      color: $text-color;
+      margin: 5px;
+      align-items: center;
+      &-status  {
+        min-width: 66px;
+        border-color: $border-color;
+        color: $text-color;
+        &:hover {
+          color: $text-color-highlight;
+          background-color: $background-color-highlight;
+          border-color: $border-color-highlight;
+        }
+      }
+
+      &-text {
+        flex: 1 1 auto;
+        font-size : 0.8rem;
+        width:20px;
+        min-width:20px;
+        padding: 5px;
+        margin: 0px 5px;
+        border: 1px solid transparent;
+        color: $text-color;
+        // & input:focus {
+        //   color : $text-color;
+        // }
+        &:hover {
+        //   // background-color: $background-color;
+          border: 1px solid transparent;
+        //   // color: $text-color-highlight;
+        }
+      }
+      
+      &-by-tag  {
+        min-width: 66px;
+        border-color: $border-color;
+        color: $text-color;
+        &:hover {
+          color: $text-color-highlight;
+          background-color: $background-color-highlight;
+          border-color: $border-color-highlight;
+        }
+      }
+      
+      @media screen and (max-width : 320px) {
+        .gid-search-status, .gid-search-by-tag {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
