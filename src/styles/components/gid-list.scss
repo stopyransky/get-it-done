@@ -26,7 +26,26 @@
     background-color: $gid-color__white;
   }
 
-
+  &.masonry {
+    column-count: 1;
+    column-gap: 0;
+    counter-reset: item-counter;
+    
+    @media screen and (min-width: 1025px) {
+      column-count: 3;
+    }
+  }
+  
+  .masonry-item {
+    box-sizing: border-box;
+    break-inside: avoid;
+    // padding: 10px;
+    height: fit-content;
+    counter-increment: item-counter;
+  }
+  @media screen and (max-width: 480px) {
+    align-items: center;
+  }
   @media screen and (min-width: 1025px) {
     flex-flow: row wrap;
   }

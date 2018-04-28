@@ -167,7 +167,7 @@ export class TodoItem extends React.Component {
 
 
 		return (
-			<div tabIndex="2" className="todo-item">
+			<div tabIndex="2" className="todo-item masonry-item">
 				<div className="group">
 					<div className="todo-item-checkbox" onClick={this.props.onClickToggle}> 
 						{ completed? "UNDO" : "DONE"}
