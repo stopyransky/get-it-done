@@ -36,16 +36,10 @@ $text-color-highlight: $theme-light-text-hover;
 
 $gid-color__white: white;
 $gid-color__darkblue: $theme-light-fg;
+$gid-color__darkestblue: #22345a;
 
-// dark used
-// $background-color : $theme-dark-bg;
-// $background-color-highlight :$theme-dark-bg-hover;
-// $foreground-color : $theme-dark-fg;
-// $foreground-color-highlight: $theme-dark-fg-hover;
-// $border-color: $background-color-highlight;
-// $border-color-highlight: $foreground-color;
-// $text-color: $theme-dark-text;
-// $text-color-highlight: $theme-dark-text-hover;
+$gid-gradient-blue: linear-gradient(-45deg, $gid-color__darkestblue, $gid-color__darkblue);
+$hover-item-shadow: inset 0px 0px 2px 0px white;
 
 
 $modal-background : #000;
@@ -57,7 +51,7 @@ $todo-controls-hover : $background-color-highlight;
 $grid-gap: 5px;
 $grid-column-left : 70px;
 $grid-column-right : 1fr;
-$grid-row-top: 140px; 
+$grid-row-top: 100px; 
 $grid-row-bottom: 1fr;
 $scrollbar-width: 10px;
 $topbar-height: $grid-row-top;

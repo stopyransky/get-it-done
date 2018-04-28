@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8080;
 const ENV = process.env.NODE_ENV || 'development';
 
 app.use(helmet())
+
 if(ENV === 'production') {
 
 	app.use( function( req, res, next ) {

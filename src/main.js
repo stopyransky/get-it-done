@@ -9,6 +9,7 @@ import firebase from './firebase/index';
 import router from './router/router';
 
 require('./styles/main.scss')
+
 require('./assets/facebook-48-black.png')
 require('./assets/facebook-48.png')
 require('./assets/github-48-black.png')

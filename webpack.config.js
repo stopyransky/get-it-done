@@ -3,8 +3,10 @@ const webpack = require('webpack');
 const envFile = require('node-env-file');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 process.env.NODE_ENV =  process.env.NODE_ENV  || 'development';
+
 try {
   envFile(path.join(__dirname, 'config/'+process.env.NODE_ENV+'.env'))
 } catch (e) {
@@ -64,6 +66,11 @@ module.exports = {
       template: 'src/index.ejs',
       inject: true
     }),
+  //   new BrowserSyncPlugin({
+  //     host: 'localhost',
+  //     port: 3000,
+  //     proxy: 'http://localhost:8080/'
+  // })
   ],
   module: {
     rules: [

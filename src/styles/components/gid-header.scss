@@ -6,14 +6,16 @@
   justify-content: space-around;
   background-color: $gid-color__white;
   color: $gid-color__darkblue;
+  box-shadow: 0px 0px 20px 0px black;
+  z-index: 2;
 
   .todo-active-item {
     outline-style: none;
     outline-color: transparent;
     width: 24px;
     height: 24px;
-    padding: 20px;
-    border: 1px solid $border-color;
+    // padding: 20px;
+    border: 1px solid transparent;
     border-radius: 3px;
     display: flex;
     align-items: center;
@@ -21,11 +23,12 @@
 
     &:hover {
       border: 1px solid $foreground-color;
+      box-shadow: inset 0px 0px 1px 0px rgba($foreground-color, 0.8);
     }
     
     &:focus {
       background-color: $background-color-highlight;
-      border: 1px solid $foreground-color ;
+      border: 1px solid $gid-color__darkblue;
     }
   }
 
@@ -39,7 +42,7 @@
     .gid-menu {
       position: relative;
       cursor: pointer;
-      
+      padding: 5px 20px;
       &:before {
         content: "||||";
       }
@@ -56,14 +59,11 @@
 
     .gid-add {
       &-button {
-        border: 1px solid $border-color;
         display: flex;
+        padding: 5px 20px;
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        &:hover {
-          border: 1px solid $foreground-color;
-        }
       }
     }
   }
@@ -78,12 +78,13 @@
       align-items: center;
       &-status  {
         min-width: 66px;
+        height: 36px;
         border-color: $border-color;
-        color: $text-color;
-        &:hover {
-          color: $text-color-highlight;
-          background-color: $background-color-highlight;
-          border-color: $border-color-highlight;
+        background-color: $gid-color__white;
+        color: $gid-color__darkblue;
+        &:focus {
+          background-color: $gid-color__white;
+          border: 1px solid $foreground-color;
         }
       }
 
@@ -94,26 +95,25 @@
         min-width:20px;
         padding: 5px;
         margin: 0px 5px;
-        border: 1px solid transparent;
-        color: $text-color;
-        // & input:focus {
-        //   color : $text-color;
-        // }
-        &:hover {
-        //   // background-color: $background-color;
-          border: 1px solid transparent;
-        //   // color: $text-color-highlight;
+        // border: 1px solid transparent;
+        border-color: $border-color;
+        background-color: $gid-color__white;
+        color: $gid-color__darkblue;
+        &:focus {
+          background-color: $gid-color__white;
+          border: 1px solid $foreground-color;
         }
       }
       
       &-by-tag  {
         min-width: 66px;
+        height: 36px;
         border-color: $border-color;
-        color: $text-color;
-        &:hover {
-          color: $text-color-highlight;
-          background-color: $background-color-highlight;
-          border-color: $border-color-highlight;
+        background-color: $gid-color__white;
+        color: $gid-color__darkblue;
+        &:focus {
+          background-color: $gid-color__white;
+          border: 1px solid $foreground-color;
         }
       }
       

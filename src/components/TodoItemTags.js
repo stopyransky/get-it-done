@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from "react-redux";
-
 import * as actions from '../redux/actions';
 
 class TodoItemTags extends React.Component {
@@ -85,7 +84,7 @@ class TodoItemTags extends React.Component {
                 );
             } else {
                 return  (
-                    <div key={-1} className ="tag-add" onClick={this.onAddTag}> + </div>
+                    <div key={-1} className ="tag-add" onClick={this.onAddTag}> &#xff0b; </div>
                     
                 );
             }
@@ -100,7 +99,7 @@ class TodoItemTags extends React.Component {
                         <div className ="tag-remove" 
                                 onClick={() => {
                                     self.passRemoveTag(index);
-                                }}> - 
+                                }}> &#xff0d; 
                         </div>
                     </div>
                 );

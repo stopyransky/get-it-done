@@ -11,7 +11,7 @@
 }
 
 #todo-leftbar-inner {
-    background: $background-color;
+    background: $gid-gradient-blue;
     position: absolute;
     left: -$panelWidth;
     width: $panelWidth;
@@ -20,21 +20,21 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content : space-between;
+    box-shadow: 0px 0px 20px 0px black;
 }
 
 
 .todo-leftbar-group {
     display: flex;
     flex-flow: column nowrap;
-    
-
+    justify-content:center;
 }
 .todo-leftbar-item {
     border: 1px solid $border-color;
-    background-color : $background-color;
+    border-radius: 3px;
     color: $text-color;
     display: flex;
-    margin: 2px;
+    margin: 5px;
     min-height: 64px;
     justify-content: center;
     align-items: center;
@@ -42,7 +42,7 @@
 
 .todo-leftbar-item:hover {
     color: $foreground-color-highlight; 
-    background-color: $background-color-highlight;
+    box-shadow: $hover-item-shadow;
     border-color : $border-color-highlight;
     cursor : pointer;
 }

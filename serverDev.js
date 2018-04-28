@@ -52,19 +52,11 @@ module.exports = function runDev(app) {
     // no need to watch '*.js' here, webpack will take care of it for us,
     // including full page reloads if HMR won't work
     files: [
-      'src/*.html'
+      'src/**',
+      'src/*.ejs'
     ]
   })
 
   const staticMiddleware = express.static('public')
   app.use(staticMiddleware)
-
-  // const PORT = process.env.PORT || 8080
-  
-  // const environment = process.env.NODE_ENV ? process.env.NODE_ENV : 'development'
-
-  // server.listen(PORT, () => {
-  //   console.log(`Content Server is running on http://localhost:${PORT} in ${environment} mode`)
-  // })
-
 }

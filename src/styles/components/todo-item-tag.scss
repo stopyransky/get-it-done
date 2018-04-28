@@ -7,9 +7,10 @@ ul.tag-list {
 
 .tag, .tag-add {
   cursor: pointer;
-  border: 1px solid $border-color ;
+  border: 1px solid $border-color;
+  border-radius: 3px;
   margin: 2px;
-  padding: 1px;
+  padding: 3px;
   display:flex;
   flex-flow: row nowrap;
   font-size: 0.8rem;
@@ -17,16 +18,19 @@ ul.tag-list {
 }
 
 .tag-content {
-/*   border: 1px solid steelblue; */
   display:flex;
-  padding : 0px 5px 0px 10px;
-  align-content: center;
+  padding : 0px 5px 1px 10px;
+  align-items: center;
+  &:hover {
+    color: $text-color-highlight;
+  }
 }
 
 .tag-remove {
-/*   border: 1px solid #690000; */
-  padding : 0px 5px 0px 5px;
-
+  padding : 0px 4px 0px 4px;
+  &:hover {
+      color: $text-color-highlight;
+    }
 }
 .tag-add {
   cursor: pointer;
@@ -34,44 +38,48 @@ ul.tag-list {
   border: 1px solid $border-color;
   justify-content: center;
   text-align: center;
-  padding : 1px 5px;
-  margin: 1px 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  &:hover {
+    border-color: $border-color-highlight;
+    box-shadow: $hover-item-shadow;
+    color: $text-color-highlight;
+  }
 }
 
 .tag-add-form {
-  border : none;
-  border-bottom: 1px solid $border-color;
-  background-color: $background-color;
+  border : 1px solid $border-color;
+  margin-left: 2px; 
+  padding: 2px;
+  // border-bottom: 1px solid $border-color;
   color: $text-color;
+  border-radius: 3px;
+  margin: 2px;
+  padding: 2px;
   font-size: 0.8rem;
-}
 
-// .tag-add-form input:hover,.tag-add-form input:focus {
-//   background-color: $background-color;
-// }
+  input {
+    display:flex;
+    align-items: center;
+    text-align: left;
+    vertical-align: middle;
+    background: none;
+    color: white;
+    padding: 0px 5px 2px 5px;
+    margin: 0px;
+    border:none;
+    &::placeholder {
+      color: rgba($gid-color__white, 0.6);
+      font-size: 0.8rem;
+    }
+  }
+}
 
 .tag {
   border-color: $border-color;
   color: $text-color;
-  background-color: $background-color;
-}
-
-.tag:hover {
-  border-color: $border-color-highlight;
-  // color: $text-color-highlight;
-  background-color: $background-color-highlight;
-}
-.tag-content:hover {
-  // background-color: $background-color-highlight;
-  color: $text-color-highlight;
-}
-.tag-remove:hover {
-//   background-color: $background-color-highlight;
-  color: $text-color-highlight;
-}
-
-.tag-add:hover {
-  border-color: $border-color-highlight;
-  background-color: $background-color-highlight;
-  color: $text-color-highlight;
+  &:hover {
+    box-shadow: $hover-item-shadow;
+    border-color: $border-color-highlight;
+  }
 }
