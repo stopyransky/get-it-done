@@ -35,7 +35,6 @@ class TodoModalAdd extends React.Component {
     if (dueDateRef) dueDate = moment(dueDateRef.value, "YYYY-MM-DD").unix();
     if (startDateRef) startDate = moment(startDateRef.value, "YYYY-MM-DD").unix();
 
-
     const newTodo = {
       text: newText,
       startDate,
@@ -48,12 +47,10 @@ class TodoModalAdd extends React.Component {
       if (this.refs.startDate) this.refs.startDate.value = "";
       if (this.refs.dueDate) this.refs.dueDate.value = "";
       if (this.refs.tags) this.refs.tags.value = [];
-
       this.props.onSubmit(newTodo);
     } else {
       this.refs.text.focus();
     }
-
   }
 
   onClose = (event) => {
@@ -93,22 +90,6 @@ class TodoModalAdd extends React.Component {
 
   render() {
 
-    // const renderMoreOptions = () => {
-    //   console.log("soon...");
-    //   if(this.state.showMore) {
-    //       return (
-    //           <div className="todo-modal-add-more-options">
-    //               <div className="row">
-    //                   <label>Start date: <input type="date" ref="startDate"/></label>
-    //                   <label>Due date: <input type="date" ref="dueDate" /></label>
-    //               </div>
-    //               <div className="row">
-    //                   <label>Tags: <input type="text" ref="tags" /></label>
-    //               </div>
-    //           </div>
-    //       );
-    //   }
-    // }
     return (
       <div className="todo-add-modal" >
         <div className="todo-modal-add-contents">
@@ -116,15 +97,12 @@ class TodoModalAdd extends React.Component {
           <div className="todo-modal-add-close" onClick={this.onClose}>&times;</div>
           <form onSubmit={this.onConfirm} >
             <div className="todo-modal-add-group" >
-              <input className="todo-modal-add-input" type="text" ref="text" placeholder="Enter new task here..." />
+              <input type="text" ref="text" placeholder="Enter new task here..." />
               <div className="todo-modal-add-controls">
                 <div className="todo-modal-add-button" onClick={this.onClose}>Cancel</div>
                 <div className="todo-modal-add-button" onClick={this.onConfirm}>Add</div>
               </div>
             </div>
-            {/* <div className="todo-modal-add-more" onClick={this.onMore}>more options... */}
-              {/*{renderMoreOptions()}*/}
-            {/* </div> */}
           </form>
         </div>
       </div>

@@ -1,7 +1,7 @@
 .gid-header {
-  grid-column : 1 / 3;
-  grid-row : 1 / 2;
-  display:flex;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
   background-color: $gid-color__white;
@@ -14,7 +14,6 @@
     outline-color: transparent;
     width: 24px;
     height: 24px;
-    // padding: 20px;
     border: 1px solid transparent;
     border-radius: 3px;
     display: flex;
@@ -25,7 +24,7 @@
       border: 1px solid $foreground-color;
       box-shadow: inset 0px 0px 1px 0px rgba($foreground-color, 0.8);
     }
-    
+
     &:focus {
       background-color: $background-color-highlight;
       border: 1px solid $gid-color__darkblue;
@@ -35,7 +34,7 @@
   &-main {
     display: flex;
     flex-flow: row nowrap;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
     margin: 5px;
 
@@ -76,7 +75,7 @@
       color: $text-color;
       margin: 5px;
       align-items: center;
-      &-status  {
+      &-status {
         min-width: 66px;
         height: 36px;
         border-color: $border-color;
@@ -90,9 +89,9 @@
 
       &-text {
         flex: 1 1 auto;
-        font-size : 0.8rem;
-        width:20px;
-        min-width:20px;
+        font-size: 0.8rem;
+        width: 20px;
+        min-width: 20px;
         padding: 5px;
         margin: 0px 5px;
         // border: 1px solid transparent;
@@ -104,8 +103,8 @@
           border: 1px solid $foreground-color;
         }
       }
-      
-      &-by-tag  {
+
+      &-by-tag {
         min-width: 66px;
         height: 36px;
         border-color: $border-color;
@@ -116,13 +115,13 @@
           border: 1px solid $foreground-color;
         }
       }
-      
-      @media screen and (max-width : 320px) {
-        .gid-search-status, .gid-search-by-tag {
+
+      @media screen and (max-width: 320px) {
+        .gid-search-status,
+        .gid-search-by-tag {
           display: none;
         }
       }
     }
   }
 }
-

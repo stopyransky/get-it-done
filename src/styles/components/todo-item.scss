@@ -16,6 +16,7 @@
 .todo-item .group {
   display: flex;
   width: 100%;
+  padding: 0px 5px;
 }
 
 .edit-text {
@@ -25,7 +26,7 @@
   color: $text-color;
 }
 
-.todo-item-checkbox { 
+.todo-item-checkbox {
   border: 1px solid $border-color;
   border-radius: 3px;
   display: flex;
@@ -44,7 +45,6 @@
   }
 }
 
-
 .todo-item-contents {
   display: flex;
   flex: 1 1 auto;
@@ -61,7 +61,6 @@
   align-items : stretch;
   color: $text-color;
   font-size: 1.2rem;
-
   .edit-text {
     display: inline-flex;
     align-items : stretch;
@@ -87,7 +86,7 @@
 }
 
 .todo-item:hover .todo-item-controls {
-  visibility: visible;  
+  visibility: visible;
 }
 
 .todo-item-controls div {

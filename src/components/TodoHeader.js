@@ -9,11 +9,10 @@ class TodoHeader extends React.Component {
       <div className='gid-header'>
         <div className="gid-header-main">
           <TodoMenu />
-
-          <div className="gid-logo">Get It Done</div>
+          <div className="gid-logo">[ Get It Done ]</div>
           <TodoAdd />
         </div>
-        <div className="gid-header-filters"> 
+        <div className="gid-header-filters">
           <TodoSearch />
         </div>
       </div>
