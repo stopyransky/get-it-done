@@ -75,7 +75,7 @@ class TodoModalAdd extends React.Component {
 
   clickAway = (event) => {
     const modal = document.getElementsByClassName("todo-add-modal")[0];
-    if (event.target == modal) {
+    if (event.target === modal) {
       if (this.refs.text) this.refs.text.value = "";
       if (this.refs.startDate) this.refs.startDate.value = "";
       if (this.refs.dueDate) this.refs.dueDate.value = "";
@@ -117,11 +117,14 @@ class TodoModalAdd extends React.Component {
           <form onSubmit={this.onConfirm} >
             <div className="todo-modal-add-group" >
               <input className="todo-modal-add-input" type="text" ref="text" placeholder="Enter new task here..." />
-              <div className="todo-modal-add-button" onClick={this.onConfirm}>ADD</div>
+              <div className="todo-modal-add-controls">
+                <div className="todo-modal-add-button" onClick={this.onClose}>Cancel</div>
+                <div className="todo-modal-add-button" onClick={this.onConfirm}>Add</div>
+              </div>
             </div>
-            <div className="todo-modal-add-more" onClick={this.onMore}>more options...
+            {/* <div className="todo-modal-add-more" onClick={this.onMore}>more options... */}
               {/*{renderMoreOptions()}*/}
-            </div>
+            {/* </div> */}
           </form>
         </div>
       </div>

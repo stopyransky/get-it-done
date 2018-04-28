@@ -6,7 +6,23 @@ import * as actions from "../redux/actions";
 import TodoItemTags from './TodoItemTags';
 import TodoModalDelete from './TodoModalDelete';
 
-// exporting raw React component for testing purposes
+const mapStateToProps = state => state;
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		dispatch,  
+		onClickToggle : () => {
+			const { id, completed } = ownProps;
+			dispatch(actions.startToggleTodo(id, !completed))
+		},
+
+		onClickDelete : () => {
+			const { id } = ownProps;
+			dispatch(actions.startDeleteTodo(id));
+		}
+	}
+};
+
 export class TodoItem extends React.Component {
 
 	constructor(props) {
@@ -16,20 +32,15 @@ export class TodoItem extends React.Component {
 		this.submitRemoveTag =  this.submitRemoveTag.bind(this);
 		this.onSaveEdit = this.onSaveEdit.bind(this);
 		this.cancelTextEdit = this.cancelTextEdit.bind(this);
-		// state is not saved to db, for app only
 		this.state = {
 			editMode : false
 		}
 	}
 
-	componentDidMount() {
-	
-	}
-
 	onSaveEdit(e) {
 		e.preventDefault();
-		var { id, dispatch } = this.props;
-		var newText = this.refs.newText.value;
+		const { id, dispatch } = this.props;
+		const newText = this.refs.newText.value;
 		
 		if(newText.length > 0) {
 			this.refs.newText.value = "";
@@ -51,8 +62,8 @@ export class TodoItem extends React.Component {
 	}
 
 	submitNewTag( newTag ) {
-		var { id, dispatch } = this.props;
-		var tags = this.props.tags || [];
+		const { id, dispatch } = this.props;
+		const tags = this.props.tags || [];
 
 		// prevent adding empty inputs
 		if(newTag.length > 0) {
@@ -65,15 +76,14 @@ export class TodoItem extends React.Component {
 			}
 			
 			tags.push(newTag);
-			var newTags = [ ...tags ];
+			const newTags = [ ...tags ];
 			dispatch(actions.startUpdateTodo(id, { tags : newTags}));
 		}
 		
 	}
 
 	submitRemoveTag(index) {
-		var { id, dispatch, tags} = this.props;
-		// console.log(tags[index]);
+		const { id, dispatch, tags} = this.props;
 		if(tags[index] || tags[index] === "") {
 			tags.splice(index,1);
 		}
@@ -86,17 +96,13 @@ export class TodoItem extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		// console.log(prevProps, prevState)
 		if(this.state.editMode) {
 			this.refs.newText.focus();
 		}
-	
-		
 	}
 
 	render() {
-		// dispatch comes from redux.connect
-		var { id, 
+		const { id, 
 			text, 
 			completed, 
 			createdAt, 
@@ -105,15 +111,15 @@ export class TodoItem extends React.Component {
 			tags, 
 			dispatch } = this.props;
 		
-		var { editMode } = this.state;
+		const { editMode } = this.state;
 
-		var setEditModeTrue = () => {
+		const setEditModeTrue = () => {
 			this.setState( {
 				editMode : true
 			})
 		}
 
-		var renderTodoText = () => {
+		const renderTodoText = () => {
 			if(editMode) {
 				return (
 					<form className="todo-item-contents-maintext" onSubmit={this.onSaveEdit} >
@@ -136,42 +142,34 @@ export class TodoItem extends React.Component {
 			}   
 		}
 		
-		var renderDate = () => {
-			var message = 'Created ';
-			var timestamp = createdAt;
-			// if(completed) {
-			// 	message = "Completed ";
-			// 	timestamp = completedAt;
-			// }
-	
-			// return createdAt;
+		const renderDate = () => {
+			const message = 'Created ';
+			const timestamp = createdAt;
 			return message + moment.unix(timestamp).format("DD MM YYYY @ hh:mm ");
 		}
 		
-		var renderDueDate = () => {
+		const renderDueDate = () => {
 			if(dueDate) {
-				var message = ' Due date : ';
-				var timestamp = dueDate;
+				const message = ' Due date : ';
+				const timestamp = dueDate;
 				return message + moment.unix(timestamp).format("MMMM Do, YYYY");
 			}
-			return " No due date for this task.";
+			return "No due date for this task.";
 		}
 
-		var renderEditButton = () => {
+		const renderEditButton = () => {
 			if(this.state.editMode) {
-				return <div onClick={this.onSaveEdit}>save </div>;
+				return <div onClick={this.onSaveEdit}>Save</div>;
 			} else {
-				return <div onClick={ setEditModeTrue }>edit</div>;
+				return <div onClick={setEditModeTrue}>Edit</div>;
 			}
 		}
-
 
 		return (
 			<div tabIndex="2" className="todo-item masonry-item">
 				<div className="group">
 					<div className="todo-item-checkbox" onClick={this.props.onClickToggle}> 
 						{ completed? "UNDO" : "DONE"}
-						{/*<input type="checkbox" defaultChecked={completed} onChange={this.props.onClickToggle}/>*/}
 					</div>
 					<div className="todo-item-contents" >
 						{renderTodoText()}
@@ -184,10 +182,9 @@ export class TodoItem extends React.Component {
 				<div className="todo-item-controls">
 					{ renderEditButton() }
 					<div onClick ={ () => {
-						
-						var modal = document.getElementById(id+"-modal");
+						const modal = document.getElementById(id+"-modal");
 						modal.style.display = "block";
-					} }>delete</div>
+					} }>Delete</div>
 				</div>
 			
 				<TodoModalDelete id={id} text={text} onConfirm={this.props.onClickDelete} />
@@ -196,30 +193,5 @@ export class TodoItem extends React.Component {
 		);
 	}
 }
-
-/**
- * Identify which props on this component should be overwritten with store state
- * Allows using store state in connected component
- * @param {*} state store state 
- * @param {*} ownProps this component props
- */
-var mapStateToProps = state => state;
-
-var mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		dispatch,  
-		onClickToggle : () => {
-			var { id, completed } = ownProps;
-			dispatch(actions.startToggleTodo(id, !completed))
-		},
-
-		onClickDelete : () => {
-			var { id } = ownProps;
-			dispatch(actions.startDeleteTodo(id));
-		}
-	}
-};
-
-
 
 export default connect( mapStateToProps, mapDispatchToProps )( TodoItem );

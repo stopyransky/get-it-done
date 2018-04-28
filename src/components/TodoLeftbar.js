@@ -5,21 +5,24 @@ import * as actions from '../redux/actions';
 
 export class TodoLeftbar extends React.Component {
 
+    componentDidMount() {
+        window.addEventListener("click", this.clickAway);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("click", this.clickAway);
+    }
     handleLogout = (e) => {
         e.preventDefault();
-        var {dispatch} = this.props;
+        const {dispatch} = this.props;
         dispatch(actions.startLogout());
     }
     
-    componentDidMount() {
-        /* if user clicks outside add-modal - close panel*/
-        window.addEventListener("click", (event) => {
-            var expandedPanel = document.getElementById("todo-leftbar");
-            if (event.target == expandedPanel) {
-                this.props.dispatch(actions.hideLeftbarPanel());
-            }
-        });
-    
+    clickAway = (event) => {
+        const expandedPanel = document.getElementById("todo-leftbar");
+        if (event.target == expandedPanel) {
+            this.props.dispatch(actions.hideLeftbarPanel());
+        }
     }
     
     render() {
@@ -28,11 +31,11 @@ export class TodoLeftbar extends React.Component {
             <div id="todo-leftbar">
                 <div id='todo-leftbar-inner'>
                     <div className="todo-leftbar-group">
-                        <div className="todo-leftbar-item">view1</div>
-                        <div className="todo-leftbar-item">view2</div>
+                        <div className="todo-leftbar-item">List View</div>
+                        <div className="todo-leftbar-item">Tile View</div>
                         <div className="todo-leftbar-item">view3</div>
                         <div className="todo-leftbar-item">view4</div>
-                        <div className="todo-leftbar-item" onClick={this.handleLogout}>logout</div>
+                        <div className="todo-leftbar-item" onClick={this.handleLogout}>Logout</div>
                     </div>
                     <div className="todo-leftbar-group">
                         <div className="todo-leftbar-item">
