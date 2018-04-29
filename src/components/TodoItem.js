@@ -103,12 +103,10 @@ export class TodoItem extends React.Component {
     if(this.state.editMode) {
       return (
         <form className="todo-item-contents-maintext" onSubmit={this.onSaveEdit} >
-          <input className="edit-text"
+          <input
             type="text"
             defaultValue={text}
-            ref="newText"
-            // onBlur={this.cancelTextEdit}
-            />
+            ref="newText" />
         </form>
       );
     } else {
