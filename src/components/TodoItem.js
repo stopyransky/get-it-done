@@ -10,7 +10,7 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		dispatch,  
+		dispatch,
 		onClickToggle : () => {
 			const { id, completed } = ownProps;
 			dispatch(actions.startToggleTodo(id, !completed))
@@ -41,7 +41,7 @@ export class TodoItem extends React.Component {
 		e.preventDefault();
 		const { id, dispatch } = this.props;
 		const newText = this.refs.newText.value;
-		
+
 		if(newText.length > 0) {
 			this.refs.newText.value = "";
 			dispatch(actions.startUpdateTodo(id, { text: newText }))
@@ -50,7 +50,7 @@ export class TodoItem extends React.Component {
 			});
 		} else {
 			this.refs.newText.focus();
-		}					
+		}
 	}
 
 	cancelTextEdit(e) {
@@ -74,12 +74,12 @@ export class TodoItem extends React.Component {
 					if(tag === newTag) return;
 				});
 			}
-			
+
 			tags.push(newTag);
 			const newTags = [ ...tags ];
 			dispatch(actions.startUpdateTodo(id, { tags : newTags}));
 		}
-		
+
 	}
 
 	submitRemoveTag(index) {
@@ -87,7 +87,6 @@ export class TodoItem extends React.Component {
 		if(tags[index] || tags[index] === "") {
 			tags.splice(index,1);
 		}
-
 		dispatch(actions.startUpdateTodo(id, { tags : tags}));
 	}
 
@@ -102,15 +101,15 @@ export class TodoItem extends React.Component {
 	}
 
 	render() {
-		const { id, 
-			text, 
-			completed, 
-			createdAt, 
+		const { id,
+			text,
+			completed,
+			createdAt,
 			completedAt,
-			dueDate, 
-			tags, 
+			dueDate,
+			tags,
 			dispatch } = this.props;
-		
+
 		const { editMode } = this.state;
 
 		const setEditModeTrue = () => {
@@ -124,30 +123,30 @@ export class TodoItem extends React.Component {
 				return (
 					<form className="todo-item-contents-maintext" onSubmit={this.onSaveEdit} >
 						<input className="edit-text"
-							type="text" 
-							defaultValue={text} 
+							type="text"
+							defaultValue={text}
 							ref="newText"
 							onBlur={this.cancelTextEdit}
 							/>
 					</form>
 				);
 
-					
+
 			} else {
-				return ( 
-					<div className="todo-item-contents-maintext" /*onClick={ setEditModeTrue } */>
+				return (
+					<div className="todo-item-contents-maintext">
 						<span >{text}</span>
 					</div>
 				);
-			}   
+			}
 		}
-		
+
 		const renderDate = () => {
 			const message = 'Created ';
 			const timestamp = createdAt;
 			return message + moment.unix(timestamp).format("DD MM YYYY @ hh:mm ");
 		}
-		
+
 		const renderDueDate = () => {
 			if(dueDate) {
 				const message = ' Due date : ';
@@ -168,12 +167,12 @@ export class TodoItem extends React.Component {
 		return (
 			<div tabIndex="2" className="todo-item masonry-item">
 				<div className="group">
-					<div className="todo-item-checkbox" onClick={this.props.onClickToggle}> 
+					<div className="todo-item-checkbox" onClick={this.props.onClickToggle}>
 						{ completed? "UNDO" : "DONE"}
 					</div>
 					<div className="todo-item-contents" >
 						{renderTodoText()}
-						<TodoItemTags tags={tags} 
+						<TodoItemTags tags={tags}
 							onTagFilter={this.submitFilterByTag}
 							onNewTag={this.submitNewTag}
 							onRemoveTag={ this.submitRemoveTag}/>
@@ -186,7 +185,7 @@ export class TodoItem extends React.Component {
 						modal.style.display = "block";
 					} }>Delete</div>
 				</div>
-			
+
 				<TodoModalDelete id={id} text={text} onConfirm={this.props.onClickDelete} />
 			</div>
 

@@ -12,18 +12,16 @@ export class TodoLogin extends React.Component {
 	}
 
 	onGithubLogin() {
-		var {dispatch} = this.props;
+		const {dispatch} = this.props;
 		dispatch(actions.startLogin());
 	}
 	onFacebookLogin() {
 		console.log("Facebook login action");
-		var {dispatch} = this.props;
+		const {dispatch} = this.props;
 		dispatch(actions.startFacebookLogin());
 	}
 	onTwitterLogin() {
-		console.log("Twitter login action");
-		// var {dispatch} = this.props;
-		// dispatch(actions.startTwitterLogin());
+		console.log("Twitter login action goes here");
 	}
 
 	render() {

@@ -15,7 +15,7 @@
     "npm": "6.0.0"
   },
   "author": "Karol Stopyra",
-  "license": "MIT",
+  "license": "GNU AGPLv3",
   "repository": "https://github.com/stopyransky/get-it-done.git",
   "dependencies": {
     "axios": "^0.18.0",
