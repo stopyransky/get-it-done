@@ -111,7 +111,7 @@
 
   .todo-item {
     flex-flow: column nowrap;
-    width: 330px;
+    width: 300px;
   }
 
   .todo-item-controls {
@@ -126,7 +126,7 @@
 
 @media screen and (min-width: 1025px) {
   .todo-item {
-    max-width: 330px;
+    width: 330px;
     margin: 20px auto;
   }
 }
