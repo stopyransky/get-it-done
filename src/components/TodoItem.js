@@ -41,7 +41,6 @@ export class TodoItem extends React.Component {
 		e.preventDefault();
 		const { id, dispatch } = this.props;
 		const newText = this.refs.newText.value;
-
 		if(newText.length > 0) {
 			this.refs.newText.value = "";
 			dispatch(actions.startUpdateTodo(id, { text: newText }))
@@ -61,30 +60,24 @@ export class TodoItem extends React.Component {
 		});
 	}
 
-	submitNewTag( newTag ) {
-		const { id, dispatch } = this.props;
-		const tags = this.props.tags || [];
+	submitNewTag(newTag) {
+		const { id, dispatch, tags = [] } = this.props;
 
-		// prevent adding empty inputs
 		if(newTag.length > 0) {
-
-			// check duplicates
 			if(tags.length > 0) {
 				tags.forEach((tag)=>{
 					if(tag === newTag) return;
 				});
 			}
-
 			tags.push(newTag);
-			const newTags = [ ...tags ];
-			dispatch(actions.startUpdateTodo(id, { tags : newTags}));
+			dispatch(actions.startUpdateTodo(id, { tags }));
 		}
 
 	}
 
 	submitRemoveTag(index) {
 		const { id, dispatch, tags} = this.props;
-		if(tags[index] || tags[index] === "") {
+		if(tags[index] || tags[index] === '') {
 			tags.splice(index,1);
 		}
 		dispatch(actions.startUpdateTodo(id, { tags : tags}));
@@ -99,6 +92,57 @@ export class TodoItem extends React.Component {
 			this.refs.newText.focus();
 		}
 	}
+  setEditModeTrue = () => {
+    this.setState( {
+      editMode : true
+    })
+  }
+
+  renderTodoText = () => {
+    const { text } = this.props
+    if(this.state.editMode) {
+      return (
+        <form className="todo-item-contents-maintext" onSubmit={this.onSaveEdit} >
+          <input className="edit-text"
+            type="text"
+            defaultValue={text}
+            ref="newText"
+            // onBlur={this.cancelTextEdit}
+            />
+        </form>
+      );
+    } else {
+      return (
+        <div className="todo-item-contents-maintext">
+          <span >{text}</span>
+        </div>
+      );
+    }
+  }
+
+  renderDate = () => {
+    const { createdAt } = this.props;
+    const message = 'Created ';
+    const timestamp = createdAt;
+    return message + moment.unix(timestamp).format("DD MM YYYY @ hh:mm ");
+  }
+
+  renderDueDate = () => {
+    if(dueDate) {
+      const message = ' Due date : ';
+      const timestamp = dueDate;
+      return message + moment.unix(timestamp).format("MMMM Do, YYYY");
+    }
+    return "No due date for this task.";
+  }
+
+  renderEditButton = () => {
+    if(this.state.editMode) {
+      return <div onClick={this.onSaveEdit}>Save</div>;
+    } else {
+      return <div onClick={this.setEditModeTrue}>Edit</div>;
+    }
+  }
 
 	render() {
 		const { id,
@@ -112,58 +156,6 @@ export class TodoItem extends React.Component {
 
 		const { editMode } = this.state;
 
-		const setEditModeTrue = () => {
-			this.setState( {
-				editMode : true
-			})
-		}
-
-		const renderTodoText = () => {
-			if(editMode) {
-				return (
-					<form className="todo-item-contents-maintext" onSubmit={this.onSaveEdit} >
-						<input className="edit-text"
-							type="text"
-							defaultValue={text}
-							ref="newText"
-							onBlur={this.cancelTextEdit}
-							/>
-					</form>
-				);
-
-
-			} else {
-				return (
-					<div className="todo-item-contents-maintext">
-						<span >{text}</span>
-					</div>
-				);
-			}
-		}
-
-		const renderDate = () => {
-			const message = 'Created ';
-			const timestamp = createdAt;
-			return message + moment.unix(timestamp).format("DD MM YYYY @ hh:mm ");
-		}
-
-		const renderDueDate = () => {
-			if(dueDate) {
-				const message = ' Due date : ';
-				const timestamp = dueDate;
-				return message + moment.unix(timestamp).format("MMMM Do, YYYY");
-			}
-			return "No due date for this task.";
-		}
-
-		const renderEditButton = () => {
-			if(this.state.editMode) {
-				return <div onClick={this.onSaveEdit}>Save</div>;
-			} else {
-				return <div onClick={setEditModeTrue}>Edit</div>;
-			}
-		}
-
 		return (
 			<div tabIndex="2" className="todo-item masonry-item">
 				<div className="group">
@@ -171,7 +163,7 @@ export class TodoItem extends React.Component {
 						{ completed? "UNDO" : "DONE"}
 					</div>
 					<div className="todo-item-contents" >
-						{renderTodoText()}
+						{this.renderTodoText()}
 						<TodoItemTags tags={tags}
 							onTagFilter={this.submitFilterByTag}
 							onNewTag={this.submitNewTag}
@@ -179,13 +171,12 @@ export class TodoItem extends React.Component {
 					</div>
 				</div>
 				<div className="todo-item-controls">
-					{ renderEditButton() }
+					{ this.renderEditButton() }
 					<div onClick ={ () => {
 						const modal = document.getElementById(id+"-modal");
 						modal.style.display = "block";
 					} }>Delete</div>
 				</div>
-
 				<TodoModalDelete id={id} text={text} onConfirm={this.props.onClickDelete} />
 			</div>
 
