@@ -15,3 +15,8 @@ Current version of the app can be found here:
  - PWA app
  - more login options
  - multiple graphical views
+
+
+## Preview: 
+
+![Demo](./screens/demo.gif)
