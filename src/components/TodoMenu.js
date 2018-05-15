@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import * as actions from "../redux/actions";
 
 export class TodoMenu extends React.Component {
+
   togglePanel = () => {
     if (this.props.expanded) {
       this.props.dispatch(actions.hideLeftbarPanel());

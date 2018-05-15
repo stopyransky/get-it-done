@@ -5,7 +5,8 @@ import TodoItem from "./TodoItem";
 import TodoAPI from "../api/TodoAPI";
 
 export class TodoList extends React.Component {
-  render() {
+
+  renderTodos = () => {
     const {
       todos,
       statusFilter,
@@ -19,16 +20,17 @@ export class TodoList extends React.Component {
       searchText,
       tagFilter
     );
+    
+    if (filteredTodos.length === 0) {
+      return <p> No tasks. </p>;
+    }
+    return filteredTodos.map(todo => {
+      return <TodoItem key={todo.id} {...todo} />;
+    });
+  };
 
-    const renderTodos = () => {
-      if (filteredTodos.length === 0) {
-        return <p> No tasks. </p>;
-      }
-      return filteredTodos.map(todo => {
-        return <TodoItem key={todo.id} {...todo} />;
-      });
-    };
-    return <div className="gid-list">{renderTodos()}</div>;
+  render() {
+    return <div className="gid-list">{this.renderTodos()}</div>;
   }
 }
 

@@ -24,10 +24,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 export class TodoItem extends React.Component {
-
 	constructor(props) {
 		super(props);
-
 		this.submitNewTag =  this.submitNewTag.bind(this);
 		this.submitRemoveTag =  this.submitRemoveTag.bind(this);
 		this.onSaveEdit = this.onSaveEdit.bind(this);
@@ -44,9 +42,7 @@ export class TodoItem extends React.Component {
 		if(newText.length > 0) {
 			this.refs.newText.value = "";
 			dispatch(actions.startUpdateTodo(id, { text: newText }))
-			this.setState({
-				editMode: false
-			});
+			this.setState({ editMode: false });
 		} else {
 			this.refs.newText.focus();
 		}
@@ -54,7 +50,7 @@ export class TodoItem extends React.Component {
 
 	cancelTextEdit(e) {
 		e.preventDefault();
-		this.refs.newText.value ="";
+		this.refs.newText.value = "";
 		this.setState({
 			editMode : false
 		});
@@ -62,7 +58,6 @@ export class TodoItem extends React.Component {
 
 	submitNewTag(newTag) {
 		const { id, dispatch, tags = [] } = this.props;
-
 		if(newTag.length > 0) {
 			if(tags.length > 0) {
 				tags.forEach((tag)=>{
@@ -72,7 +67,6 @@ export class TodoItem extends React.Component {
 			tags.push(newTag);
 			dispatch(actions.startUpdateTodo(id, { tags }));
 		}
-
 	}
 
 	submitRemoveTag(index) {
@@ -83,19 +77,14 @@ export class TodoItem extends React.Component {
 		dispatch(actions.startUpdateTodo(id, { tags : tags}));
 	}
 
-	submitFilterByTag = (tag) => {
-		this.props.dispatch(actions.filterByTag(tag));
-	}
+	submitFilterByTag = (tag) => this.props.dispatch(actions.filterByTag(tag));
+
+  setEditModeTrue = () => this.setState({editMode : true});
 
 	componentDidUpdate(prevProps, prevState) {
 		if(this.state.editMode) {
 			this.refs.newText.focus();
 		}
-	}
-  setEditModeTrue = () => {
-    this.setState( {
-      editMode : true
-    })
   }
 
   renderTodoText = () => {

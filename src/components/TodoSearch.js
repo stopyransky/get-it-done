@@ -4,29 +4,34 @@ import * as actions from "../redux/actions";
 
 import TodoAPI from "../api/TodoAPI";
 
+
+// TODO move refs to state, fix tagfilter
+
 export class TodoSearch extends React.Component {
+
   componentDidUpdate(prevProps) {
     if (prevProps.tagFilter !== this.props.tagFilter) {
       this.refs.tagFilter.value = this.props.tagFilter;
     }
   }
 
+  onChangeSearchText = () => {
+    const searchText = this.refs.searchText.value;
+    this.props.dispatch(actions.setSearchText(searchText));
+  }
+
+  filterByStatus = () => {
+    const status = this.refs.statusFilter.value;
+    this.props.dispatch(actions.filterByStatus(status));
+  }
+
+  filterByTag = () => {
+    const tagFilter = this.refs.tagFilter.value;
+    this.props.dispatch(actions.filterByTag(tagFilter));
+  }
+
   render() {
-    const { dispatch, statusFilter, searchText, todos, tagFilter } = this.props;
-
-    const onChangeSearchText = () => {
-      const searchText = this.refs.searchText.value;
-      dispatch(actions.setSearchText(searchText));
-    };
-
-    const filterByStatus = () => {
-      const status = this.refs.statusFilter.value;
-      dispatch(actions.filterByStatus(status));
-    };
-    const filterByTag = () => {
-      const tagFilter = this.refs.tagFilter.value;
-      dispatch(actions.filterByTag(tagFilter));
-    };
+    const { statusFilter, searchText, todos, tagFilter } = this.props;
 
     const tagList = TodoAPI.getTags(todos, statusFilter).map((tag, index) => {
       return (
@@ -40,10 +45,9 @@ export class TodoSearch extends React.Component {
       <div className="gid-search">
         <select
           className="gid-search-status todo-active-item"
-          onChange={filterByStatus}
+          onChange={this.filterByStatus}
           ref="statusFilter"
-          defaultValue="TODO"
-        >
+          defaultValue="TODO">
           <option value="ALL">ALL </option>
           <option value="DONE">DONE</option>
           <option value="TODO">TODO</option>
@@ -55,15 +59,14 @@ export class TodoSearch extends React.Component {
           ref="searchText"
           placeholder="Enter search text..."
           value={searchText}
-          onChange={onChangeSearchText}
+          onChange={this.onChangeSearchText}
         />
 
         <select
           className="gid-search-by-tag todo-active-item"
-          onChange={filterByTag}
+          onChange={this.filterByTag}
           ref="tagFilter"
-          defaultValue="ALL"
-        >
+          defaultValue="ALL">
           <option key={-2} value="ALL">
             Any Tag
           </option>

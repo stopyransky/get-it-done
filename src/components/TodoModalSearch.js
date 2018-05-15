@@ -66,8 +66,7 @@ class TodoModalSearch extends React.Component {
             id="todo-search-status"
             onChange={filterByStatus}
             ref="statusFilter"
-            defaultValue="TODO"
-          >
+            defaultValue="TODO">
             <option value="ALL">ALL </option>
             <option value="DONE">DONE</option>
             <option value="TODO">TODO</option>
@@ -79,15 +78,13 @@ class TodoModalSearch extends React.Component {
             ref="searchText"
             placeholder="Enter search text..."
             value={searchText}
-            onChange={onChangeSearchText}
-          />
+            onChange={onChangeSearchText}/>
 
           <select
             id="todo-search-by-tag"
             onChange={filterByTag}
             ref="tagFilter"
-            defaultValue="ALL"
-          >
+            defaultValue="ALL">
             <option key={-2} value="ALL">
               Any Tag
             </option>

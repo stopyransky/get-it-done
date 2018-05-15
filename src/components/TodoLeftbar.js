@@ -11,6 +11,7 @@ export class TodoLeftbar extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("click", this.clickAway);
   }
+
   handleLogout = e => {
     e.preventDefault();
     const { dispatch } = this.props;
