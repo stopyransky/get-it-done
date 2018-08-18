@@ -65,7 +65,7 @@
     "strict-uri-encode": "^2.0.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.6.0",
-    "snyk": "^1.85.0"
+    "snyk": "^1.88.0"
   },
   "devDependencies": {
     "browser-sync": "^2.23.7",
